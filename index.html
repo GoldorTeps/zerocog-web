@@ -1,26 +1,183 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ZeroCog</title>
-  <meta name="description" content="ZeroCog — infraestructura cognitiva y soberanía de datos." />
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;margin:0;display:grid;place-items:center;min-height:100vh;background:#0b0f14;color:#e6edf3}
-    .card{max-width:760px;padding:48px 32px;border:1px solid #223046;border-radius:18px;background:rgba(255,255,255,0.03)}
-    h1{margin:0 0 12px;font-size:42px;letter-spacing:-0.02em}
-    p{margin:0 0 18px;line-height:1.55;color:#b7c4d3}
-    .tag{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #2b3b55;color:#b7c4d3;font-size:13px;margin-bottom:18px}
-    a{color:#7dd3fc;text-decoration:none}
-    a:hover{text-decoration:underline}
-  </style>
-</head>
-<body>
-  <main class="card">
-    <div class="tag">ZeroCog </div>
-    <h1>Infraestructura cognitiva soberana</h1>
-    <p>Contexto real, continuo y controlado. Arquitectura diseñada para que la inteligencia artificial opere con tus datos o los de tu organización sin transferencias innecesarias ni exposición a terceros.</p>
-    <p><a href="https://github.com/GoldorTeps/zerocog-web">Repositorio</a></p>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZeroCog — Infraestructura cognitiva soberana</title>
+    <meta
+      name="description"
+      content="Contexto real, continuo y bajo control. Arquitectura para que la IA opere con tus datos sin exponerlos a terceros."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__name">ZeroCog</span>
+        </div>
+
+        <nav class="nav" aria-label="Navegación principal">
+          <a class="nav__link" href="#escenarios">Escenarios</a>
+          <a class="nav__link" href="#capa">La capa</a>
+          <a class="nav__link" href="#principios">Principios</a>
+          <a class="nav__link" href="#estado">Estado</a>
+          <a class="nav__link nav__link--cta" href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container">
+          <div class="hero__tag">ZeroCog</div>
+
+          <h1 class="hero__title">Infraestructura cognitiva soberana</h1>
+          <p class="hero__lead">
+            Contexto real, continuo y bajo control.
+            Una arquitectura diseñada para que la inteligencia artificial
+            opere con tus datos sin exponerlos a terceros.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#capa">Ver cómo encaja</a>
+            <a class="btn btn--ghost" href="#contacto">Hablar / colaborar</a>
+          </div>
+
+          <div id="escenarios" class="cards">
+            <article class="card">
+              <h2 class="card__title">Personal</h2>
+              <p class="card__text">
+                Continuidad entre móvil, ordenador y otros dispositivos, sin reiniciar el contexto en cada interacción.
+              </p>
+            </article>
+
+            <article class="card">
+              <h2 class="card__title">Empresa</h2>
+              <p class="card__text">
+                Memoria operativa que no se pierde con cambios de personas. Decisiones y procesos con trazabilidad.
+              </p>
+            </article>
+
+            <article class="card">
+              <h2 class="card__title">Instituciones</h2>
+              <p class="card__text">
+                Uso de IA con control y auditoría, compatible con entornos regulados.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="capa" class="section">
+        <div class="container">
+          <header class="section__header">
+            <h2 class="section__title">Una capa entre datos y modelos</h2>
+            <p class="section__lead">
+              Separación clara entre datos, contexto y ejecución cognitiva. El modelo es intercambiable; el contexto no.
+            </p>
+          </header>
+
+          <div class="columns">
+            <div class="panel">
+              <h3 class="panel__title">Qué aporta</h3>
+              <ul class="list">
+                <li class="list__item">Contexto persistente (no sesiones sueltas)</li>
+                <li class="list__item">Control de exposición cuando se usan modelos externos</li>
+                <li class="list__item">Trazabilidad de transformaciones</li>
+              </ul>
+            </div>
+
+            <div class="panel">
+              <h3 class="panel__title">Qué no es</h3>
+              <ul class="list">
+                <li class="list__item">No es “otro asistente”</li>
+                <li class="list__item">No depende de un proveedor concreto</li>
+                <li class="list__item">No exige transferencias innecesarias de datos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="principios" class="section section--alt">
+        <div class="container">
+          <header class="section__header">
+            <h2 class="section__title">Principios de diseño</h2>
+            <p class="section__lead">Decisiones que hacen posible continuidad con control.</p>
+          </header>
+
+          <div class="grid">
+            <div class="tile">
+              <h3 class="tile__title">Neutralidad</h3>
+              <p class="tile__text">Funciona con modelos locales o de terceros, sin lock-in estructural.</p>
+            </div>
+            <div class="tile">
+              <h3 class="tile__title">Control condicional</h3>
+              <p class="tile__text">La complejidad sube solo cuando el riesgo lo exige.</p>
+            </div>
+            <div class="tile">
+              <h3 class="tile__title">Auditabilidad</h3>
+              <p class="tile__text">Transformaciones trazables: qué entra, qué sale y bajo qué reglas.</p>
+            </div>
+            <div class="tile">
+              <h3 class="tile__title">Soberanía</h3>
+              <p class="tile__text">El valor permanece en el dominio del usuario u organización.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="estado" class="section">
+        <div class="container">
+          <header class="section__header">
+            <h2 class="section__title">Estado</h2>
+            <p class="section__lead">
+              Arquitectura definida. Implementación en curso. Buscamos pilotos y colaboración técnica.
+            </p>
+          </header>
+
+          <div class="status">
+            <div class="status__item">
+              <span class="status__label">Foco</span>
+              <span class="status__value">Contexto persistente + control</span>
+            </div>
+            <div class="status__item">
+              <span class="status__label">Entorno</span>
+              <span class="status__value">Personal · PyME · Regulados</span>
+            </div>
+            <div class="status__item">
+              <span class="status__label">Colaboración</span>
+              <span class="status__value">Pilotos · Partners · Ingeniería</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="section section--alt">
+        <div class="container">
+          <header class="section__header">
+            <h2 class="section__title">Contacto</h2>
+            <p class="section__lead">Para explorar un piloto o colaboración, escríbenos.</p>
+          </header>
+
+          <div class="contact">
+            <a class="contact__mail" href="mailto:contact@zerocog.org">contact@zerocog.org</a>
+            <p class="contact__note">Cambia este email por el real cuando lo tengas listo.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__text">© 2026 ZeroCog</p>
+        <p class="footer__text footer__text--muted">Infraestructura cognitiva soberana.</p>
+      </div>
+    </footer>
+  </body>
 </html>
