@@ -32,8 +32,49 @@
     </header>
 
     <main id="main">
-      <section class="hero">
-        <div class="container">
+      <section class="hero hero--with-system">
+        <!-- NUEVO: Sistema Visual de Arquitectura Cognitiva -->
+        <div class="hero__system" aria-hidden="true">
+          <svg class="sys-canvas" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Capa 1: Cimientos / Guías lejanas (Desplazamiento horizontal lentísimo) -->
+            <g class="sys-layer sys-layer--bases">
+              <!-- Ejes tensores base -->
+              <line x1="0" y1="200" x2="1400" y2="200" class="sys-guide" />
+              <line x1="0" y1="600" x2="1400" y2="600" class="sys-guide" />
+              <line x1="400" y1="0" x2="400" y2="800" class="sys-guide" />
+              
+              <!-- Lámina base muy extendida y pálida -->
+              <rect x="350" y="100" width="800" height="700" class="sys-plate sys-plate--distant" />
+            </g>
+
+            <!-- Capa 2: Estructuras Principales Suspendidas (Elevación vertical / Levitación) -->
+            <g class="sys-layer sys-layer--structure">
+              <!-- Placa arquitectónica dominante -->
+              <rect x="700" y="150" width="300" height="450" class="sys-plate sys-plate--main" />
+              <!-- Placa auxiliar solapada -->
+              <rect x="920" y="250" width="180" height="200" class="sys-plate sys-plate--main" />
+              <!-- Placa estrecha y alta (muro técnico) -->
+              <rect x="620" y="300" width="40" height="500" class="sys-plate sys-plate--accent" />
+
+              <!-- Eje estructural denso que cruza las placas -->
+              <line x1="500" y1="450" x2="1200" y2="450" class="sys-beam" />
+            </g>
+
+            <!-- Capa 3: Micro-fragmentos / Tensores de primer plano (Desplazamiento contrario) -->
+            <g class="sys-layer sys-layer--foreground">
+              <!-- Eje vertical preciso, color acento azul técnico -->
+              <line x1="1050" y1="-100" x2="1050" y2="900" class="sys-tensioner" />
+              <!-- Lámina alargada y fina (fragmento frontal suspendido) -->
+              <rect x="900" y="650" width="250" height="15" class="sys-plate sys-plate--sharp" />
+            </g>
+
+          </svg>
+          <!-- Difuminado inferior que conecta suavemente con la Web original -->
+          <div class="hero__system-fade"></div>
+        </div>
+
+        <div class="container hero__content-wrapper">
           <div class="hero__tag">ZeroCog</div>
 
           <h1 class="hero__title">Infraestructura cognitiva soberana</h1>
