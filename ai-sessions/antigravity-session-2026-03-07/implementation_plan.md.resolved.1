@@ -1,0 +1,55 @@
+# One-Pager Content Integration Plan
+
+The user provided the text from their "One-Pager" for ZeroCog. We need to integrate this content into the existing HTML structure ([index.html](file:///home/david/zerocog-web/index.html)) while maintaining the Rei Ayanami aesthetic and the asymmetrical layout we just built.
+
+## Content Mapping
+
+Here is how the one-pager content maps to the current sections:
+
+1. **Hero Section (`.section--hero`)**
+   - **Label:** "ZeroCog"
+   - **Title:** "La Capa de Privacidad para la IA Cognitiva"
+   - **Lead Text:** "Protocolo de anonimización irreversible que permite a cualquier modelo de IA acceder a contexto personal sin violar privacidad ni regulaciones."
+   - **Right Panels (Currently "Escenarios"):** Map to "El Problema Crítico" (divided into points or one block). Let's use 2 panels: "IA sin Memoria" vs "Riesgo Regulatorio".
+   - **Left Panels (Currently "Módulos" - currently undone in HTML, but we can use the 2-column layout or reimplement the right panels):** Since we reverted to the 2-column layout (Main + Right Panels), we will use the Right Panels for key highlights: "Zero PII", "Interoperable", "Irreversible".
+
+2. **La Capa (`#capa`)**
+   - **Title:** "La Solución: ZeroCog"
+   - **Lead Text:** "Una arquitectura de separación física que convierte datos personales en contexto cognitivo anónimo..."
+   - **Horizontal Panels:** 
+     - Panel 1: "Flujo de Datos" -> `Datos crudos → [UMCI Pipeline] → Memoria Viva → [Zerocog Layer] → Contexto Anónimo → Cualquier IA`
+     - Panel 2: "Mercado y Oportunidad" -> TAM $28B, Early adopters (Telemedicina, legal, fintech).
+
+3. **Principios (`#principios`) - 4 Grid**
+   - **Title:** "Valor Único"
+   - **Grid Cells:**
+     1. Cumplimiento por diseño (GDPR/HIPAA)
+     2. Soberano (Procesamiento local)
+     3. Agnóstico (Independiente de proveedor)
+     4. Auditable (Trazabilidad completa)
+
+4. **Estado y Contacto (`.split-layout`)**
+   - **Left Side (Estado):** 
+     - Title: "Estado Actual"
+     - Lead Text: "Arquitectura base definida. Implementación central en curso."
+     - Specs: "Especificación técnica v0.1", "Prototipo conceptual", "Implementación Rust (18 meses)".
+   - **Right Side (Contacto / Buscamos):**
+     - Title: "Buscamos"
+     - Subtitle / List: "Inversión (18 meses), Socios técnicos (Sistemas distribuidos/PET), Alianzas estratégicas (Pilotos regulados)."
+     - Footer text: "No vendemos un producto — establecemos el estándar para la IA privada del futuro."
+
+## Proposed Changes
+
+### UI / Component Layout
+
+#### [MODIFY] [index.html](file:///home/david/zerocog-web/index.html)
+- Replace all placeholder/v1 texts with the exact texts provided in the One-Pager.
+- Reformat the "Buscamos" section to support bullet points instead of a single giant email link, but keep the impactful styling.
+- Update the panels in the Hero section to reflect "Cómo funciona" (Zero PII, Anonimización, Interoperable).
+
+## Verification Plan
+
+### Manual Verification
+- Review the rendered text in the browser.
+- Ensure all key points from the One-Pager are present.
+- Verify that the layout remains beautiful and responsive with the new lengths of text.

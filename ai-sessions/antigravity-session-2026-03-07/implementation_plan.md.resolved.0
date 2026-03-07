@@ -1,0 +1,25 @@
+# Hero Grid Asymmetrical Panels Implementation
+
+The user wants to add 3 new panels to the left side of the hero section to balance the 3 panels on the right, keeping an asymmetrical, technical, and responsive layout.
+
+## Proposed Changes
+
+### UI / Component Layout
+
+#### [MODIFY] [index.html](file:///home/david/zerocog-web/index.html)
+- Add a new `<div class="panels panels--vertical panels--left">` block inside `.hero__grid`.
+- Maintain logical HTML flow (main content first for layout order).
+- The left panels will have a more compact design or slightly different styling to emphasize asymmetry.
+
+#### [MODIFY] [styles.css](file:///home/david/zerocog-web/styles.css)
+- Update `.hero__grid` to use `grid-template-columns: 240px 1fr 320px;` (asymmetrical column widths, 240px left and 320px right).
+- Introduce `grid-template-areas: "left center right";` for desktop.
+- Assign `.hero__content` to `grid-area: center;`, `.panels--left` to `grid-area: left;`, and `.panels--right` to `grid-area: right;`.
+- Update the mobile and tablet media queries (`max-width: 1024px`) to stack these areas vertically: `grid-template-areas: "center" "left" "right";` so the title is always on top on smaller screens.
+
+## Verification Plan
+
+### Manual Verification
+- Re-open [index.html](file:///home/david/zerocog-web/index.html).
+- Resize browser to > 1024px to check the 3-column layout.
+- Resize to < 1024px to check that they perfectly stack vertically (`center`, `left`, `right`).

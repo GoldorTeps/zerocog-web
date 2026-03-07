@@ -1,0 +1,36 @@
+# Final Content Integration Plan
+
+Integration of the definitive ZeroCog copy into the current architectural layout.
+
+## Content Mapping
+
+### 1. Hero Section
+- **H1:** La capa de privacidad para la IA cognitiva.
+- **Lead:** Arquitectura de anonimización que permite a los modelos de IA acceder a contexto personal sin exponer datos identificables ni violar regulaciones.
+- **Paneles (Der):**
+    - **01. Zero PII:** Eliminación de nombres, rutas, identificadores y metadatos personales.
+    - **02. Anon. Estructural:** Entidades convertidas en identificadores abstractos (Persona_01, Lugar_42, Evento_17).
+    - **03. Interoperabilidad:** Compatible con cualquier modelo de IA (GPT, Claude, Llama, Mixtral, locales).
+
+### 2. Flujo y Capa
+- **Título:** La Solución: ZeroCog.
+- **Texto:** El conflicto de contexto vs legalidad y la arquitectura de separación.
+- **Highlight Panel:** Flujo conceptual: `Datos crudos → UMCI Pipeline → Memoria Viva → ZeroCog Layer → Contexto Anónimo → IA`.
+
+### 3. Mercado y Oportunidad (New/Updated Layout)
+- We will group the sectors (Salud, Legal, Banca, Fintech, Admin Pública) into a coherent block or use the horizontal panels.
+
+### 4. Valor Diferencial (Principios)
+- **VU-01:** Cumplimiento por diseño (GDPR/HIPAA).
+- **VU-02:** Soberanía de datos (Procesamiento local).
+- **VU-03:** Agnóstico al modelo (Independencia de proveedor).
+- **VU-04:** Auditable (Trazabilidad transparente).
+
+### 5. Estado y Visión
+- **Estado:** Especificación v0.1, arquitectura definida, proto validado.
+- **Siguiente paso:** Implementación Rust (18 meses).
+- **Visión / Buscamos:** Inversión, socios técnicos y alianzas estratégicas.
+
+## Proposed Changes
+- [MODIFY] [index.html](file:///home/david/zerocog-web/index.html) with all new text.
+- [MODIFY] [styles.css](file:///home/david/zerocog-web/styles.css) minor tweaks if needed for text flow.
