@@ -1,335 +1,338 @@
-:root{
-  --bg:#0b0f14;
-  --fg:#e8eef6;
-  --muted:#9fb0c3;
-  --line:#1b2633;
-  --accent:#7aa7ff;
-  --max:1100px;
-  --r:16px;
-  --shadow: 0 24px 70px rgba(0,0,0,.35);
-}
-
-*{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  color:var(--fg);
-  background:
-    radial-gradient(1200px 600px at 18% -10%, rgba(122,167,255,.18), transparent 55%),
-    radial-gradient(900px 500px at 90% 10%, rgba(160,120,255,.10), transparent 60%),
-    var(--bg);
-}
-
-a{ color:inherit; text-decoration:none; }
-.container{ max-width:var(--max); margin:0 auto; padding:0 20px; }
-
-/* Accesibilidad */
-.skip-link{
-  position:absolute; left:-999px; top:auto;
-  width:1px; height:1px; overflow:hidden;
-}
-.skip-link:focus{
-  left:16px; top:16px; width:auto; height:auto;
-  padding:10px 12px; border-radius:12px;
-  background:rgba(255,255,255,.06);
-  border:1px solid var(--line);
-}
-
-/* Header */
-.header{
-  position:sticky; top:0; z-index:10;
-  backdrop-filter: blur(14px);
-  background: rgba(11,15,20,.55);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.header__inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 0;
-}
-.brand{ display:flex; align-items:center; gap:10px; }
-.brand__dot{
-  width:10px; height:10px; border-radius:50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(122,167,255,.12);
-}
-.brand__name{ font-weight:650; letter-spacing:.01em; }
-
-.nav{
-  display:flex; gap:10px;
-  font-size:14px; color:var(--muted);
-}
-.nav__link{ padding:8px 10px; border-radius:12px; }
-.nav__link:hover{ color:var(--fg); background: rgba(255,255,255,.04); }
-.nav__link--cta{
-  color:var(--fg);
-  border:1px solid rgba(122,167,255,.28);
-  background: rgba(122,167,255,.08);
-}
-
-/* Hero */
-.hero{ padding:64px 0 42px; }
-.hero__tag{
-  display:inline-flex;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.02);
-  color: var(--muted);
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-.hero__title{
-  margin:18px 0 10px;
-  font-size:44px;
-  line-height:1.08;
-  font-weight:680;
-}
-.hero__lead{
-  margin:0;
-  max-width: 66ch;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.6;
-}
-.hero__actions{
-  display:flex; gap:12px; margin-top:22px; flex-wrap:wrap;
-}
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:12px 14px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.02);
-  font-size:14px;
-}
-.btn--primary{
-  border-color: rgba(122,167,255,.35);
-  background: linear-gradient(180deg, rgba(122,167,255,.18), rgba(122,167,255,.06));
-}
-.btn--ghost:hover,
-.btn--primary:hover{
-  transform: translateY(-1px);
-  transition: transform .15s ease;
-}
-
-/* Cards */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap:14px;
-  margin-top:26px;
-}
-.card{
-  grid-column: span 4;
-  padding:16px;
-  border-radius: var(--r);
-  border:1px solid rgba(255,255,255,.08);
-  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-  box-shadow: var(--shadow);
-}
-.card__title{ margin:0 0 8px; font-size:15px; font-weight:650; }
-.card__text{ margin:0; color:var(--muted); font-size:14px; line-height:1.55; }
-
-/* Sections */
-.section{
-  padding:42px 0;
-  border-top:1px solid rgba(255,255,255,.06);
-}
-.section--alt{ background: rgba(255,255,255,.01); }
-.section__header{ margin-bottom:18px; }
-.section__title{ margin:0 0 10px; font-size:20px; font-weight:650; }
-.section__lead{ margin:0; color:var(--muted); max-width: 75ch; line-height:1.6; }
-
-.columns{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:14px;
-}
-.panel{
-  padding:16px;
-  border-radius: var(--r);
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.02);
-}
-.panel__title{ margin:0 0 10px; font-size:15px; font-weight:650; }
-.list{
-  margin:0;
-  padding-left:18px;
-  color:var(--muted);
-  line-height:1.7;
-}
-.list__item{ margin:6px 0; }
-
-.grid{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap:14px;
-}
-.tile{
-  grid-column: span 6;
-  padding:16px;
-  border-radius: var(--r);
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.02);
-}
-.tile__title{ margin:0 0 8px; font-size:15px; font-weight:650; }
-.tile__text{ margin:0; color:var(--muted); line-height:1.55; font-size:14px; }
-
-.status{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap:14px;
-}
-.status__item{
-  grid-column: span 4;
-  padding:16px;
-  border-radius: var(--r);
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.02);
-}
-.status__label{
-  display:block;
-  font-size:12px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color: var(--muted);
-}
-.status__value{ display:block; margin-top:8px; font-size:14px; }
-
-/* Contact */
-.contact{
-  padding:16px;
-  border-radius: var(--r);
-  border:1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.02);
-}
-.contact__mail{
-  display:inline-block;
-  font-weight:650;
-  border-bottom: 1px solid rgba(122,167,255,.35);
-  padding-bottom:2px;
-}
-.contact__note{ margin:10px 0 0; color:var(--muted); font-size:13px; }
-
-/* Footer */
-.footer{
-  border-top:1px solid rgba(255,255,255,.06);
-  padding:26px 0;
-}
-.footer__inner{
-  display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-}
-.footer__text{ margin:0; font-size:13px; }
-.footer__text--muted{ color:var(--muted); }
-
-@media (max-width: 900px){
-  .nav{ display:none; }
-  .hero__title{ font-size:36px; }
-  .card{ grid-column: span 12; }
-  .columns{ grid-template-columns: 1fr; }
-  .tile{ grid-column: span 12; }
-  .status__item{ grid-column: span 12; }
-}
-
 /* ==========================================================================
-   ARCHITECTURAL SYSTEM (Light Theme Background)
+   ZEROCOG ICS V2.0 - ARCHITECTURAL DESIGN SYSTEM
    ========================================================================== */
 
-.hero--with-system {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 0;
-}
+   :root {
+    /* Paleta ZeroCog Oficial */
+    --bg: #FFFFFF; /* Background */
+    --surface: #FFFFFF; /* Content cells */
+    --surface-dark: #0F2B46; /* Deep Structural Blue panels */
+    
+    --fg: #0C1A26; /* Text */
+    --fg-muted: #1E4F7A; /* Technological Blue for tech/secondary text */
+    --fg-inverse: #FFFFFF; /* Text on dark backgrounds */
+    
+    --line: rgba(15, 43, 70, 0.1); /* Deep Structural Blue lines, low opacity */
+    --line-strong: rgba(15, 43, 70, 0.25); 
+    --line-inverse: rgba(255, 255, 255, 0.15);
+    
+    --accent: #00A86B; /* Activation Green */
+    --accent-hover: #008f5a; /* Slightly darker green for hover */
+    
+    /* Geometría y Espacio */
+    --grid-max: 1300px;
+    --r: 2px; /* Radios mínimos, aspecto "maquinado" no redondeado */
+    --pad-l: 90px; /* Reducción de 120px a 90px para menos espacio vertical */
+    --pad-m: 60px;
+    --pad-s: 30px;
+  }
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    margin: 0;
+    /* Tipografía nativa de alta legibilidad, similar a planos contemporáneos */
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background-color: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  a { color: inherit; text-decoration: none; }
+  
+  /* --- SVG BACKGROUND (Motor basal) --- */
+  .sys-base {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.8;
+    overflow: hidden; /* Evita scrolls accidentales en móviles */
+    display: flex;
+    justify-content: center; /* Centrar el SVG en caso de que sea más grande */
+    align-items: center;
+  }
+  
+  .sys-canvas { 
+    width: 100vw; 
+    height: 100vh; 
+    /* En pantallas pequeñas, forzamos que el objeto mantenga su tamaño relativo y se centre, evitando que quede achatado o cortado asimétricamente */
+    min-width: 1200px; /* Asegura que no colapse demasiado sus coordenadas internas */
+  }
+  
+  .sys-guide { stroke: rgba(15, 43, 70, 0.1); stroke-width: 1px; }
+  .sys-beam { stroke: rgba(15, 43, 70, 0.2); stroke-width: 1px; }
+  .sys-tensioner { stroke: rgba(0, 168, 107, 0.3); stroke-width: 1px; } /* Activation green */
+  
+  .sys-plate { stroke: rgba(15, 43, 70, 0.1); stroke-width: 1px; }
+  .sys-plate--distant { fill: rgba(255, 255, 255, 0.9); stroke:none; }
+  .sys-plate--main { fill: rgba(255, 255, 255, 1); }
+  .sys-plate--accent { fill: rgba(30, 79, 122, 0.05); } /* Tech blue hint */
+  .sys-plate--sharp { fill: rgba(0, 168, 107, 0.08); } /* Green hint */
+  
+  .sys-layer { will-change: transform; }
+  .sys-layer--bases { animation: sys-pan-l 240s linear infinite; }
+  .sys-layer--structure { animation: sys-float 90s ease-in-out infinite alternate; }
+  .sys-layer--foreground { animation: sys-pan-r 180s linear infinite; }
+  
+  @keyframes sys-pan-l { 0% { transform: translateX(2%); } 100% { transform: translateX(-2%); } }
+  @keyframes sys-pan-r { 0% { transform: translateX(-2%); } 100% { transform: translateX(2%); } }
+  @keyframes sys-float { 0% { transform: translateY(1.5%); } 100% { transform: translateY(-1.5%); } }
+  
+  
+  /* --- ESTRUCTURA GENERAL DEL DOCUMENTO --- */
+  .document {
+    max-width: var(--grid-max);
+    margin: 0 auto;
+    background: transparent;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    min-height: 100vh;
+  }
+  
+  /* Accessibility */
+  .skip-link { position: absolute; left:-999px; width:1px; height:1px; overflow:hidden; }
+  .skip-link:focus { left:0; top:0; width:auto; height:auto; padding:15px; background:var(--surface-dark); color:var(--fg-inverse); z-index: 100; }
+  
+  /* --- CABECERA TÉCNICA --- */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--pad-m);
+    height: 80px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.95); /* Header white */
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  
+  .brand { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .brand__mark {
+    width: 12px; height: 12px; background: var(--accent); border-radius: 50%;
+  }
+  .brand__mark--small { width: 8px; height: 8px; }
+  .brand__name { font-weight: 700; letter-spacing: -0.02em; }
+  .brand__spec { color: var(--fg-muted); font-family: ui-monospace, monospace; font-size: 12px;}
+  
+  .nav { display: flex; gap: 24px; font-size: 13px; font-weight: 500; }
+  .nav__link { color: var(--fg-muted); transition: color 0.2s; }
+  .nav__link:hover { color: var(--fg); }
+  .nav__link--cta { color: var(--accent); font-weight: 600; }
+  
+  
+  /* --- COMPONENTES BÁSICOS --- */
+  .section { padding: var(--pad-l) var(--pad-m); }
+  .section--divider { border-top: 1px solid var(--line); }
+  .section--hero { padding-top: calc(var(--pad-l) * 1.2); padding-bottom: calc(var(--pad-l) * 1.5); }
+  
+  .label-group { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .label { 
+    font-family: ui-monospace, monospace; font-size: 11px; 
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-muted);
+  }
+  .label-line { width: 40px; height: 1px; background: var(--line-strong); flex-shrink: 0; }
+  
+  /* Tipografía Monumental */
+  .title-primary {
+    font-size: clamp(48px, 6vw, 82px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: 0 0 32px 0;
+    max-width: 14ch;
+  }
+  
+  .title-secondary {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px 0;
+  }
+  
+  .title-tertiary {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px 0;
+  }
+  
+  .lead-text {
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--fg-muted);
+    line-height: 1.5;
+    max-width: 48ch;
+    margin: 0;
+  }
+  .lead-text--sub { font-size: clamp(16px, 1.5vw, 18px); max-width: 55ch; }
+  .lead-text--small { font-size: 16px; margin-bottom: 32px; }
+  
+  
+  /* Botones Tectónicos */
+  .actions { display: flex; gap: 16px; margin-top: 48px; flex-wrap: wrap; }
+  .button {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 16px 28px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
+    border-radius: var(--r); transition: all 0.2s ease;
+  }
+  .button--solid {
+    background: var(--surface-dark); color: var(--fg-inverse); border: 1px solid var(--surface-dark);
+  }
+  .button--solid:hover { background: var(--fg-muted); box-shadow: 0 4px 12px rgba(30, 79, 122, 0.25); }
+  
+  .button--wire {
+    background: transparent; color: var(--accent); border: 1px solid var(--accent);
+  }
+  .button--wire:hover { background: rgba(0, 168, 107, 0.08); }
+  
+  
+  /* --- LAYOUTS ESPECÍFICOS --- */
+  
+  /* Hero Grid (Asimétrico) */
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--pad-m);
+    align-items: end;
+  }
+  
+  /* Paneles de datos (Escenarios, Aporta/No Aporta) */
+  .panels { display: flex; gap: var(--pad-s); }
+  .panels--vertical { flex-direction: column; }
+  .panels--horizontal { grid-column: 1 / -1; margin-top: var(--pad-m); display: grid; grid-template-columns: 1fr 1fr; }
+  
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: var(--pad-s);
+    border-radius: var(--r);
+    transition: border-color 0.3s ease;
+  }
+  .panel:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0, 168, 107, 0.05); }
+  .panel--highlight { background: rgba(30, 79, 122, 0.03); border-color: var(--fg-muted); box-shadow: 0 12px 24px rgba(30, 79, 122, 0.08); }
+  
+  .panel__heading { font-size: 15px; font-weight: 600; margin: 0 0 12px 0; color: var(--fg); }
+  .panel__body { margin: 0; font-size: 14px; color: var(--fg-muted); line-height: 1.6; }
+  
+  /* Listas Técnicas */
+  .data-list { list-style: none; padding: 0; margin: 0; }
+  .data-list li {
+    position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 15px; color: var(--fg-muted);
+  }
+  .data-list li::before {
+    content: "—"; position: absolute; left: 0; color: var(--line-strong); font-weight: bold;
+  }
+  
+  /* Grid de 4 cuadrantes (Principios) */
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px; /* Para bordes colapsados */
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: var(--pad-m);
+  }
+  .cell { background: var(--bg); padding: var(--pad-m); }
+  .cell:hover { background: var(--surface); }
+  .cell__id { font-family: ui-monospace, monospace; font-size: 11px; color: var(--accent); margin-bottom: 16px; display: block; }
+  .cell__title { font-size: 18px; font-weight: 600; margin: 0 0 12px 0; }
+  .cell__text { margin: 0; font-size: 15px; color: var(--fg-muted); line-height: 1.6; max-width: 35ch; }
+  
+  /* Split Layout (Estado y Contacto) */
+  .split-layout { padding: 0; display: grid; grid-template-columns: 60% 40%; }
+  .split-side { padding: var(--pad-l) var(--pad-m); display: flex; flex-direction: column; justify-content: center; }
+  .split-side--dark { background: var(--surface-dark); color: var(--fg-inverse); }
+  .split-side--dark .lead-text { color: rgba(255, 255, 255, 0.9); }
+  .split-side--dark .data-list li { color: var(--fg-inverse); font-weight: 400; }
+  .split-side--dark .data-list li::before { color: var(--accent); opacity: 1; }
+  
+  /* Datos de definición (Specs) */
+  .specs { margin: 0; width: 100%; max-width: 500px; }
+  .spec-row {
+    display: flex; justify-content: space-between;
+    padding: 16px 0; border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row dt { font-weight: 600; color: var(--fg); margin: 0; }
+  .spec-row dd { margin: 0; color: var(--fg-muted); text-align: right; }
+  
+  /* Enlace de contacto gigante */
+  .contact-link {
+    font-size: clamp(24px, 3vw, 36px); font-weight: 600;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--line-strong); padding-bottom: 16px;
+    transition: all 0.3s ease;
+  }
+  .contact-link:hover { border-color: var(--fg); padding-bottom: 20px; }
+  .arrow { font-family: system-ui; font-weight: 300; transition: transform 0.3s ease; }
+  .contact-link:hover .arrow { transform: translateX(10px); color: var(--accent); }
+  
+  
+  /* --- FOOTER --- */
+  .footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: var(--pad-m); border-top: 1px solid var(--line);
+    font-size: 13px; font-weight: 500;
+    background: var(--surface);
+  }
+  .footer__info { display: flex; align-items: center; gap: 12px; }
+  .footer__meta { color: var(--fg-muted); font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px;}
+  
+  
+  /* --- RESPONSIVE --- */
+  @media (max-width: 1024px) {
+    :root {
+      --pad-l: 60px;
+      --pad-m: 30px;
+    }
+    
+    .document {
+      margin: 0 4vw; /* Permitir siempre un margen lateral para que se vea el fondo */
+    }
+    
+    .sys-canvas {
+      /* Ajuste dinámico de SVG en tablet / ventana mediana */
+      transform: scale(0.8);
+      transform-origin: center center;
+    }
+    
+    .hero__grid { grid-template-columns: 1fr; gap: 40px; }
+    .panels--vertical { flex-direction: row; flex-wrap: wrap; }
+    .panels--vertical .panel { flex: 1; min-width: 250px; }
+    .split-layout { grid-template-columns: 1fr; }
+  }
+  
+  @media (max-width: 768px) {
+    :root {
+      --pad-l: 40px;
+      --pad-m: 20px;
+    }
+    .nav { display: none; } /* En una versión real aquí iría un menu hamburguesa, pero para landing simple lo oculta */
+    
+    .sys-canvas {
+      /* Achicar más la estructura gráfica para que entren ambas columnas SVG en móviles */
+      transform: scale(0.5);
+    }
+    
+    /* Mantener el marco del documento visible en móvil */
+    .document {
+      margin: 0 16px; /* Margen un poco más grande en móviles puros */
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      background: var(--bg); /* Asegurar que bloquee el fondo un poco */
+    }
 
-.hero__content-wrapper {
-  position: relative;
-  z-index: 2;
-  padding-bottom: 42px;
-}
-
-.hero__system {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.85; 
-}
-
-.sys-canvas {
-  width: 100%;
-  height: 100%;
-  min-width: 1200px;
-}
-
-
-/* --- MATERIALES DEL PLANO (Fondos Claros) --- */
-
-.sys-guide {
-  stroke: rgba(20, 30, 45, 0.05); /* Gris muy sutil */
-  stroke-width: 1px;
-}
-.sys-beam {
-  stroke: rgba(20, 30, 45, 0.1);  /* "Viga" más marcada */
-  stroke-width: 2px;
-}
-.sys-tensioner {
-  stroke: rgba(80, 120, 180, 0.25); /* Azul estructural */
-  stroke-width: 1px;
-}
-
-.sys-plate {
-  stroke: rgba(0, 0, 0, 0.04);
-  stroke-width: 1px;
-}
-.sys-plate--distant {
-  fill: rgba(230, 235, 240, 0.6); /* Gris perla muy claro */
-  stroke: none; 
-}
-.sys-plate--main {
-  fill: rgba(200, 215, 230, 0.25); /* Tonalidad cristal azulado */
-}
-.sys-plate--accent {
-  fill: rgba(140, 160, 190, 0.15); /* Masa más oscura y fría */
-}
-.sys-plate--sharp {
-  fill: rgba(80, 120, 180, 0.1);   /* Elementos finos con el tono de acento azul */
-}
-
-
-/* --- CINETISMO TECTÓNICO (Movimiento inercial elegante) --- */
-.sys-layer { will-change: transform; }
-
-.sys-layer--bases {
-  animation: sys-pan-left 240s linear infinite;
-}
-
-.sys-layer--structure {
-  animation: sys-float-y 80s ease-in-out infinite alternate;
-}
-
-.sys-layer--foreground {
-  animation: sys-pan-right 180s linear infinite;
-}
-
-@keyframes sys-pan-left {
-  0%   { transform: translateX(3%); }
-  100% { transform: translateX(-3%); }
-}
-
-@keyframes sys-pan-right {
-  0%   { transform: translateX(-3%); }
-  100% { transform: translateX(3%); }
-}
-
-@keyframes sys-float-y {
-  0%   { transform: translateY(1%); }
-  100% { transform: translateY(-1%); }
-}
-
-.hero__system-fade {
-  position: absolute;
-  bottom: 0; left: 0; right: 0; height: 180px;
-  background: linear-gradient(to bottom, rgba(11,15,20,0), var(--bg)); 
-}
+    .grid-4 { grid-template-columns: 1fr; }
+    .panels--horizontal { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .spec-row { flex-direction: column; gap: 4px; text-align: left; }
+    .spec-row dd { text-align: left; }
+    .title-primary { font-size: 38px; }
+    .title-secondary { font-size: 28px; }
+    .title-tertiary { font-size: 22px; }
+  }

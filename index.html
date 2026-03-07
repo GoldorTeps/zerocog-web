@@ -6,19 +6,59 @@
     <title>ZeroCog — Infraestructura cognitiva soberana</title>
     <meta
       name="description"
-      content="Contexto real, continuo y bajo control. Arquitectura para que la IA opere con tus datos sin exponerlos a terceros."
+      content="ZeroCog: La Capa de Privacidad para la IA Cognitiva. Protocolo de anonimización irreversible que permite a cualquier modelo de IA acceder a contexto personal sin violar privacidad ni regulaciones."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
 
   <body>
-    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <!-- FIXED BASE SYSTEM: El mecanismo inmenso corriendo de fondo en toda la web -->
+    <div class="sys-base" aria-hidden="true">
+      <svg class="sys-canvas" viewBox="0 0 2000 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <g class="sys-layer sys-layer--bases">
+           <line x1="-500" y1="200" x2="2500" y2="200" class="sys-guide" />
+           <line x1="-500" y1="800" x2="2500" y2="800" class="sys-guide" />
+           <line x1="1200" y1="-500" x2="1200" y2="1500" class="sys-guide" />
+           <rect x="700" y="100" width="800" height="900" class="sys-plate sys-plate--distant" />
+        </g>
 
-    <header class="header">
-      <div class="container header__inner">
+        <g class="sys-layer sys-layer--structure">
+           <!-- Cuadrados lado DERECHO -->
+           <rect x="1400" y="300" width="300" height="450" class="sys-plate sys-plate--main" />
+           <rect x="1600" y="450" width="180" height="200" class="sys-plate sys-plate--main" />
+           <rect x="1350" y="100" width="40" height="700" class="sys-plate sys-plate--accent" />
+           
+           <!-- Cuadrados lado IZQUIERDO -->
+           <rect x="200" y="350" width="250" height="400" class="sys-plate sys-plate--main" />
+           <rect x="100" y="500" width="150" height="180" class="sys-plate sys-plate--main" />
+           <rect x="350" y="150" width="30" height="650" class="sys-plate sys-plate--accent" />
+           
+           <line x1="1000" y1="550" x2="2000" y2="550" class="sys-beam" />
+           <!-- Tensor extra lado izquierdo -->
+           <line x1="-200" y1="650" x2="1000" y2="650" class="sys-beam" />
+        </g>
+
+        <g class="sys-layer sys-layer--foreground">
+           <!-- DERECHA -->
+           <line x1="1650" y1="-200" x2="1650" y2="1200" class="sys-tensioner" />
+           <rect x="1500" y="750" width="250" height="15" class="sys-plate sys-plate--sharp" />
+           
+           <!-- IZQUIERDA -->
+           <line x1="280" y1="-200" x2="280" y2="1200" class="sys-tensioner" />
+           <rect x="120" y="800" width="200" height="15" class="sys-plate sys-plate--sharp" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- DOCUMENT WRAPPER: Hoja técnica flotante -->
+    <div class="document">
+      <a class="skip-link" href="#main">Saltar al contenido</a>
+
+      <header class="header">
         <div class="brand">
-          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__mark" aria-hidden="true"></span>
           <span class="brand__name">ZeroCog</span>
+          <span class="brand__spec">/ ICS V1.0</span>
         </div>
 
         <nav class="nav" aria-label="Navegación principal">
@@ -28,197 +68,169 @@
           <a class="nav__link" href="#estado">Estado</a>
           <a class="nav__link nav__link--cta" href="#contacto">Contacto</a>
         </nav>
-      </div>
-    </header>
+      </header>
 
-    <main id="main">
-      <section class="hero hero--with-system">
-        <!-- NUEVO: Sistema Visual de Arquitectura Cognitiva -->
-        <div class="hero__system" aria-hidden="true">
-          <svg class="sys-canvas" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            
-            <!-- Capa 1: Cimientos / Guías lejanas (Desplazamiento horizontal lentísimo) -->
-            <g class="sys-layer sys-layer--bases">
-              <!-- Ejes tensores base -->
-              <line x1="0" y1="200" x2="1400" y2="200" class="sys-guide" />
-              <line x1="0" y1="600" x2="1400" y2="600" class="sys-guide" />
-              <line x1="400" y1="0" x2="400" y2="800" class="sys-guide" />
+      <main id="main">
+        <!-- SECCIÓN 1: HERO MONUMENTAL -->
+        <section class="section section--hero">
+          <div class="hero__grid">
+            <div class="hero__content">
+              <div class="label-group">
+                <span class="label">ZeroCog</span>
+                <span class="label-line"></span>
+              </div>
               
-              <!-- Lámina base muy extendida y pálida -->
-              <rect x="350" y="100" width="800" height="700" class="sys-plate sys-plate--distant" />
-            </g>
-
-            <!-- Capa 2: Estructuras Principales Suspendidas (Elevación vertical / Levitación) -->
-            <g class="sys-layer sys-layer--structure">
-              <!-- Placa arquitectónica dominante -->
-              <rect x="700" y="150" width="300" height="450" class="sys-plate sys-plate--main" />
-              <!-- Placa auxiliar solapada -->
-              <rect x="920" y="250" width="180" height="200" class="sys-plate sys-plate--main" />
-              <!-- Placa estrecha y alta (muro técnico) -->
-              <rect x="620" y="300" width="40" height="500" class="sys-plate sys-plate--accent" />
-
-              <!-- Eje estructural denso que cruza las placas -->
-              <line x1="500" y1="450" x2="1200" y2="450" class="sys-beam" />
-            </g>
-
-            <!-- Capa 3: Micro-fragmentos / Tensores de primer plano (Desplazamiento contrario) -->
-            <g class="sys-layer sys-layer--foreground">
-              <!-- Eje vertical preciso, color acento azul técnico -->
-              <line x1="1050" y1="-100" x2="1050" y2="900" class="sys-tensioner" />
-              <!-- Lámina alargada y fina (fragmento frontal suspendido) -->
-              <rect x="900" y="650" width="250" height="15" class="sys-plate sys-plate--sharp" />
-            </g>
-
-          </svg>
-          <!-- Difuminado inferior que conecta suavemente con la Web original -->
-          <div class="hero__system-fade"></div>
-        </div>
-
-        <div class="container hero__content-wrapper">
-          <div class="hero__tag">ZeroCog</div>
-
-          <h1 class="hero__title">Infraestructura cognitiva soberana</h1>
-          <p class="hero__lead">
-            Contexto real, continuo y bajo control.
-            Una arquitectura diseñada para que la inteligencia artificial
-            opere con tus datos sin exponerlos a terceros.
-          </p>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#capa">Ver cómo encaja</a>
-            <a class="btn btn--ghost" href="#contacto">Hablar / colaborar</a>
-          </div>
-
-          <div id="escenarios" class="cards">
-            <article class="card">
-              <h2 class="card__title">Personal</h2>
-              <p class="card__text">
-                Continuidad entre móvil, ordenador y otros dispositivos, sin reiniciar el contexto en cada interacción.
+              <h1 class="title-primary">La capa de privacidad para la IA cognitiva</h1>
+              
+              <p class="lead-text">
+                Arquitectura de anonimización que permite a los modelos de IA acceder a contexto personal sin exponer datos identificables ni violar regulaciones.
               </p>
-            </article>
 
-            <article class="card">
-              <h2 class="card__title">Empresa</h2>
-              <p class="card__text">
-                Memoria operativa que no se pierde con cambios de personas. Decisiones y procesos con trazabilidad.
-              </p>
-            </article>
-
-            <article class="card">
-              <h2 class="card__title">Instituciones</h2>
-              <p class="card__text">
-                Uso de IA con control y auditoría, compatible con entornos regulados.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="capa" class="section">
-        <div class="container">
-          <header class="section__header">
-            <h2 class="section__title">Una capa entre datos y modelos</h2>
-            <p class="section__lead">
-              Separación clara entre datos, contexto y ejecución cognitiva. El modelo es intercambiable; el contexto no.
-            </p>
-          </header>
-
-          <div class="columns">
-            <div class="panel">
-              <h3 class="panel__title">Qué aporta</h3>
-              <ul class="list">
-                <li class="list__item">Contexto persistente (no sesiones sueltas)</li>
-                <li class="list__item">Control de exposición cuando se usan modelos externos</li>
-                <li class="list__item">Trazabilidad de transformaciones</li>
-              </ul>
+              <div class="actions">
+                <a class="button button--solid" href="#capa">Cómo funciona</a>
+                <a class="button button--wire" href="#contacto">Estándar del futuro</a>
+              </div>
             </div>
 
+            <!-- Escenarios integrados directamente en la estructura de la portada -->
+            <div id="escenarios" class="panels panels--vertical">
+              <article class="panel">
+                <h2 class="panel__heading">01. Zero PII</h2>
+                <p class="panel__body">Eliminación de nombres, rutas, identificadores y metadatos personales.</p>
+              </article>
+
+              <article class="panel">
+                <h2 class="panel__heading">02. Anon. Estructural</h2>
+                <p class="panel__body">Entidades convertidas en identificadores abstractos (Persona_01, Lugar_42, Evento_17).</p>
+              </article>
+
+              <article class="panel">
+                <h2 class="panel__heading">03. Interoperabilidad</h2>
+                <p class="panel__body">Compatible con cualquier modelo de IA (GPT, Claude, Llama, Mixtral, modelos locales, etc.).</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 2: LA CAPA (Esquema comparativo) -->
+        <section id="capa" class="section section--divider">
+          <header class="section-header">
+            <div class="label-group">
+              <span class="label">ZeroCog</span>
+              <span class="label-line"></span>
+            </div>
+            <h2 class="title-secondary">La solución: ZeroCog</h2>
+            <p class="lead-text lead-text--sub">La IA necesita contexto profundo, pero las regulaciones prohíben entregar datos personales a modelos externos. El resultado es un bloqueo tecnológico: IA sin contexto o riesgo legal.</p>
+            <br>
+            <p class="lead-text lead-text--sub">ZeroCog propone una arquitectura de separación entre datos personales y contexto cognitivo, manteniendo utilidad operativa sin exponer información identificable.</p>
+          </header>
+
+          <div class="panels panels--horizontal">
+            <div class="panel panel--highlight">
+              <h3 class="panel__heading">Flujo Conceptual</h3>
+              <ul class="data-list">
+                <li>Datos crudos → UMCI Pipeline</li>
+                <li>→ Memoria Viva → ZeroCog Layer</li>
+                <li>→ Contexto Anónimo → Cualquier IA</li>
+              </ul>
+            </div>
             <div class="panel">
-              <h3 class="panel__title">Qué no es</h3>
-              <ul class="list">
-                <li class="list__item">No es “otro asistente”</li>
-                <li class="list__item">No depende de un proveedor concreto</li>
-                <li class="list__item">No exige transferencias innecesarias de datos</li>
+              <h3 class="panel__heading">Mercado e Impacto</h3>
+              <ul class="data-list">
+                <li>Sectores: Salud, Legal, Banca, Fintech</li>
+                <li>Casos: Telemedicina, Bufetes, Administración</li>
+                <li>Oportunidad: GAIA-X y European Data Spaces</li>
               </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="principios" class="section section--alt">
-        <div class="container">
-          <header class="section__header">
-            <h2 class="section__title">Principios de diseño</h2>
-            <p class="section__lead">Decisiones que hacen posible continuidad con control.</p>
+        <!-- SECCIÓN 3: PRINCIPIOS (Malla técnica de 4 cuadrantes) -->
+        <section id="principios" class="section">
+          <header class="section-header">
+             <div class="label-group">
+              <span class="label">Reglas base</span>
+              <span class="label-line"></span>
+            </div>
+            <h2 class="title-secondary">Valor Diferencial</h2>
+            <p class="lead-text lead-text--sub">Una arquitectura concebida para la privacidad total y soberanía tecnológica.</p>
           </header>
 
-          <div class="grid">
-            <div class="tile">
-              <h3 class="tile__title">Neutralidad</h3>
-              <p class="tile__text">Funciona con modelos locales o de terceros, sin lock-in estructural.</p>
+          <div class="grid-4">
+            <div class="cell">
+              <span class="cell__id">VU-01</span>
+              <h3 class="cell__title">Cumplimiento por diseño</h3>
+              <p class="cell__text">Fines regulatorios como GDPR o HIPAA desde su base estructural.</p>
             </div>
-            <div class="tile">
-              <h3 class="tile__title">Control condicional</h3>
-              <p class="tile__text">La complejidad sube solo cuando el riesgo lo exige.</p>
+            <div class="cell">
+              <span class="cell__id">VU-02</span>
+              <h3 class="cell__title">Soberanía de datos</h3>
+              <p class="cell__text">Procesamiento local por defecto y control completo del usuario sobre el flujo.</p>
             </div>
-            <div class="tile">
-              <h3 class="tile__title">Auditabilidad</h3>
-              <p class="tile__text">Transformaciones trazables: qué entra, qué sale y bajo qué reglas.</p>
+            <div class="cell">
+              <span class="cell__id">VU-03</span>
+              <h3 class="cell__title">Agnóstico al modelo</h3>
+              <p class="cell__text">Capa intermedia independiente de proveedores de IA específicos.</p>
             </div>
-            <div class="tile">
-              <h3 class="tile__title">Soberanía</h3>
-              <p class="tile__text">El valor permanece en el dominio del usuario u organización.</p>
+            <div class="cell">
+              <span class="cell__id">VU-04</span>
+              <h3 class="cell__title">Auditable</h3>
+              <p class="cell__text">Cada transformación puede ser trazada y verificada dentro del pipeline.</p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="estado" class="section">
-        <div class="container">
-          <header class="section__header">
-            <h2 class="section__title">Estado</h2>
-            <p class="section__lead">
-              Arquitectura definida. Implementación en curso. Buscamos pilotos y colaboración técnica.
+        <!-- SECCIÓN 4: ESTADO Y CONTACTO (Layout dividido asimétrico) -->
+        <section class="section section--divider split-layout">
+          <div id="estado" class="split-side">
+            <h2 class="title-tertiary">Estado actual</h2>
+            <p class="lead-text lead-text--small">
+              Un producto en fase clave para implementar la infraestructura definitiva.
             </p>
-          </header>
-
-          <div class="status">
-            <div class="status__item">
-              <span class="status__label">Foco</span>
-              <span class="status__value">Contexto persistente + control</span>
-            </div>
-            <div class="status__item">
-              <span class="status__label">Entorno</span>
-              <span class="status__value">Personal · PyME · Regulados</span>
-            </div>
-            <div class="status__item">
-              <span class="status__label">Colaboración</span>
-              <span class="status__value">Pilotos · Partners · Ingeniería</span>
-            </div>
+            
+            <dl class="specs">
+              <div class="spec-row">
+                <dt>Especificación técnica</dt>
+                <dd>v0.1 completa</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Prototipo</dt>
+                <dd>Validación de flujo funcional</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Siguiente paso</dt>
+                <dd>Implementación Rust (18 meses)</dd>
+              </div>
+            </dl>
           </div>
-        </div>
-      </section>
 
-      <section id="contacto" class="section section--alt">
-        <div class="container">
-          <header class="section__header">
-            <h2 class="section__title">Contacto</h2>
-            <p class="section__lead">Para explorar un piloto o colaboración, escríbenos.</p>
-          </header>
-
-          <div class="contact">
-            <a class="contact__mail" href="mailto:contact@zerocog.org">contact@zerocog.org</a>
-            <p class="contact__note"></p>
+          <div id="contacto" class="split-side split-side--dark">
+             <h2 class="title-tertiary">Buscamos</h2>
+             <br>
+             <ul class="data-list">
+               <li>Inversión para 18 meses de desarrollo.</li>
+               <li>Socios técnicos (sistemas distribuidos, PET, estándares).</li>
+               <li>Alianzas corporativas reguladas para pilotos.</li>
+             </ul>
+             <br>
+             <p class="lead-text lead-text--small">Nuestro objetivo es establecer un estándar abierto para la IA privada.</p>
+             <br>
+             <a class="contact-link" href="mailto:zerocogorg@gmail.com">
+               Únete a ZeroCog
+               <span class="arrow">→</span>
+             </a>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <footer class="footer">
-      <div class="container footer__inner">
-        <p class="footer__text">© 2026 ZeroCog</p>
-        <p class="footer__text footer__text--muted">Infraestructura cognitiva soberana.</p>
-      </div>
-    </footer>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__info">
+          <span class="brand__mark brand__mark--small" aria-hidden="true"></span>
+          <span>© 2026 ZeroCog</span>
+        </div>
+        <div class="footer__meta">ZeroCog / La Capa de Privacidad</div>
+      </footer>
+    </div>
   </body>
 </html>
