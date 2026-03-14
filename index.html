@@ -8,47 +8,13 @@
       name="description"
       content="ZeroCog: La Capa de Privacidad para la IA Cognitiva. Protocolo de anonimización irreversible que permite a cualquier modelo de IA acceder a contexto personal sin violar privacidad ni regulaciones."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
 
   <body>
-    <!-- FIXED BASE SYSTEM: El mecanismo inmenso corriendo de fondo en toda la web -->
-    <div class="sys-base" aria-hidden="true">
-      <svg class="sys-canvas" viewBox="0 0 2000 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <g class="sys-layer sys-layer--bases">
-           <line x1="-500" y1="200" x2="2500" y2="200" class="sys-guide" />
-           <line x1="-500" y1="800" x2="2500" y2="800" class="sys-guide" />
-           <line x1="1200" y1="-500" x2="1200" y2="1500" class="sys-guide" />
-           <rect x="700" y="100" width="800" height="900" class="sys-plate sys-plate--distant" />
-        </g>
-
-        <g class="sys-layer sys-layer--structure">
-           <!-- Cuadrados lado DERECHO -->
-           <rect x="1400" y="300" width="300" height="450" class="sys-plate sys-plate--main" />
-           <rect x="1600" y="450" width="180" height="200" class="sys-plate sys-plate--main" />
-           <rect x="1350" y="100" width="40" height="700" class="sys-plate sys-plate--accent" />
-           
-           <!-- Cuadrados lado IZQUIERDO -->
-           <rect x="200" y="350" width="250" height="400" class="sys-plate sys-plate--main" />
-           <rect x="100" y="500" width="150" height="180" class="sys-plate sys-plate--main" />
-           <rect x="350" y="150" width="30" height="650" class="sys-plate sys-plate--accent" />
-           
-           <line x1="1000" y1="550" x2="2000" y2="550" class="sys-beam" />
-           <!-- Tensor extra lado izquierdo -->
-           <line x1="-200" y1="650" x2="1000" y2="650" class="sys-beam" />
-        </g>
-
-        <g class="sys-layer sys-layer--foreground">
-           <!-- DERECHA -->
-           <line x1="1650" y1="-200" x2="1650" y2="1200" class="sys-tensioner" />
-           <rect x="1500" y="750" width="250" height="15" class="sys-plate sys-plate--sharp" />
-           
-           <!-- IZQUIERDA -->
-           <line x1="280" y1="-200" x2="280" y2="1200" class="sys-tensioner" />
-           <rect x="120" y="800" width="200" height="15" class="sys-plate sys-plate--sharp" />
-        </g>
-      </svg>
-    </div>
 
     <!-- DOCUMENT WRAPPER: Hoja técnica flotante -->
     <div class="document">
@@ -232,5 +198,6 @@
         <div class="footer__meta">ZeroCog / La Capa de Privacidad</div>
       </footer>
     </div>
+    <script src="./bg.js"></script>
   </body>
 </html>

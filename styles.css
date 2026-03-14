@@ -33,7 +33,7 @@
   body {
     margin: 0;
     /* Tipografía nativa de alta legibilidad, similar a planos contemporáneos */
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: var(--fg);
     background-color: var(--bg);
     line-height: 1.6;
@@ -42,48 +42,24 @@
   
   a { color: inherit; text-decoration: none; }
   
-  /* --- SVG BACKGROUND (Motor basal) --- */
-  .sys-base {
+  /* --- 3D ARCHITECTURAL STAGE BACKGROUND --- */
+  #arch-stage {
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.8;
-    overflow: hidden; /* Evita scrolls accidentales en móviles */
-    display: flex;
-    justify-content: center; /* Centrar el SVG en caso de que sea más grande */
-    align-items: center;
+    overflow: hidden;
   }
-  
-  .sys-canvas { 
-    width: 100vw; 
-    height: 100vh; 
-    /* En pantallas pequeñas, forzamos que el objeto mantenga su tamaño relativo y se centre, evitando que quede achatado o cortado asimétricamente */
-    min-width: 1200px; /* Asegura que no colapse demasiado sus coordenadas internas */
+  #arch-scene {
+    position: absolute;
+    inset: 0;
   }
-  
-  .sys-guide { stroke: rgba(15, 43, 70, 0.1); stroke-width: 1px; }
-  .sys-beam { stroke: rgba(15, 43, 70, 0.2); stroke-width: 1px; }
-  .sys-tensioner { stroke: rgba(0, 168, 107, 0.3); stroke-width: 1px; } /* Activation green */
-  
-  .sys-plate { stroke: rgba(15, 43, 70, 0.1); stroke-width: 1px; }
-  .sys-plate--distant { fill: rgba(255, 255, 255, 0.9); stroke:none; }
-  .sys-plate--main { fill: rgba(255, 255, 255, 1); }
-  .sys-plate--accent { fill: rgba(30, 79, 122, 0.05); } /* Tech blue hint */
-  .sys-plate--sharp { fill: rgba(0, 168, 107, 0.08); } /* Green hint */
-  
-  .sys-layer { will-change: transform; }
-  .sys-layer--bases { animation: sys-pan-l 240s linear infinite; }
-  .sys-layer--structure { animation: sys-float 90s ease-in-out infinite alternate; }
-  .sys-layer--foreground { animation: sys-pan-r 180s linear infinite; }
-  
-  @keyframes sys-pan-l { 0% { transform: translateX(2%); } 100% { transform: translateX(-2%); } }
-  @keyframes sys-pan-r { 0% { transform: translateX(-2%); } 100% { transform: translateX(2%); } }
-  @keyframes sys-float { 0% { transform: translateY(1.5%); } 100% { transform: translateY(-1.5%); } }
   
   
   /* --- ESTRUCTURA GENERAL DEL DOCUMENTO --- */
   .document {
+    position: relative;
+    z-index: 1;
     max-width: var(--grid-max);
     margin: 0 auto;
     background: transparent;
@@ -126,9 +102,25 @@
   
   
   /* --- COMPONENTES BÁSICOS --- */
-  .section { padding: var(--pad-l) var(--pad-m); }
+  .section { 
+    padding: var(--pad-l) var(--pad-m);
+    position: relative;
+    /* Very subtle glass shield so text reads over 3D blocks */
+    isolation: isolate;
+  }
+  .section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(248,249,252,0.52);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: -1;
+    pointer-events: none;
+  }
   .section--divider { border-top: 1px solid var(--line); }
   .section--hero { padding-top: calc(var(--pad-l) * 1.2); padding-bottom: calc(var(--pad-l) * 1.5); }
+
   
   .label-group { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
   .label { 
@@ -295,12 +287,6 @@
       margin: 0 4vw; /* Permitir siempre un margen lateral para que se vea el fondo */
     }
     
-    .sys-canvas {
-      /* Ajuste dinámico de SVG en tablet / ventana mediana */
-      transform: scale(0.8);
-      transform-origin: center center;
-    }
-    
     .hero__grid { grid-template-columns: 1fr; gap: 40px; }
     .panels--vertical { flex-direction: row; flex-wrap: wrap; }
     .panels--vertical .panel { flex: 1; min-width: 250px; }
@@ -313,11 +299,6 @@
       --pad-m: 20px;
     }
     .nav { display: none; } /* En una versión real aquí iría un menu hamburguesa, pero para landing simple lo oculta */
-    
-    .sys-canvas {
-      /* Achicar más la estructura gráfica para que entren ambas columnas SVG en móviles */
-      transform: scale(0.5);
-    }
     
     /* Mantener el marco del documento visible en móvil */
     .document {
