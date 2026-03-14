@@ -16,188 +16,27 @@
 
   <body>
 
-    <!-- DOCUMENT WRAPPER: Hoja técnica flotante -->
-    <div class="document">
-      <a class="skip-link" href="#main">Saltar al contenido</a>
+    <div class="document construction-view">
+      <main class="construction-container">
+        <div class="construction-content">
+          <div class="brand brand--construction">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name">ZeroCog</span>
+          </div>
+          
+          <h1 class="construction-title">Página en construcción</h1>
+          
+          <div class="construction-animation">
+            <div class="bar bar--1"></div>
+            <div class="bar bar--2"></div>
+            <div class="bar bar--3"></div>
+          </div>
 
-      <header class="header">
-        <div class="brand">
-          <span class="brand__mark" aria-hidden="true"></span>
-          <span class="brand__name">ZeroCog</span>
-          <span class="brand__spec">/ ICS V1.0</span>
+          <p class="construction-status">/ Infraestructura cognitiva en proceso de ensamblaje</p>
         </div>
-
-        <nav class="nav" aria-label="Navegación principal">
-          <a class="nav__link" href="#escenarios">Escenarios</a>
-          <a class="nav__link" href="#capa">La capa</a>
-          <a class="nav__link" href="#principios">Principios</a>
-          <a class="nav__link" href="#estado">Estado</a>
-          <a class="nav__link nav__link--cta" href="#contacto">Contacto</a>
-        </nav>
-      </header>
-
-      <main id="main">
-        <!-- SECCIÓN 1: HERO MONUMENTAL -->
-        <section class="section section--hero">
-          <div class="hero__grid">
-            <div class="hero__content">
-              <div class="label-group">
-                <span class="label">ZeroCog</span>
-                <span class="label-line"></span>
-              </div>
-              
-              <h1 class="title-primary">La capa de privacidad para la IA cognitiva</h1>
-              
-              <p class="lead-text">
-                Arquitectura de anonimización que permite a los modelos de IA acceder a contexto personal sin exponer datos identificables ni violar regulaciones.
-              </p>
-
-              <div class="actions">
-                <a class="button button--solid" href="#capa">Cómo funciona</a>
-                <a class="button button--wire" href="#contacto">Estándar del futuro</a>
-              </div>
-            </div>
-
-            <!-- Escenarios integrados directamente en la estructura de la portada -->
-            <div id="escenarios" class="panels panels--vertical">
-              <article class="panel">
-                <h2 class="panel__heading">01. Zero PII</h2>
-                <p class="panel__body">Eliminación de nombres, rutas, identificadores y metadatos personales.</p>
-              </article>
-
-              <article class="panel">
-                <h2 class="panel__heading">02. Anon. Estructural</h2>
-                <p class="panel__body">Entidades convertidas en identificadores abstractos (Persona_01, Lugar_42, Evento_17).</p>
-              </article>
-
-              <article class="panel">
-                <h2 class="panel__heading">03. Interoperabilidad</h2>
-                <p class="panel__body">Compatible con cualquier modelo de IA (GPT, Claude, Llama, Mixtral, modelos locales, etc.).</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 2: LA CAPA (Esquema comparativo) -->
-        <section id="capa" class="section section--divider">
-          <header class="section-header">
-            <div class="label-group">
-              <span class="label">ZeroCog</span>
-              <span class="label-line"></span>
-            </div>
-            <h2 class="title-secondary">La solución: ZeroCog</h2>
-            <p class="lead-text lead-text--sub">La IA necesita contexto profundo, pero las regulaciones prohíben entregar datos personales a modelos externos. El resultado es un bloqueo tecnológico: IA sin contexto o riesgo legal.</p>
-            <br>
-            <p class="lead-text lead-text--sub">ZeroCog propone una arquitectura de separación entre datos personales y contexto cognitivo, manteniendo utilidad operativa sin exponer información identificable.</p>
-          </header>
-
-          <div class="panels panels--horizontal">
-            <div class="panel panel--highlight">
-              <h3 class="panel__heading">Flujo Conceptual</h3>
-              <ul class="data-list">
-                <li>Datos crudos → UMCI Pipeline</li>
-                <li>→ Memoria Viva → ZeroCog Layer</li>
-                <li>→ Contexto Anónimo → Cualquier IA</li>
-              </ul>
-            </div>
-            <div class="panel">
-              <h3 class="panel__heading">Mercado e Impacto</h3>
-              <ul class="data-list">
-                <li>Sectores: Salud, Legal, Banca, Fintech</li>
-                <li>Casos: Telemedicina, Bufetes, Administración</li>
-                <li>Oportunidad: GAIA-X y European Data Spaces</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 3: PRINCIPIOS (Malla técnica de 4 cuadrantes) -->
-        <section id="principios" class="section">
-          <header class="section-header">
-             <div class="label-group">
-              <span class="label">Reglas base</span>
-              <span class="label-line"></span>
-            </div>
-            <h2 class="title-secondary">Valor Diferencial</h2>
-            <p class="lead-text lead-text--sub">Una arquitectura concebida para la privacidad total y soberanía tecnológica.</p>
-          </header>
-
-          <div class="grid-4">
-            <div class="cell">
-              <span class="cell__id">VU-01</span>
-              <h3 class="cell__title">Cumplimiento por diseño</h3>
-              <p class="cell__text">Fines regulatorios como GDPR o HIPAA desde su base estructural.</p>
-            </div>
-            <div class="cell">
-              <span class="cell__id">VU-02</span>
-              <h3 class="cell__title">Soberanía de datos</h3>
-              <p class="cell__text">Procesamiento local por defecto y control completo del usuario sobre el flujo.</p>
-            </div>
-            <div class="cell">
-              <span class="cell__id">VU-03</span>
-              <h3 class="cell__title">Agnóstico al modelo</h3>
-              <p class="cell__text">Capa intermedia independiente de proveedores de IA específicos.</p>
-            </div>
-            <div class="cell">
-              <span class="cell__id">VU-04</span>
-              <h3 class="cell__title">Auditable</h3>
-              <p class="cell__text">Cada transformación puede ser trazada y verificada dentro del pipeline.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECCIÓN 4: ESTADO Y CONTACTO (Layout dividido asimétrico) -->
-        <section class="section section--divider split-layout">
-          <div id="estado" class="split-side">
-            <h2 class="title-tertiary">Estado actual</h2>
-            <p class="lead-text lead-text--small">
-              Un producto en fase clave para implementar la infraestructura definitiva.
-            </p>
-            
-            <dl class="specs">
-              <div class="spec-row">
-                <dt>Especificación técnica</dt>
-                <dd>v0.1 completa</dd>
-              </div>
-              <div class="spec-row">
-                <dt>Prototipo</dt>
-                <dd>Validación de flujo funcional</dd>
-              </div>
-              <div class="spec-row">
-                <dt>Siguiente paso</dt>
-                <dd>Implementación Rust (18 meses)</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div id="contacto" class="split-side split-side--dark">
-             <h2 class="title-tertiary">Buscamos</h2>
-             <br>
-             <ul class="data-list">
-               <li>Inversión para 18 meses de desarrollo.</li>
-               <li>Socios técnicos (sistemas distribuidos, PET, estándares).</li>
-               <li>Alianzas corporativas reguladas para pilotos.</li>
-             </ul>
-             <br>
-             <p class="lead-text lead-text--small">Nuestro objetivo es establecer un estándar abierto para la IA privada.</p>
-             <br>
-             <a class="contact-link" href="mailto:zerocogorg@gmail.com">
-               Únete a ZeroCog
-               <span class="arrow">→</span>
-             </a>
-          </div>
-        </section>
-
       </main>
-
-      <footer class="footer">
-        <div class="footer__info">
-          <span class="brand__mark brand__mark--small" aria-hidden="true"></span>
-          <span>© 2026 ZeroCog</span>
-        </div>
-        <div class="footer__meta">ZeroCog / La Capa de Privacidad</div>
-      </footer>
     </div>
     <script src="./bg.js"></script>
+
   </body>
 </html>

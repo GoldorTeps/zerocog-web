@@ -1,319 +1,126 @@
-/* ==========================================================================
-   ZEROCOG ICS V2.0 - ARCHITECTURAL DESIGN SYSTEM
-   ========================================================================== */
+:root {
+  --bg: #f8f9fc;
+  --line: rgba(15, 43, 70, 0.08); /* Faint structural lines */
+  --accent: #00a86b; /* Sophisticated teal accent */
+  --fg: #0f2b46;
+  --fg-muted: rgba(15, 43, 70, 0.6);
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
 
-   :root {
-    /* Paleta ZeroCog Oficial */
-    --bg: #FFFFFF; /* Background */
-    --surface: #FFFFFF; /* Content cells */
-    --surface-dark: #0F2B46; /* Deep Structural Blue panels */
-    
-    --fg: #0C1A26; /* Text */
-    --fg-muted: #1E4F7A; /* Technological Blue for tech/secondary text */
-    --fg-inverse: #FFFFFF; /* Text on dark backgrounds */
-    
-    --line: rgba(15, 43, 70, 0.1); /* Deep Structural Blue lines, low opacity */
-    --line-strong: rgba(15, 43, 70, 0.25); 
-    --line-inverse: rgba(255, 255, 255, 0.15);
-    
-    --accent: #00A86B; /* Activation Green */
-    --accent-hover: #008f5a; /* Slightly darker green for hover */
-    
-    /* Geometría y Espacio */
-    --grid-max: 1300px;
-    --r: 2px; /* Radios mínimos, aspecto "maquinado" no redondeado */
-    --pad-l: 90px; /* Reducción de 120px a 90px para menos espacio vertical */
-    --pad-m: 60px;
-    --pad-s: 30px;
-  }
-  
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  
-  body {
-    margin: 0;
-    /* Tipografía nativa de alta legibilidad, similar a planos contemporáneos */
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: var(--fg);
-    background-color: var(--bg);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  a { color: inherit; text-decoration: none; }
-  
-  /* --- 3D ARCHITECTURAL STAGE BACKGROUND --- */
-  #arch-stage {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  #arch-scene {
-    position: absolute;
-    inset: 0;
-  }
-  
-  
-  /* --- ESTRUCTURA GENERAL DEL DOCUMENTO --- */
-  .document {
-    position: relative;
-    z-index: 1;
-    max-width: var(--grid-max);
-    margin: 0 auto;
-    background: transparent;
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-    min-height: 100vh;
-  }
-  
-  /* Accessibility */
-  .skip-link { position: absolute; left:-999px; width:1px; height:1px; overflow:hidden; }
-  .skip-link:focus { left:0; top:0; width:auto; height:auto; padding:15px; background:var(--surface-dark); color:var(--fg-inverse); z-index: 100; }
-  
-  /* --- CABECERA TÉCNICA --- */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 var(--pad-m);
-    height: 80px;
-    border-bottom: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.95); /* Header white */
-    backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
-  
-  .brand { display: flex; align-items: center; gap: 12px; font-size: 14px; }
-  .brand__mark {
-    width: 12px; height: 12px; background: var(--accent); border-radius: 50%;
-  }
-  .brand__mark--small { width: 8px; height: 8px; }
-  .brand__name { font-weight: 700; letter-spacing: -0.02em; }
-  .brand__spec { color: var(--fg-muted); font-family: ui-monospace, monospace; font-size: 12px;}
-  
-  .nav { display: flex; gap: 24px; font-size: 13px; font-weight: 500; }
-  .nav__link { color: var(--fg-muted); transition: color 0.2s; }
-  .nav__link:hover { color: var(--fg); }
-  .nav__link--cta { color: var(--accent); font-weight: 600; }
-  
-  
-  /* --- COMPONENTES BÁSICOS --- */
-  .section { 
-    padding: var(--pad-l) var(--pad-m);
-    position: relative;
-    /* Very subtle glass shield so text reads over 3D blocks */
-    isolation: isolate;
-  }
-  .section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(248,249,252,0.52);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    z-index: -1;
-    pointer-events: none;
-  }
-  .section--divider { border-top: 1px solid var(--line); }
-  .section--hero { padding-top: calc(var(--pad-l) * 1.2); padding-bottom: calc(var(--pad-l) * 1.5); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  
-  .label-group { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-  .label { 
-    font-family: ui-monospace, monospace; font-size: 11px; 
-    text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-muted);
-  }
-  .label-line { width: 40px; height: 1px; background: var(--line-strong); flex-shrink: 0; }
-  
-  /* Tipografía Monumental */
-  .title-primary {
-    font-size: clamp(48px, 6vw, 82px);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    margin: 0 0 32px 0;
-    max-width: 14ch;
-  }
-  
-  .title-secondary {
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    margin: 0 0 24px 0;
-  }
-  
-  .title-tertiary {
-    font-size: clamp(24px, 3vw, 32px);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin: 0 0 16px 0;
-  }
-  
-  .lead-text {
-    font-size: clamp(18px, 2vw, 22px);
-    color: var(--fg-muted);
-    line-height: 1.5;
-    max-width: 48ch;
-    margin: 0;
-  }
-  .lead-text--sub { font-size: clamp(16px, 1.5vw, 18px); max-width: 55ch; }
-  .lead-text--small { font-size: 16px; margin-bottom: 32px; }
-  
-  
-  /* Botones Tectónicos */
-  .actions { display: flex; gap: 16px; margin-top: 48px; flex-wrap: wrap; }
-  .button {
-    display: inline-flex; align-items: center; justify-content: center;
-    padding: 16px 28px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
-    border-radius: var(--r); transition: all 0.2s ease;
-  }
-  .button--solid {
-    background: var(--surface-dark); color: var(--fg-inverse); border: 1px solid var(--surface-dark);
-  }
-  .button--solid:hover { background: var(--fg-muted); box-shadow: 0 4px 12px rgba(30, 79, 122, 0.25); }
-  
-  .button--wire {
-    background: transparent; color: var(--accent); border: 1px solid var(--accent);
-  }
-  .button--wire:hover { background: rgba(0, 168, 107, 0.08); }
-  
-  
-  /* --- LAYOUTS ESPECÍFICOS --- */
-  
-  /* Hero Grid (Asimétrico) */
-  .hero__grid {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: var(--pad-m);
-    align-items: end;
-  }
-  
-  /* Paneles de datos (Escenarios, Aporta/No Aporta) */
-  .panels { display: flex; gap: var(--pad-s); }
-  .panels--vertical { flex-direction: column; }
-  .panels--horizontal { grid-column: 1 / -1; margin-top: var(--pad-m); display: grid; grid-template-columns: 1fr 1fr; }
-  
-  .panel {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    padding: var(--pad-s);
-    border-radius: var(--r);
-    transition: border-color 0.3s ease;
-  }
-  .panel:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0, 168, 107, 0.05); }
-  .panel--highlight { background: rgba(30, 79, 122, 0.03); border-color: var(--fg-muted); box-shadow: 0 12px 24px rgba(30, 79, 122, 0.08); }
-  
-  .panel__heading { font-size: 15px; font-weight: 600; margin: 0 0 12px 0; color: var(--fg); }
-  .panel__body { margin: 0; font-size: 14px; color: var(--fg-muted); line-height: 1.6; }
-  
-  /* Listas Técnicas */
-  .data-list { list-style: none; padding: 0; margin: 0; }
-  .data-list li {
-    position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 15px; color: var(--fg-muted);
-  }
-  .data-list li::before {
-    content: "—"; position: absolute; left: 0; color: var(--line-strong); font-weight: bold;
-  }
-  
-  /* Grid de 4 cuadrantes (Principios) */
-  .grid-4 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px; /* Para bordes colapsados */
-    background: var(--line);
-    border: 1px solid var(--line);
-    margin-top: var(--pad-m);
-  }
-  .cell { background: var(--bg); padding: var(--pad-m); }
-  .cell:hover { background: var(--surface); }
-  .cell__id { font-family: ui-monospace, monospace; font-size: 11px; color: var(--accent); margin-bottom: 16px; display: block; }
-  .cell__title { font-size: 18px; font-weight: 600; margin: 0 0 12px 0; }
-  .cell__text { margin: 0; font-size: 15px; color: var(--fg-muted); line-height: 1.6; max-width: 35ch; }
-  
-  /* Split Layout (Estado y Contacto) */
-  .split-layout { padding: 0; display: grid; grid-template-columns: 60% 40%; }
-  .split-side { padding: var(--pad-l) var(--pad-m); display: flex; flex-direction: column; justify-content: center; }
-  .split-side--dark { background: var(--surface-dark); color: var(--fg-inverse); }
-  .split-side--dark .lead-text { color: rgba(255, 255, 255, 0.9); }
-  .split-side--dark .data-list li { color: var(--fg-inverse); font-weight: 400; }
-  .split-side--dark .data-list li::before { color: var(--accent); opacity: 1; }
-  
-  /* Datos de definición (Specs) */
-  .specs { margin: 0; width: 100%; max-width: 500px; }
-  .spec-row {
-    display: flex; justify-content: space-between;
-    padding: 16px 0; border-bottom: 1px solid var(--line);
-    font-size: 14px;
-  }
-  .spec-row:last-child { border-bottom: none; }
-  .spec-row dt { font-weight: 600; color: var(--fg); margin: 0; }
-  .spec-row dd { margin: 0; color: var(--fg-muted); text-align: right; }
-  
-  /* Enlace de contacto gigante */
-  .contact-link {
-    font-size: clamp(24px, 3vw, 36px); font-weight: 600;
-    display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid var(--line-strong); padding-bottom: 16px;
-    transition: all 0.3s ease;
-  }
-  .contact-link:hover { border-color: var(--fg); padding-bottom: 20px; }
-  .arrow { font-family: system-ui; font-weight: 300; transition: transform 0.3s ease; }
-  .contact-link:hover .arrow { transform: translateX(10px); color: var(--accent); }
-  
-  
-  /* --- FOOTER --- */
-  .footer {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: var(--pad-m); border-top: 1px solid var(--line);
-    font-size: 13px; font-weight: 500;
-    background: var(--surface);
-  }
-  .footer__info { display: flex; align-items: center; gap: 12px; }
-  .footer__meta { color: var(--fg-muted); font-family: ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px;}
-  
-  
-  /* --- RESPONSIVE --- */
-  @media (max-width: 1024px) {
-    :root {
-      --pad-l: 60px;
-      --pad-m: 30px;
-    }
-    
-    .document {
-      margin: 0 4vw; /* Permitir siempre un margen lateral para que se vea el fondo */
-    }
-    
-    .hero__grid { grid-template-columns: 1fr; gap: 40px; }
-    .panels--vertical { flex-direction: row; flex-wrap: wrap; }
-    .panels--vertical .panel { flex: 1; min-width: 250px; }
-    .split-layout { grid-template-columns: 1fr; }
-  }
-  
-  @media (max-width: 768px) {
-    :root {
-      --pad-l: 40px;
-      --pad-m: 20px;
-    }
-    .nav { display: none; } /* En una versión real aquí iría un menu hamburguesa, pero para landing simple lo oculta */
-    
-    /* Mantener el marco del documento visible en móvil */
-    .document {
-      margin: 0 16px; /* Margen un poco más grande en móviles puros */
-      border-left: 1px solid var(--line);
-      border-right: 1px solid var(--line);
-      background: var(--bg); /* Asegurar que bloquee el fondo un poco */
-    }
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  overflow: hidden; /* Prevent scroll on construction view */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
 
-    .grid-4 { grid-template-columns: 1fr; }
-    .panels--horizontal { grid-template-columns: 1fr; }
-    .footer { flex-direction: column; gap: 16px; align-items: flex-start; }
-    .spec-row { flex-direction: column; gap: 4px; text-align: left; }
-    .spec-row dd { text-align: left; }
-    .title-primary { font-size: 38px; }
-    .title-secondary { font-size: 28px; }
-    .title-tertiary { font-size: 22px; }
-  }
+/* --- 3D BACKGROUND STAGE (Injected by bg.js) --- */
+#arch-stage {
+  z-index: -1;
+}
+
+/* --- CONSTRUCTION VIEW --- */
+.document.construction-view {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.construction-container {
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  padding: 60px 40px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  position: relative;
+  animation: viewAppear 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes viewAppear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.brand--construction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.brand__mark {
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 168, 107, 0.2);
+}
+
+.brand__name {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.construction-title {
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  margin-bottom: 40px;
+}
+
+.construction-status {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--fg-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* --- ANIMACIÓN DE CONSTRUCCIÓN --- */
+.construction-animation {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.bar {
+  width: 40px;
+  height: 2px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.bar::after {
+  content: "";
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  animation: barSlide 2s infinite ease-in-out;
+}
+
+.bar--2::after { animation-delay: 0.2s; }
+.bar--3::after { animation-delay: 0.4s; }
+
+@keyframes barSlide {
+  0% { left: -100%; }
+  50% { left: 0%; }
+  100% { left: 100%; }
+}
