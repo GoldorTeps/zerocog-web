@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Cpu, Zap, Lock, Globe, Database, Activity, UserCheck } from 'lucide-react';
+import { Cpu, Zap, Lock, Globe, Database, Activity, UserCheck, Shield } from 'lucide-react';
 import { BRAND } from '../constants/brand';
 import { Gear } from '../components/Gear';
 import { PersistentReveal } from '../components/PersistentReveal';
@@ -229,6 +229,7 @@ const ContactSection = () => (
 const LandingPage = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const scrollLock = React.useRef(false);
 
   const sections = [
     { id: 'hero', title: 'I_INICIO' },
@@ -240,9 +241,16 @@ const LandingPage = () => {
   ];
 
   const navigateToSection = (newIdx) => {
-    if (newIdx === current) return;
+    if (newIdx === current || scrollLock.current) return;
+    
+    scrollLock.current = true;
     setDirection(newIdx > current ? 1 : -1);
     setCurrent(newIdx);
+    
+    // Release the lock after the main cinematic transition duration
+    setTimeout(() => {
+      scrollLock.current = false;
+    }, 850); // Slightly longer than transition for safety
   };
 
   useEffect(() => {
@@ -251,17 +259,15 @@ const LandingPage = () => {
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigateToSection((current - 1 + sections.length) % sections.length);
     };
     
-    let lastTime = 0;
     const handleWheel = (e) => {
-      const currentTime = new Date().getTime();
-      if (currentTime - lastTime < 1000) return;
+      if (scrollLock.current) return;
       
-      if (e.deltaY > 50) {
-        navigateToSection((current + 1) % sections.length);
-        lastTime = currentTime;
-      } else if (e.deltaY < -50) {
-        navigateToSection((current - 1 + sections.length) % sections.length);
-        lastTime = currentTime;
+      if (Math.abs(e.deltaY) > 20) {
+        if (e.deltaY > 0) {
+          navigateToSection((current + 1) % sections.length);
+        } else {
+          navigateToSection((current - 1 + sections.length) % sections.length);
+        }
       }
     };
 

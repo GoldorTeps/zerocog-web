@@ -42,7 +42,7 @@ export function processLogin(email, password) {
   if (password === INVESTOR_PASSWORD && cleanEmail) {
     const expiryDate = new Date();
     expiryDate.setDate(expiryDate.getDate() + 15);
-    document.cookie = `${SESSION_COOKIE_NAME}=${encodeURIComponent(cleanEmail)}; expires=${expiryDate.toUTCString()}; path=/; samesite=strict`;
+    document.cookie = `${SESSION_COOKIE_NAME}=${encodeURIComponent(cleanEmail)}; expires=${expiryDate.toUTCString()}; path=/; samesite=strict; Secure`;
     return true;
   }
   return false;

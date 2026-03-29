@@ -2,6 +2,7 @@ import React from 'react';
 import { ClockworkBackground } from '../components/ClockworkBackground';
 import { Settings } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { BRAND } from '../constants/brand';
 
 /**
@@ -15,7 +16,12 @@ export const MainLayout = ({ children, current = 0 }) => {
   const isInvestor = location.pathname === '/investor';
 
   return (
-    <div className="relative w-screen h-screen select-none overflow-hidden font-sans bg-brand-white">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      className="relative w-screen h-screen select-none overflow-hidden font-sans bg-brand-white"
+    >
       <ClockworkBackground current={current} />
       
       {/* Global Brand Overlay */}
@@ -50,6 +56,6 @@ export const MainLayout = ({ children, current = 0 }) => {
            <Settings size={14} className="text-[#00A86B]/40 animate-spin-slow" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
