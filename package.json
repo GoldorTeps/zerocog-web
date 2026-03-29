@@ -13,7 +13,8 @@
     "framer-motion": "latest",
     "lucide-react": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-router-dom": "^7.13.2"
   },
   "devDependencies": {
     "@types/react": "latest",
