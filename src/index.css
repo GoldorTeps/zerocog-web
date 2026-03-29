@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=Space+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-white: #FFFFFF;
+  --color-brand-blue-deep: #0F2B46;
+  --color-brand-blue-med: #1E4F7A;
+  --color-brand-green: #00A86B;
+  --color-brand-dark-text: #0C1A26;
+  --color-brand-gray-light: #F2F4F7;
+  --color-brand-gray-med: #919699;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+:root {
+  --bg-color: #FFFFFF; /* Blanco Arquitectónico */
+  --text-main: #0C1A26; /* Azul Oscuro Texto */
+  --text-dim: #1E4F7A; /* Azul Medio Tecnológico */
+  
+  --panel-bg: rgba(255, 255, 255, 0.4);
+  --panel-border: rgba(15, 43, 70, 0.05);
+  --panel-shadow: 0 10px 40px rgba(15, 43, 70, 0.04);
+}
+
+body, html, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Volumetric 3D Stage Utilities */
+.perspective-stage {
+  perspective: 2000px;
+  perspective-origin: center;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.z-layer-front { transform: translateZ(500px); }
+.z-layer-mid { transform: translateZ(0px); }
+.z-layer-back { transform: translateZ(-500px); }
+.z-layer-deep { transform: translateZ(-1000px); }
+
+/* Luminous Crystalline Precision - Firefox Compatible Refactor */
+.glass-precision {
+  background: var(--panel-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  position: relative;
+  /* Removed transform-style: preserve-3d to fix backdrop-filter in Firefox */
+}
+
+/* Base isolation layer for background filtering */
+.glass-isolation {
+  isolation: isolate;
+  position: relative;
+}
+
+/* Bevelled edges for mechanical feel */
+.bevelled {
+  clip-path: polygon(
+    0 15px, 15px 0, 
+    calc(100% - 15px) 0, 100% 15px, 
+    100% calc(100% - 15px), calc(100% - 15px) 100%, 
+    15px 100%, 0 calc(100% - 15px)
+  );
+}
+
+.mono-tech {
+  @apply font-mono text-[10px] uppercase tracking-[0.4em] text-brand-blue-med/80;
+}
+
+/* Mechanical Gear Sync */
+.gear-sync {
+  transform-origin: center;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Data Line Glow - Brand Green - Higher Visibility */
+.tech-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 12s linear infinite;
+  stroke: var(--color-brand-green);
+  opacity: 0.6;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Luminous Blueprint Grid */
+.blueprint-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(30, 79, 122, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 79, 122, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Technical Overlays - Sophisticated */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 168, 107, 0.05); /* Sovereignty Green */
+  animation: scan 15s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@keyframes scan {
+  from { transform: translateY(0vh); }
+  to { transform: translateY(100vh); }
+}
+
+/* High-End Shadow for 3D Volume */
+.shadow-volumetric {
+  filter: drop-shadow(0 40px 30px rgba(15, 43, 70, 0.05));
+}
