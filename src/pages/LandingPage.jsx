@@ -282,7 +282,7 @@ const LandingPage = () => {
   return (
     <MainLayout current={current}>
       {/* Scroll Navigation Pills */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 h-32 flex items-center z-50 pointer-events-none">
+      <div className="fixed top-0 left-[50%] -translate-x-[50%] h-32 flex items-center z-50 pointer-events-none">
         <div className="flex gap-12 pointer-events-auto">
           {sections.map((section, idx) => (
             <button key={section.id} onClick={() => navigateToSection(idx)} className="relative py-2 group">
