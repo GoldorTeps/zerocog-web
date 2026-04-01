@@ -41,9 +41,12 @@ const HeroSection = () => {
       </motion.p>
       
       <div className="flex gap-8 pt-6 pointer-events-auto">
-        <button className="px-12 py-5 bg-[#00A86B] text-white font-black tracking-widest uppercase hover:bg-[#0F2B46] transition-all bevelled shadow-lg">
-          Acceder_Memoria
-        </button>
+        <a 
+          href="mailto:zerocogorg@gmail.com"
+          className="px-12 py-5 bg-[#00A86B] text-white font-black tracking-widest uppercase hover:bg-[#0F2B46] transition-all bevelled shadow-lg text-center flex items-center justify-center"
+        >
+          Iniciar_Contacto
+        </a>
         <button 
           onClick={() => navigate('/login')}
           className="px-12 py-5 border border-[#0F2B46]/20 text-[#0F2B46] font-black tracking-widest uppercase hover:bg-[#0F2B46] hover:text-white transition-all bevelled"
@@ -95,7 +98,7 @@ const ParadoxSection = () => (
 const SolutionSection = () => (
   <div className="space-y-12">
     <div className="text-center space-y-6">
-      <div className="mono-tech">03 // LA_SOLUCIÓN</div>
+      <div className="mono-tech">04 // LA_SOLUCIÓN</div>
       <h2 className="text-6xl font-black text-[#0F2B46]">Ecosistema de Memoria Continua.</h2>
     </div>
     <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -138,7 +141,7 @@ const SolutionSection = () => (
 const UseCasesSection = () => (
   <div className="space-y-16">
     <div className="text-center space-y-6">
-      <div className="mono-tech">04 // CASOS_DE_USO</div>
+      <div className="mono-tech">03 // CASOS_DE_USO</div>
       <h2 className="text-6xl font-black text-[#0F2B46]">¿Qué puedes hacer con esto?</h2>
     </div>
     <div className="grid md:grid-cols-3 gap-8 text-left">
@@ -199,8 +202,8 @@ const ContactSection = () => (
   <div className="flex flex-col items-center text-center space-y-16">
     <div className="w-1 h-24 bg-[#00A86B]/40 shadow-glow animate-pulse" />
     <div className="space-y-6">
-      <h2 className="text-7xl font-black text-[#0F2B46] tracking-tighter">Únete a la Unfold.</h2>
-      <p className="text-2xl text-[#1E4F7A]">Colaboraciones selectas para el despliegue de 2026.</p>
+      <h2 className="text-7xl font-black text-[#0F2B46] tracking-tighter">Establece el Enlace.</h2>
+      <p className="text-2xl text-[#1E4F7A]">La arquitectura soberana está lista para integrarse en tu ecosistema. Iniciemos la conversación.</p>
     </div>
     
     <div className="relative group">
@@ -234,10 +237,10 @@ const LandingPage = () => {
   const sections = [
     { id: 'hero', title: 'I_INICIO' },
     { id: 'paradox', title: 'II_PARADOJA' },
-    { id: 'solution', title: 'III_SOLUCIÓN' },
-    { id: 'usecases', title: 'IV_CASOS' },
+    { id: 'usecases', title: 'III_CASOS' },
+    { id: 'solution', title: 'IV_SOLUCIÓN' },
     { id: 'value', title: 'V_VALOR' },
-    { id: 'contact', title: 'VI_DESPLIEGUE' },
+    { id: 'contact', title: 'VI_CONTACTO' },
   ];
 
   const navigateToSection = (newIdx) => {
@@ -282,7 +285,7 @@ const LandingPage = () => {
   return (
     <MainLayout current={current}>
       {/* Scroll Navigation Pills */}
-      <div className="fixed top-0 left-[50%] -translate-x-[50%] h-32 flex items-center z-50 pointer-events-none">
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 h-32 flex items-center z-50 pointer-events-none">
         <div className="flex gap-12 pointer-events-auto">
           {sections.map((section, idx) => (
             <button key={section.id} onClick={() => navigateToSection(idx)} className="relative py-2 group">
@@ -301,8 +304,8 @@ const LandingPage = () => {
         <PersistentReveal key={sections[current].id} direction={direction}>
           {current === 0 && <HeroSection />}
           {current === 1 && <ParadoxSection />}
-          {current === 2 && <SolutionSection />}
-          {current === 3 && <UseCasesSection />}
+          {current === 2 && <UseCasesSection />}
+          {current === 3 && <SolutionSection />}
           {current === 4 && <ValuePropSection />}
           {current === 5 && <ContactSection />}
         </PersistentReveal>

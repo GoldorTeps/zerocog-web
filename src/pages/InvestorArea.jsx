@@ -34,10 +34,12 @@ const InvestorArea = () => {
   }, [searchParams, navigate]);
 
   const documents = [
-    { title: "Plan de Implementación", type: "DOCX", size: "1.2 MB", date: "Mar 29, 2026", url: "/assets/investors/Plan de Implementación.docx" },
-    { title: "Análisis de Riesgos Técnicos y Mitigaciones", type: "DOCX", size: "2.4 MB", date: "Mar 29, 2026", url: "/assets/investors/Análisis de Riesgos Técnicos y Mitigaciones.docx" },
-    { title: "OnePage", type: "DOCX", size: "0.8 MB", date: "Mar 29, 2026", url: "/assets/investors/OnePage.docx" },
-    { title: "Technical Investor Brief V4", type: "DOCX", size: "3.1 MB", date: "Mar 29, 2026", url: "/assets/investors/Technical Investor Brief V4.docx" },
+    { title: "One Page Summary", type: "DOCX", size: "0.8 MB", date: "Apr 01, 2026", url: "/assets/investors/1Zerocog_One_p.docx" },
+    { title: "Technical Investor Brief", type: "DOCX", size: "3.2 MB", date: "Apr 01, 2026", url: "/assets/investors/2Zerocog_inv_br.docx" },
+    { title: "Plan de Implementación", type: "DOCX", size: "1.4 MB", date: "Apr 01, 2026", url: "/assets/investors/3Zerocog_Implem_p.docx" },
+    { title: "Análisis de Riesgos y Mitigación", type: "DOCX", size: "2.1 MB", date: "Apr 01, 2026", url: "/assets/investors/4Zerocog_a_reiesg_mitig.docx" },
+    { title: "Presentación Seed V1", type: "DOCX", size: "4.5 MB", date: "Apr 01, 2026", url: "/assets/investors/5ZeroCog_pre_sd_v1.docx" },
+    { title: "Diagrama de Arquitectura", type: "JPG", size: "1.1 MB", date: "Apr 01, 2026", url: "/assets/investors/diagram_a.jpg" },
   ];
 
   const metrics = [
