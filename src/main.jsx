@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import InvestorArea from './pages/InvestorArea';
+import { ClockworkProvider } from './context/ClockworkContext';
+import { LanguageProvider } from './context/LanguageContext';
 import './index.css';
 
 // ZeroCog | Main Entry Point (v3.0 - Professional Refactor)
@@ -11,8 +13,10 @@ import './index.css';
 
 const Root = () => {
   return (
-    <BrowserRouter>
-      <Routes>
+    <LanguageProvider>
+      <ClockworkProvider>
+        <BrowserRouter>
+        <Routes>
         {/* Public Landing Page */}
         <Route path="/" element={<LandingPage />} />
         
@@ -22,8 +26,10 @@ const Root = () => {
         
         {/* Fallback / Catch-all */}
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </ClockworkProvider>
+    </LanguageProvider>
   );
 };
 

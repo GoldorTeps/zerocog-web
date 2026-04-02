@@ -1,60 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useTransform, useMotionValue } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 import { BRAND } from '../constants/brand';
 import { Gear } from './Gear';
+import { useClockwork } from '../context/ClockworkContext';
 
 /**
  * 3D Parallax Background for the Clockwork Palace.
- * @param {Object} props
- * @param {number|Object} props.current - The current section index or a MotionValue for fluid scroll-sync.
+ * Driven by the global ClockworkContext.
  */
-export const ClockworkBackground = ({ current = 0 }) => {
+export const ClockworkBackground = () => {
+  const { activeValue } = useClockwork();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  
-  // Detect if 'current' is a MotionValue (from useScroll/useSpring)
-  const isMotionValue = typeof current === 'object' && current !== null && 'get' in current;
-  const fallback = useMotionValue(0);
-  const activeValue = isMotionValue ? current : fallback;
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Sync fallback if 'current' changes as a number
   useEffect(() => {
-    if (!isMotionValue) fallback.set(Number(current) || 0);
-  }, [current, isMotionValue, fallback]);
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-  // --- Top-level Hooks (Required for React Rules) ---
-  const rotateYBase = useTransform(activeValue, v => v * -45);
-  const rotateXBase = useTransform(activeValue, v => v * 12);
+  // --- Spectacle Boost Logic ---
+  // On mobile, we multiply the rotation factor to make the scroll feel "High Torque"
+  const torque = isMobile ? 2.5 : 1;
+
+  // Base stage transformations
+  const rotateYBase = useTransform(activeValue, v => v * -45 * torque);
+  const rotateXBase = useTransform(activeValue, v => v * 12 * torque);
   const zTranslate = useTransform(activeValue, v => v * -150);
 
-  // Smooth combined rotations for the stage
+  // Smooth combined rotations for the stage (combining scroll + mouse)
   const rotateY = useTransform(rotateYBase, v => v + mousePos.x);
   const rotateX = useTransform(rotateXBase, v => v + mousePos.y);
 
-  // Gear rotations
-  const gear1Rot = useTransform(activeValue, v => v * 20);
-  const gear2Rot = useTransform(activeValue, v => v * -40);
-  const gear3Rot = useTransform(activeValue, v => v * 90);
-  const gear4Rot = useTransform(activeValue, v => v * -60);
+  // Gear rotations (Aggressive mapping for mobile spectacle)
+  const gear1Rot = useTransform(activeValue, v => v * 40 * torque);
+  const gear2Rot = useTransform(activeValue, v => v * -80 * torque);
+  const gear3Rot = useTransform(activeValue, v => v * 120 * torque);
+  const gear4Rot = useTransform(activeValue, v => v * -90 * torque);
 
-  // Layer rotations for the technical core (6 layers)
-  const layer0Rot = useTransform(activeValue, v => v * 30);
-  const layer1Rot = useTransform(activeValue, v => v * -50);
-  const layer2Rot = useTransform(activeValue, v => v * 30);
-  const layer3Rot = useTransform(activeValue, v => v * -50);
-  const layer4Rot = useTransform(activeValue, v => v * 30);
-  const layer5Rot = useTransform(activeValue, v => v * -50);
-  const layerRotations = [layer0Rot, layer1Rot, layer2Rot, layer3Rot, layer4Rot, layer5Rot];
+  // Layer rotations for the technical core
+  const layerRotations = [
+    useTransform(activeValue, v => v * 60 * torque),
+    useTransform(activeValue, v => v * -90 * torque),
+    useTransform(activeValue, v => v * 60 * torque),
+    useTransform(activeValue, v => v * -90 * torque),
+    useTransform(activeValue, v => v * 60 * torque),
+    useTransform(activeValue, v => v * -90 * torque),
+  ];
 
   useEffect(() => {
     const handleMouse = (e) => {
+      if (isMobile) return;
       setMousePos({ 
         x: (e.clientX / window.innerWidth - 0.5) * 60,
-        y: (e.clientY / window.innerHeight - 0.5) * 60
+        y: (e.clientY / window.innerHeight - 0.5) * 40
       });
     };
     window.addEventListener('mousemove', handleMouse);
     return () => window.removeEventListener('mousemove', handleMouse);
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 perspective-stage bg-brand-white overflow-hidden">
@@ -130,3 +135,4 @@ export const ClockworkBackground = ({ current = 0 }) => {
     </div>
   );
 };
+

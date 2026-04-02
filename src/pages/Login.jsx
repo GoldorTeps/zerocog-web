@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Lock, Mail, ArrowRight, ShieldCheck } from 'lucide-react';
 import { processLogin } from '../access_config';
 import { MainLayout } from '../layouts/MainLayout';
+import { useLanguage } from '../context/LanguageContext';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,6 +12,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const emailRef = useRef(null);
+
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Autofocus on mount to improve UX
@@ -31,7 +34,7 @@ const Login = () => {
     if (processLogin(cleanEmail, password)) {
       navigate('/investor');
     } else {
-      setError('Credenciales no válidas. Protocolo denegado.');
+      setError(t('login.error'));
     }
   };
 
@@ -46,13 +49,13 @@ const Login = () => {
               <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-[#00A86B]/10 rounded-full mb-2 md:mb-4 border border-[#00A86B]/20">
                 <Lock className="text-[#00A86B]" size={24} md:size={32} />
               </div>
-              <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase font-heading text-[#0F2B46]">Protocolo_Acceso</h1>
-              <p className="text-[8px] md:text-[10px] text-[#1E4F7A]/60 font-mono tracking-widest uppercase">Investor Portal v3.0 // SECURE</p>
+              <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase font-heading text-[#0F2B46]">{t('login.title')}</h1>
+              <p className="text-[8px] md:text-[10px] text-[#1E4F7A]/60 font-mono tracking-widest uppercase">{t('login.subtitle')}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-mono text-[#00A86B] tracking-[0.2em] uppercase ml-1">Email_Identidad</label>
+                <label className="text-[10px] font-mono text-[#00A86B] tracking-[0.2em] uppercase ml-1">{t('login.email_label')}</label>
                 <div className="relative text-black">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                   <input 
@@ -65,7 +68,7 @@ const Login = () => {
                       setEmail(e.target.value);
                       if (error) setError('');
                     }}
-                    placeholder="name@company.com"
+                    placeholder={t('login.placeholder_email')}
                     className="w-full bg-[#0F2B46]/5 text-[#0F2B46] border border-[#0F2B46]/10 py-4 pl-12 pr-4 focus:outline-none focus:border-[#00A86B] transition-colors font-light placeholder:text-gray-400"
                     required
                   />
@@ -73,7 +76,7 @@ const Login = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-mono text-[#00A86B] tracking-[0.2em] uppercase ml-1">Clave_Encriptada</label>
+                <label className="text-[10px] font-mono text-[#00A86B] tracking-[0.2em] uppercase ml-1">{t('login.pass_label')}</label>
                 <div className="relative text-black">
                   <ShieldCheck className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                   <input 
@@ -101,13 +104,13 @@ const Login = () => {
                 className="w-full py-4 md:py-5 bg-[#00A86B] text-white font-black tracking-widest uppercase hover:bg-[#0F2B46] transition-all duration-300 flex items-center justify-center gap-3 group text-sm md:text-base"
                 style={{ clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)' }}
               >
-                INICIAR_SESIÓN <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+                {t('login.btn_login')} <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
               </button>
             </form>
 
             <div className="pt-6 border-t border-[#0F2B46]/5 flex items-center justify-between opacity-50">
-               <span className="text-[9px] font-mono tracking-widest text-[#0F2B46]">SECURE_CHANNEL_ACTIVE</span>
-               <span className="text-[9px] font-mono tracking-widest italic uppercase text-[#0F2B46]">Sync_Ready</span>
+               <span className="text-[9px] font-mono tracking-widest text-[#0F2B46]">{t('login.footer_secure')}</span>
+               <span className="text-[9px] font-mono tracking-widest italic uppercase text-[#0F2B46]">{t('login.footer_sync')}</span>
             </div>
           </div>
 
@@ -116,7 +119,7 @@ const Login = () => {
               onClick={() => navigate('/')}
               className="text-[10px] font-mono text-gray-500 hover:text-[#00A86B] tracking-widest transition-colors uppercase"
             >
-              ← Volver a la Red Pública
+              {t('login.back')}
             </button>
           </div>
         </div>
