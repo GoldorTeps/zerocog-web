@@ -52,24 +52,23 @@ const InvestorArea = () => {
   if (isAuthorized === null) return <MainLayout><div className="h-full flex items-center justify-center mono-tech animate-pulse">AUTHORIZING_CHANNEL...</div></MainLayout>;
 
   return (
-    <MainLayout>
-      <header className="px-8 lg:px-16 h-24 flex items-center justify-between border-b border-[#0F2B46]/5 backdrop-blur-md sticky top-0 z-50">
-        <div className="flex items-center gap-4 ml-48">
+    <MainLayout 
+      actions={
+        <>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-[#00A86B] rounded-full animate-pulse" />
             <span className="text-[9px] font-mono text-[#00A86B] tracking-widest uppercase italic">Verified Session</span>
           </div>
-        </div>
-
-        <button
-          onClick={() => navigate('/')}
-          className="text-[10px] font-mono text-gray-400 hover:text-[#0F2B46] transition-colors flex items-center gap-2 uppercase tracking-widest"
-        >
-          SALIR <ExternalLink size={12} />
-        </button>
-      </header>
-
-      <div className="overflow-y-auto h-[calc(100vh-6rem)] custom-scrollbar">
+          <button
+            onClick={() => navigate('/')}
+            className="text-[10px] font-mono text-gray-400 hover:text-[#0F2B46] transition-colors flex items-center gap-2 uppercase tracking-widest"
+          >
+            SALIR <ExternalLink size={12} />
+          </button>
+        </>
+      }
+    >
+      <div className="overflow-y-auto h-screen pt-24 custom-scrollbar">
         <main className="max-w-7xl mx-auto px-8 lg:px-16 py-16 space-y-24">
 
           <section className="grid lg:grid-cols-2 gap-16 items-center">
@@ -161,7 +160,7 @@ const InvestorArea = () => {
                 <Lock className="text-[#00A86B]" />
                 <h4 className="text-xl font-bold text-[#0F2B46]">Seguridad de Datos</h4>
                 <p className="text-sm text-[#1E4F7A]/80 leading-relaxed">
-                  Toda esta documentación aún no está cifrada siguiendo ningún protocolo. Por favor, no comparta este enlace por ningún medio"
+                  Toda esta documentación aún no está cifrada siguiendo ningún protocolo. Por favor, no comparta este enlace por ningún medio
                 </p>
               </div>
 

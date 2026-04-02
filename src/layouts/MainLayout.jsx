@@ -11,7 +11,7 @@ import { BRAND } from '../constants/brand';
  * @param {Object} props
  * @param {number} props.current - The current section index (0 for single-page views).
  */
-export const MainLayout = ({ children, current = 0 }) => {
+export const MainLayout = ({ children, current = 0, actions = null }) => {
   const location = useLocation();
   const isInvestor = location.pathname === '/investor';
 
@@ -25,18 +25,35 @@ export const MainLayout = ({ children, current = 0 }) => {
       <ClockworkBackground current={current} />
       
       {/* Global Brand Overlay */}
-      <nav className="fixed top-0 left-0 right-0 h-32 px-12 flex items-center justify-between z-50 pointer-events-none">
-        <Link to="/" className="flex items-center gap-6 pointer-events-auto group">
-          <div className="w-10 h-10 border border-[#0F2B46]/20 flex items-center justify-center p-2 group-hover:border-[#00A86B]/40 transition-colors">
-             <div className={`w-full h-full transition-colors ${isInvestor ? 'bg-[#00A86B]/20' : 'bg-transparent'}`} />
-          </div>
-          <div className="flex flex-col justify-center">
-            <span className="text-xl font-black text-[#0F2B46] tracking-tighter uppercase leading-none group-hover:text-[#00A86B] transition-colors">ZEROCOG</span>
-            <span className="mono-tech text-[7px] uppercase tracking-widest opacity-60 leading-none mt-1">FASE_01</span>
-          </div>
-        </Link>
-        
-        <div className="mono-tech text-[#1E4F7A] opacity-40 uppercase tracking-widest text-[10px]">SOVEREIGN_ARCH // 2026</div>
+      <nav className="fixed top-0 left-0 right-0 h-24 px-12 flex items-center justify-between z-50 pointer-events-none">
+        <div className="flex items-center gap-12">
+          <Link to="/" className="flex items-center gap-4 pointer-events-auto group">
+            <div className="h-10 w-auto flex items-center justify-center transition-all duration-500 group-hover:scale-110 drop-shadow-sm">
+               <img 
+                 src="/assets/logo.png" 
+                 alt="ZeroCog Logo" 
+                 className="h-full w-auto object-contain rounded-lg"
+               />
+            </div>
+            <div className="flex flex-col justify-center border-l-2 border-[#0F2B46]/5 pl-4 h-10">
+              <h1 className="text-2xl font-black text-[#0F2B46] tracking-tighter uppercase leading-none group-hover:text-[#00A86B] transition-colors duration-300">
+                ZEROCOG
+              </h1>
+              <div className="flex items-center gap-2 mt-1">
+                <span className="w-1 h-1 bg-[#00A86B] rounded-full animate-pulse" />
+                <span className="mono-tech text-[8px] uppercase tracking-[0.2em] text-[#1E4F7A]/60 leading-none">
+                  Fase_01
+                </span>
+              </div>
+            </div>
+          </Link>
+          
+        </div>
+
+        {/* Dynamic Actions Slot (Page-Specific) */}
+        <div className="pointer-events-auto flex items-center gap-8">
+          {actions}
+        </div>
       </nav>
 
       {/* Page Content */}
