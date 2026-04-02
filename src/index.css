@@ -27,11 +27,18 @@
 body, html, #root {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   background-color: var(--bg-color);
   color: var(--text-main);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 1024px) {
+  body, html, #root {
+    overflow: hidden;
+  }
 }
 
 /* Volumetric 3D Stage Utilities */
@@ -57,7 +64,18 @@ body, html, #root {
   border: 1px solid var(--panel-border);
   box-shadow: var(--panel-shadow);
   position: relative;
-  /* Removed transform-style: preserve-3d to fix backdrop-filter in Firefox */
+}
+
+/* Responsive bevel adjustments */
+@media (max-width: 768px) {
+  .bevelled {
+    clip-path: polygon(
+      0 10px, 10px 0, 
+      calc(100% - 10px) 0, 100% 10px, 
+      100% calc(100% - 10px), calc(100% - 10px) 100%, 
+      10px 100%, 0 calc(100% - 10px)
+    );
+  }
 }
 
 /* Base isolation layer for background filtering */

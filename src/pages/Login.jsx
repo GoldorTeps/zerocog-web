@@ -37,17 +37,17 @@ const Login = () => {
 
   return (
     <MainLayout>
-      <div className="flex items-center justify-center h-full p-6">
+      <div className="flex items-center justify-center h-full p-4 md:p-6 pb-24 md:pb-6">
         <div className="w-full max-w-md relative">
-          <div className="absolute -top-12 -left-12 w-24 h-24 border-t-2 border-l-2 border-[#00A86B]/50" />
+          <div className="absolute -top-6 md:-top-12 -left-6 md:-left-12 w-12 md:w-24 h-12 md:h-24 border-t-2 border-l-2 border-[#00A86B]/50" />
           
-          <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-10 shadow-2xl space-y-8 glass-isolation bevelled">
+          <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 md:p-10 shadow-2xl space-y-6 md:space-y-8 glass-isolation bevelled">
             <div className="text-center space-y-2">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#00A86B]/10 rounded-full mb-4 border border-[#00A86B]/20">
-                <Lock className="text-[#00A86B]" size={32} />
+              <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-[#00A86B]/10 rounded-full mb-2 md:mb-4 border border-[#00A86B]/20">
+                <Lock className="text-[#00A86B]" size={24} md:size={32} />
               </div>
-              <h1 className="text-3xl font-black tracking-tighter uppercase font-heading text-[#0F2B46]">Protocolo_Acceso</h1>
-              <p className="text-[10px] text-[#1E4F7A]/60 font-mono tracking-widest uppercase">Investor Portal v3.0 // SECURE</p>
+              <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase font-heading text-[#0F2B46]">Protocolo_Acceso</h1>
+              <p className="text-[8px] md:text-[10px] text-[#1E4F7A]/60 font-mono tracking-widest uppercase">Investor Portal v3.0 // SECURE</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -98,7 +98,7 @@ const Login = () => {
 
               <button 
                 type="submit"
-                className="w-full py-5 bg-[#00A86B] text-white font-black tracking-widest uppercase hover:bg-[#0F2B46] transition-all duration-300 flex items-center justify-center gap-3 group"
+                className="w-full py-4 md:py-5 bg-[#00A86B] text-white font-black tracking-widest uppercase hover:bg-[#0F2B46] transition-all duration-300 flex items-center justify-center gap-3 group text-sm md:text-base"
                 style={{ clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)' }}
               >
                 INICIAR_SESIÓN <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />

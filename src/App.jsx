@@ -65,7 +65,7 @@ const ClockworkBackground = ({ current }) => {
   }, [])
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 perspective-stage bg-brand-white overflow-hidden">
+    <div className="fixed -inset-[5%] pointer-events-none z-0 perspective-stage bg-brand-white overflow-hidden">
       <div className="blueprint-grid" />
       
       {/* 3D World Stage - Increased Amplitude & 6-Section stop calibration */}
@@ -161,11 +161,11 @@ const PersistentReveal = ({ children, direction }) => {
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       exit={{ opacity: 0, y: direction * -50, filter: "blur(10px)" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="relative w-full h-full flex items-center justify-center p-8 lg:p-24"
+      className="relative w-full h-full flex items-center justify-center p-4 md:p-8 lg:p-24"
     >
       {/* Firefox Compatibility: Split glass-isolation/bevelled from glass-precision */}
-      <div className="w-full max-w-7xl z-10 glass-isolation bevelled overflow-hidden shadow-none border border-brand-blue-deep/5">
-        <div className="glass-precision p-12 lg:p-16 w-full h-full">
+      <div className="w-full max-w-7xl z-10 glass-isolation bevelled overflow-visible md:overflow-hidden shadow-none border border-brand-blue-deep/5">
+        <div className="glass-precision p-6 md:p-12 lg:p-16 w-full h-full">
           <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-brand-green/30" />
           <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-brand-green/30" />
           <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-brand-green/30" />
@@ -181,10 +181,10 @@ const PersistentReveal = ({ children, direction }) => {
 // --- Content Sections ---
 
 const HeroSection = () => (
-  <div className="flex flex-col items-center text-center space-y-12">
+  <div className="flex flex-col items-center text-center space-y-6 md:space-y-12">
     <div className="mono-tech">SECTOR_01 // INICIALIZACIÓN</div>
     <div className="relative">
-      <h1 className="text-8xl lg:text-[10rem] font-black tracking-tighter text-brand-blue-deep leading-none">
+      <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter text-brand-blue-deep leading-none">
         <motion.span 
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -205,16 +205,16 @@ const HeroSection = () => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.4 }}
-      className="text-2xl lg:text-3xl font-light text-brand-blue-med max-w-3xl leading-relaxed"
+      className="text-lg md:text-2xl lg:text-3xl font-light text-brand-blue-med max-w-3xl leading-relaxed px-4"
     >
       La arquitectura de IA soberana que <span className="text-brand-blue-deep italic">recuerda</span> con precisión arquitectónica.
     </motion.p>
     
-    <div className="flex gap-8 pt-6">
-      <button className="px-12 py-5 bg-brand-green text-white font-black tracking-widest uppercase hover:bg-brand-blue-deep transition-all bevelled shadow-lg">
+    <div className="flex flex-col md:flex-row gap-4 md:gap-8 pt-6 w-full px-8 md:px-0 max-w-sm md:max-w-none">
+      <button className="w-full md:w-auto px-8 md:px-12 py-4 md:py-5 bg-brand-green text-white font-black tracking-widest uppercase hover:bg-brand-blue-deep transition-all bevelled shadow-lg text-sm md:text-base">
         Acceder_Memoria
       </button>
-      <button className="px-12 py-5 border-brand-blue-deep/20 text-brand-blue-deep font-black tracking-widest uppercase hover:bg-brand-blue-deep hover:text-white transition-all bevelled">
+      <button className="w-full md:w-auto px-8 md:px-12 py-4 md:py-5 border-brand-blue-deep/20 text-brand-blue-deep font-black tracking-widest uppercase hover:bg-brand-blue-deep hover:text-white transition-all bevelled text-sm md:text-base">
         Ver_Arquitectura
       </button>
     </div>
@@ -222,34 +222,36 @@ const HeroSection = () => (
 )
 
 const ParadoxSection = () => (
-  <div className="grid lg:grid-cols-2 gap-24 items-center">
-    <div className="space-y-10 text-left">
+  <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+    <div className="space-y-6 md:space-y-10 text-left">
       <div className="mono-tech">02 // LA_PARADOJA</div>
-      <h2 className="text-6xl font-black text-brand-blue-deep leading-none">
+      <h2 className="text-4xl md:text-6xl font-black text-brand-blue-deep leading-none">
         La Paradoja de la <br />
         <span className="text-brand-green">IA Actual.</span>
       </h2>
-      <p className="text-xl text-brand-dark-text leading-relaxed opacity-90">
+      <p className="text-lg text-brand-dark-text leading-relaxed opacity-90">
         Las IAs de hoy sufren de amnesia selectiva. Procesan millones de datos, pero olvidan el contexto de <span className="font-black italic underline decoration-brand-green/30 underline-offset-4">quién eres tú</span> en el momento en que cierras la sesión.
       </p>
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {[
           "Memoria fragmentada entre sesiones.",
           "Dependencia de nubes públicas externas.",
           "Falta de continuidad lógica a largo plazo."
         ].map((item, i) => (
-          <div key={i} className="flex items-center gap-6 group">
-            <div className="w-1 h-8 bg-brand-green/40 group-hover:bg-brand-green transition-all" />
-            <span className="text-lg font-bold text-brand-blue-deep/80 group-hover:text-brand-blue-deep transition-colors italic">{item}</span>
+          <div key={i} className="flex items-center gap-4 md:gap-6 group">
+            <div className="w-1 h-6 md:h-8 bg-brand-green/40 group-hover:bg-brand-green transition-all" />
+            <span className="text-base md:text-lg font-bold text-brand-blue-deep/80 group-hover:text-brand-blue-deep transition-colors italic">{item}</span>
           </div>
         ))}
       </div>
     </div>
-    <div className="relative h-[450px] flex items-center justify-center opacity-40 translate-x-12">
-       <Gear size={500} color={BRAND.BLUE_MED} rotation={-120} teeth={56} opacity={0.3} />
-       <div className="absolute scale-50">
+    <div className="relative h-64 md:h-[450px] flex items-center justify-center opacity-40 lg:translate-x-12 overflow-visible">
+       <div className="absolute scale-75 md:scale-100">
+         <Gear size={500} color={BRAND.BLUE_MED} rotation={-120} teeth={56} opacity={0.3} />
+       </div>
+       <div className="absolute scale-50 md:scale-75">
           <motion.div animate={{ rotate: 360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
-             <Cpu size={200} className="text-brand-blue-deep" />
+             <Cpu size={150} className="text-brand-blue-deep" />
           </motion.div>
        </div>
     </div>
@@ -257,40 +259,40 @@ const ParadoxSection = () => (
 )
 
 const SolutionSection = () => (
-  <div className="space-y-12">
-    <div className="text-center space-y-6">
+  <div className="space-y-8 md:space-y-12">
+    <div className="text-center space-y-4 md:space-y-6">
       <div className="mono-tech">03 // LA_SOLUCIÓN</div>
-      <h2 className="text-6xl font-black text-brand-blue-deep">Ecosistema de Memoria Continua.</h2>
+      <h2 className="text-4xl md:text-6xl font-black text-brand-blue-deep">Ecosistema de Memoria Continua.</h2>
     </div>
-    <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto px-4">
       <div className="glass-isolation bevelled overflow-hidden border border-brand-green/20 group hover:scale-[1.02] transition-transform">
-        <div className="glass-precision p-12 space-y-8 bg-brand-green/5">
+        <div className="glass-precision p-8 md:p-12 space-y-6 md:space-y-8 bg-brand-green/5">
           <div className="flex items-center gap-4">
-             <Lock size={32} className="text-brand-green" />
-             <h3 className="text-3xl font-black text-brand-blue-deep">Modo Soberano</h3>
+             <Lock size={28} className="text-brand-green" />
+             <h3 className="text-2xl md:text-3xl font-black text-brand-blue-deep">Modo Soberano</h3>
           </div>
-          <p className="text-brand-dark-text/80 text-lg leading-relaxed">
+          <p className="text-brand-dark-text/80 text-base md:text-lg leading-relaxed">
             Ejecución local absoluta. Tus datos nunca abandonan tu hardware. Memoria persistente privada, encriptada a nivel de engranaje lógico.
           </p>
           <div className="pt-4 border-t border-brand-green/10 flex justify-between items-center">
-             <span className="mono-tech">STATUS: PROTECTED</span>
-             <Zap size={20} className="text-brand-green animate-pulse" />
+             <span className="mono-tech text-[8px] md:text-[10px]">STATUS: PROTECTED</span>
+             <Zap size={18} className="text-brand-green animate-pulse" />
           </div>
         </div>
       </div>
       
       <div className="glass-isolation bevelled overflow-hidden border border-brand-blue-med/10 group hover:scale-[1.02] transition-transform">
-        <div className="glass-precision p-12 space-y-8 bg-brand-blue-med/5">
+        <div className="glass-precision p-8 md:p-12 space-y-6 md:space-y-8 bg-brand-blue-med/5">
           <div className="flex items-center gap-4">
-             <Globe size={32} className="text-brand-blue-med" />
-             <h3 className="text-3xl font-black text-brand-blue-deep">Modo Externo</h3>
+             <Globe size={28} className="text-brand-blue-med" />
+             <h3 className="text-2xl md:text-3xl font-black text-brand-blue-deep">Modo Externo</h3>
           </div>
-          <p className="text-brand-dark-text/80 text-lg leading-relaxed">
+          <p className="text-brand-dark-text/80 text-base md:text-lg leading-relaxed">
             Sincronización híbrida bajo demanda. Utiliza potencia de cálculo externa mientras mantienes el control de las llaves de acceso a tu memoria.
           </p>
           <div className="pt-4 border-t border-brand-blue-med/10 flex justify-between items-center">
-             <span className="mono-tech">STATUS: ENCRYPTED_SYNC</span>
-             <Shield size={20} className="text-brand-blue-med" />
+             <span className="mono-tech text-[8px] md:text-[10px]">STATUS: ENCRYPTED_SYNC</span>
+             <Shield size={18} className="text-brand-blue-med" />
           </div>
         </div>
       </div>
@@ -299,23 +301,23 @@ const SolutionSection = () => (
 )
 
 const UseCasesSection = () => (
-  <div className="space-y-16">
-    <div className="text-center space-y-6">
+  <div className="space-y-12 md:space-y-16 py-8">
+    <div className="text-center space-y-4 md:space-y-6">
       <div className="mono-tech">04 // CASOS_DE_USO</div>
-      <h2 className="text-6xl font-black text-brand-blue-deep">¿Qué puedes hacer con esto?</h2>
+      <h2 className="text-4xl md:text-6xl font-black text-brand-blue-deep">¿Qué puedes hacer con esto?</h2>
     </div>
-    <div className="grid md:grid-cols-3 gap-8 text-left">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-left px-4">
       {[
         { title: "Asistente Permanente", desc: "Un sistema que recuerda tus proyectos, preferencias y discusiones técnicas de hace meses como si hubieran ocurrido hoy.", icon: <UserCheck /> },
         { title: "Bóveda de Conocimiento", desc: "Ingesta de terabytes de documentación técnica que tu IA puede navegar con lógica arquitectónica instantánea.", icon: <Database /> },
         { title: "Agentes Continuos", desc: "Agentes que operan en segundo plano, manteniendo el estado de tareas complejas de larga duración sin pérdida de contexto.", icon: <Activity /> }
       ].map((use, i) => (
         <div key={i} className="glass-isolation bevelled overflow-hidden border border-brand-blue-med/5 group hover:border-brand-green/40 transition-all">
-          <div className="glass-precision p-10 space-y-6 h-full">
-            <div className="w-14 h-14 bg-brand-blue-deep/5 flex items-center justify-center text-brand-blue-deep group-hover:bg-brand-green group-hover:text-white transition-all">
-               {use.icon}
+          <div className="glass-precision p-8 md:p-10 space-y-4 md:space-y-6 h-full">
+            <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-blue-deep/5 flex items-center justify-center text-brand-blue-deep group-hover:bg-brand-green group-hover:text-white transition-all">
+               {React.cloneElement(use.icon, { size: 20 })}
             </div>
-            <h3 className="text-2xl font-black text-brand-blue-deep">{use.title}</h3>
+            <h3 className="text-xl md:text-2xl font-black text-brand-blue-deep">{use.title}</h3>
             <p className="text-brand-dark-text/70 text-sm leading-relaxed">{use.desc}</p>
           </div>
         </div>
@@ -325,30 +327,32 @@ const UseCasesSection = () => (
 )
 
 const ValuePropSection = () => (
-  <div className="grid lg:grid-cols-2 gap-20 items-center">
-    <div className="relative h-[400px] flex items-center justify-center order-2 lg:order-1">
-       <Gear size={450} color={BRAND.GREEN} rotation={45} teeth={32} opacity={0.1} />
-       <div className="absolute inset-0 flex items-center justify-center mono-tech text-[15rem] font-black opacity-5 select-none">
+  <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+    <div className="relative h-64 md:h-[400px] flex items-center justify-center order-2 lg:order-1">
+       <div className="absolute scale-75 md:scale-100">
+         <Gear size={450} color={BRAND.GREEN} rotation={45} teeth={32} opacity={0.1} />
+       </div>
+       <div className="absolute inset-0 flex items-center justify-center mono-tech text-[8rem] md:text-[15rem] font-black opacity-5 select-none">
           COG
        </div>
     </div>
-    <div className="space-y-12 text-left order-1 lg:order-2">
+    <div className="space-y-8 md:space-y-12 text-left order-1 lg:order-2 px-4">
       <div className="mono-tech">05 // VALOR_DIFERENCIAL</div>
-      <h2 className="text-6xl font-black text-brand-blue-deep leading-none">
+      <h2 className="text-4xl md:text-6xl font-black text-brand-blue-deep leading-none">
         Por qué <br />
         <span className="text-brand-green">ZeroCog?</span>
       </h2>
-      <div className="space-y-8">
+      <div className="space-y-6 md:space-y-8">
         {[
           { h: "Latencia Zero de Recuperación", p: "Nuestro motor de indexación mecánica recupera fragmentos de memoria en milisegundos." },
           { h: "Continuidad Arquitectónica", p: "Cada interacción construye una estructura lógica que no se degrada con el tiempo." },
           { h: "Privacidad por Geometría", p: "Tus datos se fragmentan matemáticamente fuera del alcance de terceros." }
         ].map((prop, i) => (
           <div key={i} className="space-y-2">
-            <h3 className="text-xl font-black text-brand-blue-deep flex items-center gap-3">
+            <h3 className="text-lg md:text-xl font-black text-brand-blue-deep flex items-center gap-3">
               <div className="w-2 h-2 bg-brand-green rotate-45" /> {prop.h}
             </h3>
-            <p className="text-brand-blue-med/80 pl-5 border-l border-brand-blue-med/10 ml-1">{prop.p}</p>
+            <p className="text-brand-blue-med/80 pl-5 border-l border-brand-blue-med/10 ml-1 text-sm md:text-base">{prop.p}</p>
           </div>
         ))}
       </div>
@@ -357,29 +361,29 @@ const ValuePropSection = () => (
 )
 
 const ContactSection = () => (
-  <div className="flex flex-col items-center text-center space-y-16">
-    <div className="w-1 h-24 bg-brand-green/40 shadow-glow animate-pulse" />
-    <div className="space-y-6">
-      <h2 className="text-7xl font-black text-brand-blue-deep tracking-tighter">Únete a la Unfold.</h2>
-      <p className="text-2xl text-brand-blue-med">Coloaboraciones selectas para el despliegue de 2026.</p>
+  <div className="flex flex-col items-center text-center space-y-8 md:space-y-16 py-8">
+    <div className="w-1 h-12 md:h-24 bg-brand-green/40 shadow-glow animate-pulse" />
+    <div className="space-y-4 md:space-y-6 px-4">
+      <h2 className="text-4xl md:text-7xl font-black text-brand-blue-deep tracking-tighter">Únete a la Unfold.</h2>
+      <p className="text-xl md:text-2xl text-brand-blue-med">Colaboraciones selectas para el despliegue de 2026.</p>
     </div>
     
-    <div className="relative group">
+    <div className="relative group px-4">
       <div className="absolute inset-0 bg-brand-green/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-      <a href="mailto:zerocogorg@gmail.com" className="relative text-5xl font-black text-brand-green hover:text-brand-blue-deep transition-colors underline underline-offset-8 decoration-1">
+      <a href="mailto:zerocogorg@gmail.com" className="relative text-2xl md:text-5xl font-black text-brand-green hover:text-brand-blue-deep transition-colors underline underline-offset-8 decoration-1 break-all">
         zerocogorg@gmail.com
       </a>
     </div>
 
-    <div className="grid grid-cols-3 gap-24 pt-12">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-24 pt-12">
       {[
         { label: "LATITUD", val: "36.72° N" },
         { label: "LONGITUD", val: "4.42° W" },
         { label: "SISTEMA", val: "SINCRONIZADO" }
       ].map((item, i) => (
-        <div key={i} className="space-y-3">
-          <div className="mono-tech text-[10px]">{item.label}</div>
-          <div className="text-xl font-bold text-brand-blue-deep">{item.val}</div>
+        <div key={i} className="space-y-2 md:space-y-3">
+          <div className="mono-tech text-[8px] md:text-[10px]">{item.label}</div>
+          <div className="text-lg md:text-xl font-bold text-brand-blue-deep">{item.val}</div>
         </div>
       ))}
     </div>
@@ -391,6 +395,7 @@ const ContactSection = () => (
 export default function App() {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const sections = [
     { id: 'hero', title: 'I_INICIO' },
@@ -405,6 +410,7 @@ export default function App() {
     if (newIdx === current) return
     setDirection(newIdx > current ? 1 : -1)
     setCurrent(newIdx)
+    setMenuOpen(false)
   }
 
   useEffect(() => {
@@ -441,18 +447,19 @@ export default function App() {
       <ClockworkBackground current={current} />
       
       {/* Persitent Nav - Cleaner & Lighter */}
-      <nav className="fixed top-0 left-0 right-0 h-32 px-12 flex items-center justify-between z-50">
-        <div className="flex items-center gap-6">
-          <div className="w-10 h-10 border border-brand-blue-deep/20 flex items-center justify-center p-2">
+      <nav className="fixed top-0 left-0 right-0 h-20 md:h-32 px-6 md:px-12 flex items-center justify-between z-50">
+        <div className="flex items-center gap-4 md:gap-6">
+          <div className="w-8 h-8 md:w-10 md:h-10 border border-brand-blue-deep/20 flex items-center justify-center p-1.5 md:p-2">
              <div className="w-full h-full bg-brand-green/20" />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-black text-brand-blue-deep tracking-tighter">ZEROCOG</span>
-            <span className="mono-tech text-[7px]">SISTEMA_SOBERANO_V1.5</span>
+            <span className="text-lg md:text-xl font-black text-brand-blue-deep tracking-tighter">ZEROCOG</span>
+            <span className="mono-tech text-[6px] md:text-[7px]">SISTEMA_SOBERANO_V1.5</span>
           </div>
         </div>
 
-        <div className="flex gap-16">
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-10 xl:gap-16">
           {sections.map((section, idx) => (
             <button key={section.id} onClick={() => navigate(idx)} className="relative py-2 group">
               <span className={`font-mono text-[9px] tracking-[0.4em] transition-all ${current === idx ? 'text-brand-green' : 'text-brand-blue-med/40 group-hover:text-brand-blue-deep'}`}>
@@ -465,7 +472,57 @@ export default function App() {
           ))}
         </div>
 
-        <div className="mono-tech text-brand-blue-med opacity-40">SOVEREIGN_ARCH</div>
+        {/* Mobile Menu Trigger */}
+        <button 
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="lg:hidden w-12 h-12 border border-brand-blue-deep/10 flex items-center justify-center bg-brand-white/80 backdrop-blur-md z-[100] relative"
+          aria-label="Toggle Menu"
+        >
+          <div className="flex flex-col gap-1.5 items-center">
+            <motion.div 
+              animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6 : 0 }}
+              className="w-6 h-0.5 bg-brand-blue-deep" 
+            />
+            <motion.div 
+              animate={{ opacity: menuOpen ? 0 : 1 }}
+              className="w-6 h-0.5 bg-brand-blue-deep" 
+            />
+            <motion.div 
+              animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6 : 0 }}
+              className="w-6 h-0.5 bg-brand-blue-deep" 
+            />
+          </div>
+        </button>
+
+        <div className="hidden md:block mono-tech text-brand-blue-med opacity-40">SOVEREIGN_ARCH</div>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="lg:hidden fixed inset-0 bg-brand-white/95 backdrop-blur-xl z-50 flex flex-col items-center justify-center space-y-8"
+            >
+              {sections.map((section, idx) => (
+                <button 
+                  key={section.id} 
+                  onClick={() => navigate(idx)}
+                  className="group flex flex-col items-center"
+                >
+                  <span className={`font-mono text-xs tracking-[0.6em] transition-all ${current === idx ? 'text-brand-green' : 'text-brand-blue-med'}`}>
+                    {section.title}
+                  </span>
+                  {current === idx && (
+                    <motion.div layoutId="mobile-nav-line" className="w-12 h-1 bg-brand-green mt-2" />
+                  )}
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Persistent Content Container */}

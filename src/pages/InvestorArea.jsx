@@ -68,48 +68,48 @@ const InvestorArea = () => {
         </>
       }
     >
-      <div className="overflow-y-auto h-screen pt-24 custom-scrollbar">
-        <main className="max-w-7xl mx-auto px-8 lg:px-16 py-16 space-y-24">
+      <div className="overflow-y-auto h-screen pt-20 md:pt-24 custom-scrollbar">
+        <main className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-8 md:py-16 space-y-16 md:space-y-24">
 
-          <section className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h1 className="text-6xl font-black tracking-tighter leading-none text-[#0F2B46]">
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="space-y-4 md:space-y-6 text-center md:text-left">
+              <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-tight md:leading-none text-[#0F2B46]">
                 Arquitectura de <br />
                 <span className="text-[#00A86B]">Memoria Persistente para IA</span>
               </h1>
-              <p className="text-xl text-[#1E4F7A]/80 font-light max-w-xl leading-relaxed">
+              <p className="text-lg md:text-xl text-[#1E4F7A]/80 font-light max-w-xl mx-auto md:mx-0 leading-relaxed">
                 Infraestructura cognitiva para operar con contexto continuo, control de acceso y trazabilidad completa.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {metrics.map((m, i) => (
-                <div key={i} className="p-6 bg-[#0F2B46]/5 border border-[#0F2B46]/5 hover:border-[#00A86B]/30 transition-all group glass-isolation">
-                  <p className="text-[10px] font-mono text-gray-500 mb-1 uppercase tracking-widest">{m.label}</p>
-                  <p className="text-3xl font-black text-[#0F2B46] group-hover:text-[#00A86B] transition-colors">{m.value}</p>
-                  <p className="text-xs text-[#00A86B] mt-2 font-mono">{m.trend}</p>
+                <div key={i} className="p-4 md:p-6 bg-[#0F2B46]/5 border border-[#0F2B46]/5 hover:border-[#00A86B]/30 transition-all group glass-isolation">
+                  <p className="text-[9px] md:text-[10px] font-mono text-gray-500 mb-1 uppercase tracking-widest">{m.label}</p>
+                  <p className="text-2xl md:text-3xl font-black text-[#0F2B46] group-hover:text-[#00A86B] transition-colors">{m.value}</p>
+                  <p className="text-[10px] md:text-xs text-[#00A86B] mt-2 font-mono">{m.trend}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="space-y-8">
-            <div className="flex justify-between items-end border-b border-[#0F2B46]/10 pb-4">
-              <h3 className="text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
+          <section className="space-y-6 md:space-y-8">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-end border-b border-[#0F2B46]/10 pb-4 gap-4 md:gap-0">
+              <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
                 <FileText className="text-[#00A86B]" /> Repositorio de Materiales
               </h3>
-              <span className="text-xs font-mono text-gray-500">LAST_UPDATE: 01_APR_2026</span>
+              <span className="text-[10px] font-mono text-gray-500">LAST_UPDATE: 01_APR_2026</span>
             </div>
 
             <div className="grid gap-px bg-[#0F2B46]/10 border border-[#0F2B46]/10">
               {documents.map((doc, i) => (
-                <div key={i} className="bg-white/80 backdrop-blur-sm p-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-[#00A86B]/5 transition-colors">
-                  <div className="flex items-center gap-6">
-                    <div className="w-12 h-12 bg-[#0F2B46]/5 flex items-center justify-center text-[#00A86B]">
-                      <Database size={24} />
+                <div key={i} className="bg-white/80 backdrop-blur-sm p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-[#00A86B]/5 transition-colors gap-6 md:gap-0">
+                  <div className="flex items-center gap-4 md:gap-6">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-[#0F2B46]/5 flex items-center justify-center text-[#00A86B] shrink-0">
+                      <Database size={20} md:size={24} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold group-hover:text-[#00A86B] transition-colors text-[#0F2B46]">{doc.title}</h4>
-                      <p className="text-xs text-gray-500 mt-1 uppercase tracking-widest font-mono">
+                      <h4 className="text-base md:text-lg font-bold group-hover:text-[#00A86B] transition-colors text-[#0F2B46]">{doc.title}</h4>
+                      <p className="text-[10px] md:text-xs text-gray-500 mt-1 uppercase tracking-widest font-mono">
                         {doc.type} • {doc.size} • {doc.date}
                       </p>
                     </div>
@@ -117,18 +117,18 @@ const InvestorArea = () => {
                   <a
                     href={doc.url}
                     download
-                    className="mt-6 md:mt-0 flex items-center justify-center gap-3 px-6 py-3 border border-[#00A86B]/20 hover:bg-[#00A86B] hover:text-white transition-all font-bold text-xs tracking-widest uppercase text-[#00A86B] hover:border-[#00A86B] pointer-events-auto"
+                    className="flex items-center justify-center gap-3 px-6 py-3 border border-[#00A86B]/20 hover:bg-[#00A86B] hover:text-white transition-all font-bold text-[10px] md:text-xs tracking-widest uppercase text-[#00A86B] hover:border-[#00A86B] pointer-events-auto"
                   >
-                    DESCARGAR <Download size={16} />
+                    DESCARGAR <Download size={14} md:size={16} />
                   </a>
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-8">
-              <h3 className="text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
+          <section className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16">
+            <div className="lg:col-span-2 space-y-6 md:space-y-8">
+              <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
                 <TrendingUp className="text-[#00A86B]" /> Roadmap Estratégico
               </h3>
               <div className="space-y-6">
@@ -137,42 +137,42 @@ const InvestorArea = () => {
                   { q: "Q2 2028", title: "Fase_02", status: "Upcoming", desc: "Información no divulgada." },
                   { q: "Q3 2030", title: "Fase_03", status: "Upcoming", desc: "Información no divulgada." }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-8 relative">
-                    {i !== 2 && <div className="absolute left-6 top-12 bottom-0 w-px bg-[#0F2B46]/10" />}
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center border ${item.status === 'Completed' ? 'border-[#00A86B] bg-[#00A86B]/10' : 'border-[#0F2B46]/10 bg-[#0F2B46]/5'}`}>
-                      <ChevronRight size={20} className={item.status === 'Completed' ? 'text-[#00A86B]' : 'text-[#1E4F7A]/30'} />
+                  <div key={i} className="flex gap-4 md:gap-8 relative">
+                    {i !== 2 && <div className="absolute left-5 md:left-6 top-10 md:top-12 bottom-0 w-px bg-[#0F2B46]/10" />}
+                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border shrink-0 ${item.status === 'Completed' ? 'border-[#00A86B] bg-[#00A86B]/10' : 'border-[#0F2B46]/10 bg-[#0F2B46]/5'}`}>
+                      <ChevronRight size={18} md:size={20} className={item.status === 'Completed' ? 'text-[#00A86B]' : 'text-[#1E4F7A]/30'} />
                     </div>
-                    <div className="flex-1 pb-12">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-mono text-gray-500">{item.q}</span>
-                        <span className={`text-[9px] px-2 py-0.5 font-mono border ${item.status === 'Completed' ? 'border-[#00A86B] text-[#00A86B]' : 'border-gray-400 text-gray-400 uppercase'}`}>{item.status}</span>
+                    <div className="flex-1 pb-8 md:pb-12">
+                      <div className="flex items-center gap-3 mb-1 md:mb-2">
+                        <span className="text-[10px] font-mono text-gray-500">{item.q}</span>
+                        <span className={`text-[8px] md:text-[9px] px-2 py-0.5 font-mono border ${item.status === 'Completed' ? 'border-[#00A86B] text-[#00A86B]' : 'border-gray-400 text-gray-400 uppercase'}`}>{item.status}</span>
                       </div>
-                      <h5 className="text-xl font-bold text-[#0F2B46]">{item.title}</h5>
-                      <p className="text-[#1E4F7A]/80 mt-2 text-sm leading-relaxed">{item.desc}</p>
+                      <h5 className="text-lg md:text-xl font-bold text-[#0F2B46]">{item.title}</h5>
+                      <p className="text-[#1E4F7A]/80 mt-1 md:mt-2 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="space-y-12">
-              <div className="p-8 border border-[#00A86B]/30 bg-[#00A86B]/5 space-y-6 glass-isolation">
-                <Lock className="text-[#00A86B]" />
-                <h4 className="text-xl font-bold text-[#0F2B46]">Seguridad de Datos</h4>
+            <div className="space-y-8 md:space-y-12">
+              <div className="p-6 md:p-8 border border-[#00A86B]/30 bg-[#00A86B]/5 space-y-4 md:space-y-6 glass-isolation">
+                <Lock className="text-[#00A86B]" size={20} md:size={24} />
+                <h4 className="text-lg md:text-xl font-bold text-[#0F2B46]">Seguridad de Datos</h4>
                 <p className="text-sm text-[#1E4F7A]/80 leading-relaxed">
-                  Toda esta documentación aún no está cifrada siguiendo ningún protocolo. Por favor, no comparta este enlace por ningún medio
+                  Toda esta documentación aún no está cifrada siguiendo ningún protocolo. Por favor, no comparta este enlace por ningún medio.
                 </p>
               </div>
 
               <div className="space-y-4">
                 <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1E4F7A]/40">Contacto Directo</h4>
-                <div className="p-6 bg-[#0F2B46]/5 border border-[#0F2B46]/5 flex items-center gap-4 glass-isolation group hover:border-[#00A86B]/30 transition-all">
-                  <div className="w-10 h-10 bg-[#1E4F7A] flex items-center justify-center rounded-full text-white shadow-lg group-hover:scale-110 transition-transform">
+                <div className="p-5 md:p-6 bg-[#0F2B46]/5 border border-[#0F2B46]/5 flex items-center gap-4 glass-isolation group hover:border-[#00A86B]/30 transition-all">
+                  <div className="w-10 h-10 bg-[#1E4F7A] flex items-center justify-center rounded-full text-white shadow-lg group-hover:scale-110 transition-transform shrink-0">
                     <Users size={18} />
                   </div>
                   <div>
                     <p className="text-sm font-bold text-[#0F2B46]">Founding Team</p>
-                    <p className="text-xs text-[#00A86B] font-mono">zerocogorg@gmail.com</p>
+                    <p className="text-[10px] md:text-xs text-[#00A86B] font-mono break-all">zerocogorg@gmail.com</p>
                   </div>
                 </div>
               </div>
