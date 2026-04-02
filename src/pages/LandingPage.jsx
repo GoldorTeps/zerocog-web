@@ -37,7 +37,7 @@ const HeroSection = () => {
         transition={{ delay: 0.4 }}
         className="text-2xl lg:text-3xl font-light text-[#1E4F7A] max-w-3xl leading-relaxed"
       >
-        Infraestructura de memoria que permite a la IA operar con <span className="text-[#0F2B46] italic border-b border-[#00A86B]/30">contexto real</span> sin exponer datos ni comprometer la privacidad.
+        Infraestructura de memoria diseñada para permitir a la IA operar con <span className="text-[#0F2B46] italic border-b border-[#00A86B]/30">contexto real</span> sin exponer datos ni comprometer la privacidad.
       </motion.p>
 
       <div className="flex gap-8 pt-6 pointer-events-auto">
@@ -72,9 +72,9 @@ const ParadoxSection = () => (
             El límite de la <br />
             <span className="text-gray-400">IA actual</span>
           </h2>
-          <p className="text-xl text-[#0C1A26] leading-relaxed opacity-90 font-light italic">
+          <p className="text-xl text-[#1E4F7A]/90 leading-relaxed font-light italic">
             Las IAs actuales procesan información, pero no mantienen contexto. <br />
-            <span className="font-bold border-b border-gray-200">Operan por sesión, no sobre memoria.</span>
+            <span className="border-b border-gray-100">Operan por sesión, no sobre memoria estructurada.</span>
           </p>
         </div>
         
@@ -99,9 +99,9 @@ const ParadoxSection = () => (
             El dilema de la <br />
             <span className="text-[#00A86B]">IA futura</span>
           </h2>
-          <p className="text-xl text-[#0C1A26] leading-relaxed opacity-90 font-light italic">
-            Cuando la IA tenga acceso continuo a tu información, el problema deja de ser técnico. <br />
-            <span className="font-bold border-b border-[#00A86B]/20">Pasa a ser una cuestión de control.</span>
+          <p className="text-xl text-[#0F2B46]/80 leading-relaxed font-light italic">
+            Cuando la IA tenga acceso continuo a información contextual, el problema deja de ser técnico. <br />
+            <span className="border-b border-[#00A86B]/10">Pasa a ser una cuestión de control.</span>
           </p>
         </div>
 
@@ -109,7 +109,7 @@ const ParadoxSection = () => (
           {[
             "¿Quién es propietario de la memoria generada?",
             "¿Dónde reside realmente ese contexto?",
-            "¿Se usa para ayudarte o para explotarte?"
+            "¿Se utiliza para asistir o para extraer valor del usuario?"
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-6 group/item">
               <div className="w-1 h-8 bg-[#00A86B]/30 group-hover/item:bg-[#10B981] transition-all" />
@@ -129,7 +129,7 @@ const SolutionSection = () => (
       <div className="mono-tech">04 // LA_SOLUCIÓN</div>
       <h2 className="text-6xl font-black text-[#0F2B46]">Arquitectura de Memoria Soberana</h2>
       <p className="text-xl text-[#1E4F7A]/80 font-light max-w-2xl mx-auto italic">
-        Una misma memoria, dos formas de operar según el nivel de control y potencia que necesites.
+        Una misma memoria, dos formas de operar según el nivel de control y capacidad requerido.
       </p>
     </div>
     <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -141,14 +141,14 @@ const SolutionSection = () => (
             <h3 className="text-3xl font-black text-[#0F2B46]">Modo Soberano</h3>
           </div>
           <div className="space-y-6 flex-1">
-            <p className="text-[#0C1A26] text-lg leading-relaxed font-bold italic">
-              La IA opera directamente sobre tus datos, en tu propio entorno.
+            <p className="text-[#1E4F7A]/90 text-lg leading-relaxed font-normal italic">
+              La IA opera directamente sobre los datos dentro del entorno controlado.
             </p>
             <ul className="space-y-3">
               {[
-                "Ejecución completamente local",
-                "Sin transferencias externas",
-                "Máxima velocidad y control"
+                "Ejecución local.",
+                "Sin transferencias externas de información sensible.",
+                "Máximo control sobre datos y contexto."
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-[#0C1A26]/70 text-sm">
                   <div className="w-1.5 h-1.5 bg-[#00A86B] rotate-45" />
@@ -172,14 +172,14 @@ const SolutionSection = () => (
             <h3 className="text-3xl font-black text-[#0F2B46]">Modo Externo</h3>
           </div>
           <div className="space-y-6 flex-1">
-            <p className="text-[#0C1A26] text-lg leading-relaxed font-bold italic">
-              Usas modelos avanzados sin exponer tu información real.
+            <p className="text-[#1E4F7A]/90 text-lg leading-relaxed font-normal italic">
+              Uso de modelos avanzados manteniendo separación entre contexto y datos reales.
             </p>
             <ul className="space-y-3">
               {[
-                "Anonimización antes de salir",
-                "Compatible con cualquier proveedor",
-                "Escalable bajo demanda"
+                "Procesos de anonimización antes de cualquier transferencia.",
+                "Compatibilidad con distintos proveedores de IA.",
+                "Escalabilidad bajo demanda."
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-[#0C1A26]/70 text-sm">
                   <div className="w-1.5 h-1.5 bg-[#1E4F7A]/30 rotate-45" />
@@ -209,31 +209,31 @@ const UseCasesSection = () => (
       {[
         { 
           title: "Entorno Personal", 
-          text: "Una memoria persistente que permite a la IA operar con tu contexto real sin exponer tus datos.",
+          text: "Una memoria persistente diseñada para permitir a la IA operar con tu contexto sin exponer tus datos.",
           bullets: [
-            "Recuperación de información personal con contexto completo (emails, notas, historial).",
-            "Asistente que mantiene continuidad entre dispositivos y sesiones.",
-            "Control directo sobre qué información se usa y cuándo."
+            "Recuperación de información personal con continuidad entre sesiones.",
+            "Asistencia basada en historial estructurado, no solo conversación.",
+            "Control sobre qué información se utiliza y cuándo."
           ],
           icon: <UserCheck size={28} /> 
         },
         { 
           title: "Entorno PyME", 
-          text: "Una IA que puede responder sobre tu propio negocio porque trabaja con tu información real.",
+          text: "Una IA capaz de responder sobre tu propio negocio porque trabaja sobre tu información operativa.",
           bullets: [
-            "Puedes preguntarle por clientes, presupuestos o trabajos anteriores y obtener respuestas concretas.",
-            "Acceso inmediato a correos, documentos y decisiones sin tener que buscarlos manualmente.",
-            "La IA entiende cómo trabajas porque utiliza tu historial real, no información genérica."
+            "Consulta sobre clientes, presupuestos o decisiones con contexto real.",
+            "Acceso estructurado a correos, documentos y operaciones.",
+            "Uso de información propia en lugar de respuestas genéricas."
           ],
           icon: <Activity size={28} /> 
         },
         { 
           title: "Infraestructura / Enterprise", 
-          text: "Una capa de memoria que se integra con sistemas existentes sin exponer información sensible.",
+          text: "Una capa de memoria diseñada para integrarse con sistemas existentes sin exponer información sensible.",
           bullets: [
-            "Control de acceso por rol sobre el contexto compartido.",
-            "Compatibilidad con modelos locales y externos bajo reglas explícitas.",
-            "Trazabilidad completa del uso de datos en cada interacción con IA."
+            "Control de acceso sobre el contexto compartido.",
+            "Compatibilidad con modelos locales y externos bajo reglas definidas.",
+            "Trazabilidad del uso de información en interacciones con IA."
           ],
           icon: <Shield size={28} /> 
         }
@@ -245,7 +245,7 @@ const UseCasesSection = () => (
             </div>
             <div className="space-y-4 flex-1">
               <h3 className="text-2xl font-black text-[#0F2B46]">{use.title}</h3>
-              <p className="text-[#0C1A26]/80 text-sm leading-relaxed font-bold italic border-l-2 border-[#00A86B]/30 pl-4">
+              <p className="text-[#1E4F7A]/90 text-sm leading-relaxed font-normal italic border-l-2 border-[#00A86B]/30 pl-4">
                 {use.text}
               </p>
               <ul className="space-y-3 pt-2">
@@ -281,9 +281,9 @@ const ValuePropSection = () => (
       </h2>
       <div className="space-y-8">
         {[
-          { h: "Control de datos por diseño", p: "Arquitectura pensada para que el dato nunca abandone su dominio sin control explícito." },
-          { h: "Continuidad operativa real", p: "El sistema mantiene contexto estructurado a largo plazo, no solo histórico conversacional." },
-          { h: "Desacoplamiento del modelo", p: "La inteligencia es intercambiable. La memoria es permanente." }
+          { h: "Control de datos por diseño", p: "Arquitectura planteada para que el dato no abandone su dominio sin control explícito." },
+          { h: "Continuidad operativa", p: "Diseñada para mantener contexto estructurado a largo plazo, más allá del histórico conversacional." },
+          { h: "Desacoplamiento del modelo", p: "La inteligencia es intercambiable. La memoria permanece." }
         ].map((prop, i) => (
           <div key={i} className="space-y-2 group">
             <h3 className="text-xl font-black text-[#0F2B46] flex items-center gap-3 group-hover:text-[#00A86B] transition-colors">
@@ -308,17 +308,16 @@ const ContactSection = () => {
       <div className="space-y-6">
         <h2 className="text-7xl font-black text-[#0F2B46] tracking-tighter italic uppercase">Acceso y contacto</h2>
         <p className="text-2xl text-[#1E4F7A]/80 font-light max-w-3xl leading-relaxed italic">
-          Documentación disponible bajo acceso controlado. <br />
-          Para contexto, colaboración o integración, este es el punto de entrada.
+          Documentación disponible bajo acceso controlado. Para contexto, colaboración o integración, este es el punto de entrada.
         </p>
       </div>
       
       <div className="flex flex-col items-center gap-12">
         <button 
           onClick={() => navigate('/login')}
-          className="px-16 py-6 bg-[#00A86B] text-white font-black tracking-[0.2em] uppercase hover:bg-[#0F2B46] transition-all bevelled shadow-2xl scale-110"
+          className="px-16 py-6 bg-[#00A86B] text-white font-black tracking-[0.2em] uppercase hover:bg-[#0F2B46] transition-all bevelled shadow-2xl scale-110 text-center"
         >
-          Entrar al repositorio técnico
+          Acceso a documentación técnica
         </button>
 
         <div className="relative group">
