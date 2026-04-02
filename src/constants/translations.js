@@ -99,8 +99,9 @@ export const TRANSLATIONS = {
       status_docs: "Docs Available",
       status_access: "access controlled",
       title: "Acceso y contacto",
-      text: "Documentación disponible bajo acceso controlado. Para contexto, colaboración o integración, este es el punto de entrada.",
-      cta: "Acceso a documentación técnica",
+      text: "Documentación disponible bajo acceso controlado. Solicita acceso si quieres comprender la arquitectura en más detalle.",
+      ethics: "Si ves el impacto económico y el desafío ético, hablemos.",
+      cta: "Ver_Documentación",
       malaga: "Malaga_esp"
     },
     // Login
@@ -230,8 +231,9 @@ export const TRANSLATIONS = {
       status_docs: "Docs Available",
       status_access: "access controlled",
       title: "Access and Contact",
-      text: "Documentation available under controlled access. For context, collaboration, or integration, this is the entry point.",
-      cta: "Access Technical Documentation",
+      text: "Documentation available under controlled access. Request access if you want to understand the architecture in more detail.",
+      ethics: "If you see the economic impact and the ethical challenge, let's talk.",
+      cta: "View_Documentation",
       malaga: "Malaga_esp"
     },
     // Login

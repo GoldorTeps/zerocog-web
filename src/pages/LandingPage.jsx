@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent, useSpring, useTransform } from 'framer-motion';
 import { Lock, Globe, Activity, UserCheck, Shield, Zap, MapPin } from 'lucide-react';
 import { BRAND } from '../constants/brand';
 import { Gear } from '../components/Gear';
@@ -226,8 +226,10 @@ const ValuePropSection = () => {
   const { t } = useLanguage();
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <div className="relative h-[200px] md:h-[300px] lg:h-[400px] flex items-center justify-center order-2 lg:order-1">
-        <Gear size={450} color={BRAND.GREEN} rotation={45} teeth={32} opacity={0.1} />
+      <div className="relative h-[200px] md:h-[300px] lg:h-[400px] flex items-center justify-center order-2 lg:order-1 overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center scale-75 md:scale-100">
+          <Gear size={450} color={BRAND.GREEN} rotation={45} teeth={32} opacity={0.1} />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center mono-tech text-[8rem] md:text-[12rem] lg:text-[15rem] font-black opacity-5 select-none font-mono uppercase">COG</div>
       </div>
       <div className="space-y-8 md:space-y-12 text-left order-1 lg:order-2">
@@ -263,7 +265,11 @@ const ContactSection = () => {
 
       <div className="flex flex-col items-center gap-8 w-full px-8">
         <button onClick={() => navigate('/login')} className="w-full md:w-auto px-10 py-4 bg-[#00A86B] text-white font-black tracking-widest uppercase hover:bg-[#0F2B46] transition-all bevelled shadow-2xl scale-100 md:scale-110">{t('contact.cta')}</button>
-        <a href="mailto:zerocogorg@gmail.com" className="text-xl md:text-3xl font-black text-[#0F2B46]/40 hover:text-[#00A86B] transition-colors font-mono tracking-tighter">zerocogorg@gmail.com</a>
+        
+        <div className="pt-4 space-y-4">
+          <p className="text-base md:text-xl text-[#0F2B46]/70 italic max-w-2xl mx-auto">{t('contact.ethics')}</p>
+          <a href="mailto:zerocogorg@gmail.com" className="block text-xl md:text-3xl font-black text-[#0F2B46]/40 hover:text-[#00A86B] transition-colors font-mono tracking-tighter">zerocogorg@gmail.com</a>
+        </div>
       </div>
 
       {/* Discrete Location Detail - Final Minimal Version */}
@@ -284,13 +290,13 @@ const LandingPage = () => {
   const containerRef = React.useRef(null);
   
   const { setTarget } = useClockwork();
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  const { scrollYProgress } = useScroll();
 
-  // Smooth the scroll target to ensure Safari's elastic scroll and rapid movements don't "jerk" the 3D
-  const smoothTarget = useSpring(0, { damping: 30, stiffness: 100 });
+  // Base target mapped from scroll progress
+  const baseTarget = useTransform(scrollYProgress, v => v * 5);
+  
+  // Smooth version of that target for Safari/Mobile elasticity
+  const smoothTarget = useSpring(baseTarget, { damping: 30, stiffness: 100 });
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -299,14 +305,7 @@ const LandingPage = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Proactive sync for mobile: map scroll to full rotation of 3D motorstage
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (isMobile) {
-      smoothTarget.set(v * 5);
-    }
-  });
-
-  // Connect the smooth spring to the actual stage
+  // Drive the 3D stage using the smoothed scroll target
   useMotionValueEvent(smoothTarget, "change", (v) => {
     if (isMobile) setTarget(v);
   });
@@ -359,7 +358,7 @@ const LandingPage = () => {
   return (
     <MainLayout current={current} sections={sections} onNavigate={navigateToSection}>
       {isMobile ? (
-        <div ref={containerRef} className="flex flex-col pt-20 overflow-x-hidden">
+        <div className="flex flex-col pt-20 overflow-x-hidden">
           {sections.map((section, idx) => (
             <motion.div
               key={section.id}
