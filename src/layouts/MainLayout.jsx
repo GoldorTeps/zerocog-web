@@ -45,7 +45,7 @@ export const MainLayout = ({ children, current = 0, actions = null, sections = [
       </div>
       
       {/* Global Brand Overlay */}
-      <nav className="fixed top-0 left-0 right-0 h-20 md:h-24 px-6 md:px-12 flex items-center justify-between z-50">
+      <nav className="absolute lg:fixed top-0 left-0 right-0 h-20 md:h-24 px-6 md:px-12 flex items-center justify-between z-50">
         <div className="flex items-center gap-6 md:gap-12">
           <Link to="/" className="flex items-center gap-2 md:gap-4 pointer-events-auto group">
             <div className="h-8 md:h-10 w-auto flex items-center justify-center transition-all duration-500 group-hover:scale-110 drop-shadow-sm">
@@ -59,14 +59,6 @@ export const MainLayout = ({ children, current = 0, actions = null, sections = [
               <h1 className="text-lg md:text-2xl font-black text-[#0F2B46] tracking-tighter uppercase leading-none group-hover:text-[#00A86B] transition-colors duration-300">
                 ZEROCOG
               </h1>
-              {!isInvestor && (
-                <div className="flex items-center gap-1.5 mt-0.5 md:mt-1">
-                  <span className="w-1 h-1 bg-[#00A86B] rounded-full animate-pulse" />
-                  <span className="mono-tech text-[6px] md:text-[8px] uppercase tracking-[0.2em] text-[#1E4F7A]/60 leading-none">
-                    Fase_01
-                  </span>
-                </div>
-              )}
             </div>
           </Link>
         </div>

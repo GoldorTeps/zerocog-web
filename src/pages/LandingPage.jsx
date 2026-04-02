@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Cpu, Zap, Lock, Globe, Database, Activity, UserCheck, Shield } from 'lucide-react';
 import { BRAND } from '../constants/brand';
 import { Gear } from '../components/Gear';
@@ -350,6 +350,27 @@ const LandingPage = () => {
   const [direction, setDirection] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const scrollLock = React.useRef(false);
+  const containerRef = React.useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  // Smooth out the scroll progress for the background
+  const smoothCurrent = useSpring(useTransform(scrollYProgress, [0, 1], [0, 5]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  useEffect(() => {
+    const unsub = smoothCurrent.onChange(v => {
+      // We only update the 'current' pointer for state/nav purposes if it crosses a threshold
+      // But for the background animation, we might want to pass the smooth value directly.
+    });
+    return () => unsub();
+  }, [smoothCurrent]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -406,29 +427,16 @@ const LandingPage = () => {
     };
   }, [current]);
 
+  // Decide which value to pass to the background: the discrete 'current' or the smooth scroll progress
+  const bgCurrent = isMobile ? smoothCurrent : current;
+
   return (
-    <MainLayout current={current} sections={sections}>
-      {/* Desktop Navigation UI */}
-      {!isMobile && (
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 h-32 flex items-center z-50 pointer-events-none">
-          <div className="flex gap-12 pointer-events-auto">
-            {sections.map((section, idx) => (
-              <button key={section.id} onClick={() => navigateToSection(idx)} className="relative py-2 group">
-                <span className={`font-mono text-[9px] tracking-[0.4em] transition-all uppercase ${current === idx ? 'text-[#00A86B]' : 'text-[#1E4F7A]/40 group-hover:text-[#0F2B46]'}`}>
-                  {section.title}
-                </span>
-                {current === idx && (
-                  <motion.div layoutId="nav-pill" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#00A86B]" />
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+    <MainLayout current={bgCurrent} sections={sections}>
+      {/* Desktop Navigation UI Removed to resolve duplication with MainLayout header */}
 
       {isMobile ? (
         /* Mobile Scroll Stack */
-        <div className="flex flex-col pt-20">
+        <div ref={containerRef} className="flex flex-col pt-20">
           {sections.map((section, idx) => (
             <motion.div
               key={section.id}
