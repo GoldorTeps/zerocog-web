@@ -2,8 +2,28 @@ import React from 'react';
 import { ClockworkBackground } from '../components/ClockworkBackground';
 import { Settings } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useMotionValueEvent } from 'framer-motion';
 import { BRAND } from '../constants/brand';
+
+/**
+ * Helper to display technical values that might be MotionValues or Numbers.
+ */
+const TechValue = ({ value, transform = (v) => v, suffix = "" }) => {
+  const isMV = typeof value === 'object' && value !== null && 'get' in value;
+  const [display, setDisplay] = React.useState(isMV ? value.get() : value);
+  const dummyValue = useMotionValue(0);
+  const activeMV = isMV ? value : dummyValue;
+
+  useMotionValueEvent(activeMV, "change", (latest) => {
+    if (isMV) setDisplay(latest);
+  });
+
+  React.useEffect(() => {
+    if (!isMV) setDisplay(value);
+  }, [value, isMV]);
+
+  return <>{transform(display)}{suffix}</>;
+};
 
 /**
  * Global Layout Wrapper.
@@ -154,11 +174,11 @@ export const MainLayout = ({ children, current = 0, actions = null, sections = [
 
       {/* Technical corner overlays (Shared) */}
       <div className="fixed left-8 bottom-8 mono-tech text-[8px] opacity-20 pointer-events-none">
-        PROTOCOLO_ALINEACIÓN: { (current * 60).toFixed(2) } DEG_RAD
+        PROTOCOLO_ALINEACIÓN: <TechValue value={current} transform={v => (v * 60).toFixed(2)} suffix=" DEG_RAD" />
       </div>
       <div className="fixed right-8 bottom-8 flex items-center gap-4 pointer-events-none">
         <div className="mono-tech opacity-20 text-[8px] uppercase tracking-widest">
-          SECTOR_ALINEADO_{current + 1}
+          SECTOR_ALINEADO_<TechValue value={current} transform={v => Math.round(v) + 1} />
         </div>
         <div className="w-10 h-10 border border-[#0F2B46]/10 flex items-center justify-center">
            <Settings size={14} className="text-[#00A86B]/40 animate-spin-slow" />

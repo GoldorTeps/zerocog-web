@@ -352,10 +352,7 @@ const LandingPage = () => {
   const scrollLock = React.useRef(false);
   const containerRef = React.useRef(null);
   
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  const { scrollYProgress } = useScroll();
 
   // Smooth out the scroll progress for the background
   const smoothCurrent = useSpring(useTransform(scrollYProgress, [0, 1], [0, 5]), {
@@ -442,8 +439,8 @@ const LandingPage = () => {
               key={section.id}
               id={section.id}
               onViewportEnter={() => setCurrent(idx)}
-              viewport={{ amount: 0.5 }}
-              className="w-full min-h-[60vh] flex items-center justify-center py-12 md:py-20"
+              viewport={{ amount: 0.3 }}
+              className="w-full min-h-[30vh] flex items-center justify-center py-4"
             >
               <div className="w-full px-6">
                 {idx === 0 && <HeroSection />}
