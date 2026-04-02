@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent, useSpring } from 'framer-motion';
 import { Lock, Globe, Activity, UserCheck, Shield, Zap, MapPin } from 'lucide-react';
 import { BRAND } from '../constants/brand';
 import { Gear } from '../components/Gear';
@@ -225,12 +225,12 @@ const UseCasesSection = () => {
 const ValuePropSection = () => {
   const { t } = useLanguage();
   return (
-    <div className="grid lg:grid-cols-2 gap-20 items-center">
-      <div className="relative h-[400px] flex items-center justify-center order-2 lg:order-1">
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="relative h-[200px] md:h-[300px] lg:h-[400px] flex items-center justify-center order-2 lg:order-1">
         <Gear size={450} color={BRAND.GREEN} rotation={45} teeth={32} opacity={0.1} />
-        <div className="absolute inset-0 flex items-center justify-center mono-tech text-[15rem] font-black opacity-5 select-none font-mono uppercase">COG</div>
+        <div className="absolute inset-0 flex items-center justify-center mono-tech text-[8rem] md:text-[12rem] lg:text-[15rem] font-black opacity-5 select-none font-mono uppercase">COG</div>
       </div>
-      <div className="space-y-12 text-left order-1 lg:order-2">
+      <div className="space-y-8 md:space-y-12 text-left order-1 lg:order-2">
         <div className="mono-tech">{t('value.label')}</div>
         <h2 className="text-4xl md:text-6xl font-black text-[#0F2B46] leading-none uppercase italic tracking-tighter" dangerouslySetInnerHTML={{ __html: t('value.title') }} />
         <div className="space-y-8">
@@ -284,7 +284,13 @@ const LandingPage = () => {
   const containerRef = React.useRef(null);
   
   const { setTarget } = useClockwork();
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  // Smooth the scroll target to ensure Safari's elastic scroll and rapid movements don't "jerk" the 3D
+  const smoothTarget = useSpring(0, { damping: 30, stiffness: 100 });
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -293,11 +299,16 @@ const LandingPage = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Standardized way to drive 3D stage on mobile scroll
+  // Proactive sync for mobile: map scroll to full rotation of 3D motorstage
   useMotionValueEvent(scrollYProgress, "change", (v) => {
     if (isMobile) {
-      setTarget(v * 5);
+      smoothTarget.set(v * 5);
     }
+  });
+
+  // Connect the smooth spring to the actual stage
+  useMotionValueEvent(smoothTarget, "change", (v) => {
+    if (isMobile) setTarget(v);
   });
 
   const sections = [
@@ -348,16 +359,16 @@ const LandingPage = () => {
   return (
     <MainLayout current={current} sections={sections} onNavigate={navigateToSection}>
       {isMobile ? (
-        <div ref={containerRef} className="flex flex-col pt-20">
+        <div ref={containerRef} className="flex flex-col pt-20 overflow-x-hidden">
           {sections.map((section, idx) => (
             <motion.div
               key={section.id}
               id={section.id}
               onViewportEnter={() => setCurrent(idx)}
-              viewport={{ amount: 0.3 }}
-              className="w-full min-h-[60vh] lg:min-h-screen flex items-center justify-center py-12 md:py-24"
+              viewport={{ amount: 0.2 }}
+              className="w-full min-h-fit flex items-center justify-center py-8 md:py-16"
             >
-              <div className="w-full px-6">
+              <div className="w-full px-6 py-8">
                 {idx === 0 && <HeroSection />}
                 {idx === 1 && <ParadoxSection />}
                 {idx === 2 && <UseCasesSection />}
