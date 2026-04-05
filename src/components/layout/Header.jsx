@@ -43,8 +43,8 @@ export const Header = ({ sections, current, onNavigate, onToggleMenu, menuOpen, 
 
       {/* Trigger & Slot */}
       <div className="pointer-events-auto flex items-center gap-4 md:gap-8">
-        {/* Language Switcher */}
-        <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-[#1E4F7A]/40 mr-4">
+        {/* Language Switcher (Desktop only) */}
+        <div className="hidden lg:flex items-center gap-2 font-mono text-[10px] tracking-widest text-[#1E4F7A]/40 mr-4">
           <button 
             onClick={() => setLang('es')}
             className={`transition-colors hover:text-[#0F2B46] p-1 ${lang === 'es' ? 'text-[#00A86B] font-bold' : ''}`}

@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
-    "framer-motion": "latest",
-    "lucide-react": "latest",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.7.0",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^7.13.2"

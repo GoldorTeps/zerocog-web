@@ -1,6 +1,5 @@
 export const TRANSLATIONS = {
   es: {
-    // Navigation
     nav: {
       hero: "I_INICIO",
       paradox: "II_TENSIÓN",
@@ -9,6 +8,7 @@ export const TRANSLATIONS = {
       value: "V_VALOR",
       architecture: "VI_ARQUITECTURA",
       contact: "VII_CONTACTO",
+      documentation: "VIII_DOCUMENTACIÓN",
     },
     // Hero
     hero: {
@@ -138,6 +138,7 @@ export const TRANSLATIONS = {
       value: "V_VALUE",
       architecture: "VI_ARCHITECTURE",
       contact: "VII_CONTACT",
+      documentation: "VIII_DOCUMENTATION",
     },
     // Common
     common: {
