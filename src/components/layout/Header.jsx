@@ -8,12 +8,12 @@ export const Header = ({ sections, current, onNavigate, onToggleMenu, menuOpen, 
   const { lang, setLang, t } = useLanguage();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 h-20 md:h-24 px-6 md:px-12 flex items-center justify-between z-50">
+    <nav className="fixed top-0 left-0 right-0 h-20 md:h-24 px-6 md:px-12 flex items-center justify-between z-50 bg-white/80 backdrop-blur-md border-b border-[#0F2B46]/10">
       <div className="flex items-center gap-6 md:gap-12">
-        <Link to="/" className="flex items-center gap-2 md:gap-4 pointer-events-auto group">
+        <Link to="/" className="flex items-center gap-2 md:gap-4 pointer-events-auto group py-2">
           <Logo variant="transparent" />
-          <div className="flex flex-col justify-center border-l-2 border-[#0F2B46]/5 pl-3 md:pl-4 h-8 md:h-10">
-            <h1 className="text-lg md:text-2xl font-black text-[#0F2B46] tracking-tighter uppercase leading-none group-hover:text-[#00A86B] transition-colors duration-300">
+          <div className="flex flex-col justify-center border-l-2 border-[#0F2B46]/5 pl-3 md:pl-4 h-8 md:h-10 shrink-0">
+            <h1 className="text-lg md:text-2xl font-black text-[#0F2B46] tracking-tighter uppercase leading-none group-hover:text-[#00A86B] transition-colors duration-300 whitespace-nowrap">
               ZEROCOG
             </h1>
           </div>

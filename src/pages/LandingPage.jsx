@@ -311,6 +311,58 @@ const ContactSection = ({ onNavigate }) => {
 
 // --- Architecture Section (Formely InvestorArea) ---
 const ArchitectureSection = () => {
+  return (
+    <div className="allow-parent-scroll w-full h-full max-h-[75vh] md:max-h-[85vh] overflow-y-auto custom-scrollbar md:pr-4 relative z-10 pointer-events-auto">
+      <div className="space-y-16 md:space-y-24 pb-16">
+        <section className="grid grid-cols-1 gap-12 md:gap-16 items-center pt-8">
+          <div className="space-y-4 md:space-y-6 text-center md:text-left">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight md:leading-none text-[#0F2B46]">
+              Arquitectura de <br />
+              <span className="text-[#00A86B]">Memoria Persistente</span>
+            </h2>
+            <p className="text-lg md:text-xl text-[#1E4F7A]/80 font-light max-w-xl mx-auto md:mx-0 leading-relaxed italic">
+              Infraestructura cognitiva para operar con contexto continuo, control de acceso y trazabilidad completa.
+            </p>
+          </div>
+        </section>
+
+        <section className="hidden lg:grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16">
+          <div className="lg:col-span-2 space-y-6 md:space-y-8">
+            <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
+              <TrendingUp className="text-[#00A86B]" /> Roadmap Estratégico
+            </h3>
+            <div className="space-y-6">
+              {[
+                { q: "Q1 2026", title: "Fase_01", status: "In Progress", desc: "Despliegue del motor." },
+                { q: "Q2 2028", title: "Fase_02", status: "Upcoming", desc: "Información no divulgada." },
+                { q: "Q3 2030", title: "Fase_03", status: "Upcoming", desc: "Información no divulgada." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 md:gap-8 relative pointer-events-auto">
+                  {i !== 2 && <div className="absolute left-5 md:left-6 top-10 md:top-12 bottom-0 w-px bg-[#0F2B46]/10" />}
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border shrink-0 ${item.status === 'Completed' ? 'border-[#00A86B] bg-[#00A86B]/10' : 'border-[#0F2B46]/10 bg-[#0F2B46]/5'}`}>
+                    <ChevronRight size={18} md:size={20} className={item.status === 'Completed' ? 'text-[#00A86B]' : 'text-[#1E4F7A]/30'} />
+                  </div>
+                  <div className="flex-1 pb-8 md:pb-12">
+                    <div className="flex items-center gap-3 mb-1 md:mb-2">
+                      <span className="text-[10px] font-mono text-gray-500">{item.q}</span>
+                      <span className={`text-[8px] md:text-[9px] px-2 py-0.5 font-mono border ${item.status === 'Completed' ? 'border-[#00A86B] text-[#00A86B]' : 'border-gray-400 text-gray-400 uppercase'}`}>{item.status}</span>
+                    </div>
+                    <h5 className="text-lg md:text-xl font-bold text-[#0F2B46]">{item.title}</h5>
+                    <p className="text-[#1E4F7A]/80 mt-1 md:mt-2 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <div className="h-20" />
+      </div>
+    </div>
+  );
+};
+
+// --- Documentation Section (Extracted) ---
+const DocumentationSection = () => {
   const documents = [
     { title: "One Page Summary", type: "DOCX", size: "0.8 MB", date: "Apr 01, 2026", url: "/assets/investors/1Zerocog_One_p.docx" },
     { title: "Technical Investor Brief", type: "DOCX", size: "3.2 MB", date: "Apr 01, 2026", url: "/assets/investors/2Zerocog_inv_br.docx" },
@@ -321,38 +373,9 @@ const ArchitectureSection = () => {
     { title: "Pipeline Backend Source Code", type: "GITHUB", size: "PUBLIC", date: "Repository", url: "https://github.com/GoldorTeps/zero_cog_DEMO" },
   ];
 
-  const metrics = [
-    { label: "Memory Entries", value: "2+", trend: "persisted records" },
-    { label: "Retrieval Latency", value: "< 20ms", trend: "local environment" },
-    { label: "Architecture Modules", value: "4", trend: "Ingest · Store · Retrieve · Prompt" },
-    { label: "Deployment Mode", value: "Local-first", trend: "Air-gapped ready" },
-  ];
-
   return (
     <div className="allow-parent-scroll w-full h-full max-h-[75vh] md:max-h-[85vh] overflow-y-auto custom-scrollbar md:pr-4 relative z-10 pointer-events-auto">
-      <div className="space-y-16 md:space-y-24 pb-16">
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center pt-8">
-          <div className="space-y-4 md:space-y-6 text-center md:text-left">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight md:leading-none text-[#0F2B46]">
-              Arquitectura de <br />
-              <span className="text-[#00A86B]">Memoria Persistente</span>
-            </h2>
-            <p className="text-lg md:text-xl text-[#1E4F7A]/80 font-light max-w-xl mx-auto md:mx-0 leading-relaxed italic">
-              Infraestructura cognitiva para operar con contexto continuo, control de acceso y trazabilidad completa.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {metrics.map((m, i) => (
-              <div key={i} className="p-4 md:p-6 bg-[#0F2B46]/5 border border-[#0F2B46]/5 hover:border-[#00A86B]/30 transition-all group glass-isolation pointer-events-auto">
-                <p className="text-[9px] md:text-[10px] font-mono text-gray-500 mb-1 uppercase tracking-widest">{m.label}</p>
-                <p className="text-2xl md:text-3xl font-black text-[#0F2B46] group-hover:text-[#00A86B] transition-colors">{m.value}</p>
-                <p className="text-[10px] md:text-xs text-[#00A86B] mt-2 font-mono">{m.trend}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="space-y-6 md:space-y-8">
+      <div className="space-y-6 md:space-y-8 pb-16 pt-8">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end border-b border-[#0F2B46]/10 pb-4 gap-4 md:gap-0">
             <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
               <FileText className="text-[#00A86B]" /> Repositorio de Materiales
@@ -407,38 +430,6 @@ const ArchitectureSection = () => {
               </div>
             ))}
           </div>
-        </section>
-
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16">
-          <div className="lg:col-span-2 space-y-6 md:space-y-8">
-            <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
-              <TrendingUp className="text-[#00A86B]" /> Roadmap Estratégico
-            </h3>
-            <div className="space-y-6">
-              {[
-                { q: "Q1 2026", title: "Fase_01", status: "In Progress", desc: "Despliegue del motor." },
-                { q: "Q2 2028", title: "Fase_02", status: "Upcoming", desc: "Información no divulgada." },
-                { q: "Q3 2030", title: "Fase_03", status: "Upcoming", desc: "Información no divulgada." }
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 md:gap-8 relative pointer-events-auto">
-                  {i !== 2 && <div className="absolute left-5 md:left-6 top-10 md:top-12 bottom-0 w-px bg-[#0F2B46]/10" />}
-                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border shrink-0 ${item.status === 'Completed' ? 'border-[#00A86B] bg-[#00A86B]/10' : 'border-[#0F2B46]/10 bg-[#0F2B46]/5'}`}>
-                    <ChevronRight size={18} md:size={20} className={item.status === 'Completed' ? 'text-[#00A86B]' : 'text-[#1E4F7A]/30'} />
-                  </div>
-                  <div className="flex-1 pb-8 md:pb-12">
-                    <div className="flex items-center gap-3 mb-1 md:mb-2">
-                      <span className="text-[10px] font-mono text-gray-500">{item.q}</span>
-                      <span className={`text-[8px] md:text-[9px] px-2 py-0.5 font-mono border ${item.status === 'Completed' ? 'border-[#00A86B] text-[#00A86B]' : 'border-gray-400 text-gray-400 uppercase'}`}>{item.status}</span>
-                    </div>
-                    <h5 className="text-lg md:text-xl font-bold text-[#0F2B46]">{item.title}</h5>
-                    <p className="text-[#1E4F7A]/80 mt-1 md:mt-2 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        <div className="h-20" />
       </div>
     </div>
   );
@@ -454,13 +445,10 @@ const LandingPage = () => {
   const containerRef = React.useRef(null);
   
   const { setTarget } = useClockwork();
-  const { scrollYProgress } = useScroll();
-
-  // Base target mapped from scroll progress
-  const baseTarget = useTransform(scrollYProgress, v => v * 5);
-  
-  // Smooth version of that target for Safari/Mobile elasticity
-  const smoothTarget = useSpring(baseTarget, { damping: 30, stiffness: 100 });
+  // Drive the 3D stage using discrete section changes for beautiful homogeneous transitions
+  useEffect(() => {
+    setTarget(current);
+  }, [current, setTarget]);
 
   const demoAction = (
     <a
@@ -480,11 +468,6 @@ const LandingPage = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Drive the 3D stage using the smoothed scroll target
-  useMotionValueEvent(smoothTarget, "change", (v) => {
-    if (isMobile) setTarget(v);
-  });
-
   const sections = [
     { id: 'hero', title: 'I_INICIO' },
     { id: 'paradox', title: 'II_TENSIÓN' },
@@ -492,7 +475,8 @@ const LandingPage = () => {
     { id: 'solution', title: 'IV_SOLUCIÓN' },
     { id: 'value', title: 'V_VALOR' },
     { id: 'architecture', title: 'VI_ARQUITECTURA' },
-    { id: 'contact', title: 'VII_CONTACTO' },
+    { id: 'documentation', title: 'VII_DOCUMENTACIÓN' },
+    { id: 'contact', title: 'VIII_CONTACTO' },
   ];
 
   const navigateToSection = (newIdx) => {
@@ -501,8 +485,6 @@ const LandingPage = () => {
     scrollLock.current = true;
     setDirection(newIdx > current ? 1 : -1);
     setCurrent(newIdx);
-    
-    if (!isMobile) setTarget(newIdx);
 
     setTimeout(() => {
       scrollLock.current = false;
@@ -551,7 +533,8 @@ const LandingPage = () => {
                 {idx === 3 && <SolutionSection />}
                 {idx === 4 && <ValuePropSection />}
                 {idx === 5 && <ArchitectureSection />}
-                {idx === 6 && <ContactSection onNavigate={navigateToSection} />}
+                {idx === 6 && <DocumentationSection />}
+                {idx === 7 && <ContactSection onNavigate={navigateToSection} />}
               </div>
             </motion.div>
           ))}
@@ -565,7 +548,8 @@ const LandingPage = () => {
             {current === 3 && <SolutionSection />}
             {current === 4 && <ValuePropSection />}
             {current === 5 && <ArchitectureSection />}
-            {current === 6 && <ContactSection onNavigate={navigateToSection} />}
+            {current === 6 && <DocumentationSection />}
+            {current === 7 && <ContactSection onNavigate={navigateToSection} />}
           </PersistentReveal>
         </AnimatePresence>
       )}

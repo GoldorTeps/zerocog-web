@@ -24,12 +24,12 @@ export const TechnicalIndicators = ({ current }) => {
   const { t } = useLanguage();
   return (
     <>
-      <div className="fixed left-8 bottom-8 flex flex-col gap-2 pointer-events-none z-40">
+      <div className="hidden md:flex fixed left-8 bottom-8 flex-col gap-2 pointer-events-none z-40">
         <div className="mono-tech text-[8px] opacity-20">
           {t('indicators.alignment')}: <TechValue value={current} transform={v => (v * 60).toFixed(2)} suffix=" DEG_RAD" />
         </div>
       </div>
-      <div className="fixed right-8 bottom-8 flex items-center gap-4 pointer-events-none z-40">
+      <div className="hidden md:flex fixed right-8 bottom-8 items-center gap-4 pointer-events-none z-40">
         <div className="mono-tech opacity-20 text-[8px] uppercase tracking-widest">
           {t('indicators.sector')}_<TechValue value={current} transform={v => Math.round(v) + 1} />
         </div>
