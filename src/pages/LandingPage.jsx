@@ -54,7 +54,7 @@ const HeroSection = ({ onNavigate }) => {
           onClick={() => onNavigate(5)}
           className="w-full md:w-auto px-8 md:px-12 py-4 md:py-5 border border-[#0F2B46]/20 text-[#0F2B46] font-black tracking-widest uppercase hover:bg-[#0F2B46] hover:text-white transition-all bevelled text-sm md:text-base"
         >
-          {t('hero.cta_arch')}
+          {t('hero.cta_docs')}
         </button>
       </div>
     </div>
@@ -309,78 +309,49 @@ const ContactSection = ({ onNavigate }) => {
   );
 };
 
-// --- Architecture Section (Formely InvestorArea) ---
-const ArchitectureSection = () => {
-  return (
-    <div className="allow-parent-scroll w-full h-full max-h-[75vh] md:max-h-[85vh] overflow-y-auto custom-scrollbar md:pr-4 relative z-10 pointer-events-auto">
-      <div className="space-y-16 md:space-y-24 pb-16">
-        <section className="grid grid-cols-1 gap-12 md:gap-16 items-center pt-8">
-          <div className="space-y-4 md:space-y-6 text-center md:text-left">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight md:leading-none text-[#0F2B46]">
-              Arquitectura de <br />
-              <span className="text-[#00A86B]">Memoria Persistente</span>
-            </h2>
-            <p className="text-lg md:text-xl text-[#1E4F7A]/80 font-light max-w-xl mx-auto md:mx-0 leading-relaxed italic">
-              Infraestructura cognitiva para operar con contexto continuo, control de acceso y trazabilidad completa.
-            </p>
-          </div>
-        </section>
-
-        <section className="hidden lg:grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16">
-          <div className="lg:col-span-2 space-y-6 md:space-y-8">
-            <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
-              <TrendingUp className="text-[#00A86B]" /> Roadmap Estratégico
-            </h3>
-            <div className="space-y-6">
-              {[
-                { q: "Q1 2026", title: "Fase_01", status: "In Progress", desc: "Despliegue del motor." },
-                { q: "Q2 2028", title: "Fase_02", status: "Upcoming", desc: "Información no divulgada." },
-                { q: "Q3 2030", title: "Fase_03", status: "Upcoming", desc: "Información no divulgada." }
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 md:gap-8 relative pointer-events-auto">
-                  {i !== 2 && <div className="absolute left-5 md:left-6 top-10 md:top-12 bottom-0 w-px bg-[#0F2B46]/10" />}
-                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border shrink-0 ${item.status === 'Completed' ? 'border-[#00A86B] bg-[#00A86B]/10' : 'border-[#0F2B46]/10 bg-[#0F2B46]/5'}`}>
-                    <ChevronRight size={18} md:size={20} className={item.status === 'Completed' ? 'text-[#00A86B]' : 'text-[#1E4F7A]/30'} />
-                  </div>
-                  <div className="flex-1 pb-8 md:pb-12">
-                    <div className="flex items-center gap-3 mb-1 md:mb-2">
-                      <span className="text-[10px] font-mono text-gray-500">{item.q}</span>
-                      <span className={`text-[8px] md:text-[9px] px-2 py-0.5 font-mono border ${item.status === 'Completed' ? 'border-[#00A86B] text-[#00A86B]' : 'border-gray-400 text-gray-400 uppercase'}`}>{item.status}</span>
-                    </div>
-                    <h5 className="text-lg md:text-xl font-bold text-[#0F2B46]">{item.title}</h5>
-                    <p className="text-[#1E4F7A]/80 mt-1 md:mt-2 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        <div className="h-20" />
-      </div>
-    </div>
-  );
-};
-
 // --- Documentation Section (Extracted) ---
 const DocumentationSection = () => {
+  const { t } = useLanguage();
   const documents = [
-    { title: "One Page Summary", type: "DOCX", size: "0.8 MB", date: "Apr 01, 2026", url: "/assets/investors/1Zerocog_One_p.docx" },
-    { title: "Technical Investor Brief", type: "DOCX", size: "3.2 MB", date: "Apr 01, 2026", url: "/assets/investors/2Zerocog_inv_br.docx" },
-    { title: "Plan de Implementación", type: "DOCX", size: "1.4 MB", date: "Apr 01, 2026", url: "/assets/investors/3Zerocog_Implem_p.docx" },
-    { title: "Análisis de Riesgos y Mitigación", type: "DOCX", size: "2.1 MB", date: "Apr 01, 2026", url: "/assets/investors/4Zerocog_a_reiesg_mitig.docx" },
-    { title: "Diagrama de Arquitectura", type: "JPG", size: "1.1 MB", date: "Apr 01, 2026", url: "/assets/investors/diagram_a.jpg" },
-    { title: "ZeroCog Interactive Pipeline Demo", type: "STREAMLIT", size: "LIVE", date: "External App", url: "https://zerocogdemo-appi7rtt7crpgf8cz36feqx.streamlit.app/" },
-    { title: "Pipeline Backend Source Code", type: "GITHUB", size: "PUBLIC", date: "Repository", url: "https://github.com/GoldorTeps/zero_cog_DEMO" },
+    { title: t('documentation.docs.doc1'), type: "DOCX", size: "0.8 MB", date: "Apr 01, 2026", url: "/assets/investors/1Zerocog_One_p.docx" },
+    { title: t('documentation.docs.doc2'), type: "DOCX", size: "3.2 MB", date: "Apr 01, 2026", url: "/assets/investors/2Zerocog_inv_br.docx" },
+    { title: t('documentation.docs.doc3'), type: "DOCX", size: "1.4 MB", date: "Apr 01, 2026", url: "/assets/investors/3Zerocog_Implem_p.docx" },
+    { title: t('documentation.docs.doc4'), type: "DOCX", size: "2.1 MB", date: "Apr 01, 2026", url: "/assets/investors/4Zerocog_a_reiesg_mitig.docx" },
+    { title: t('documentation.docs.doc5'), type: "JPG", size: "1.1 MB", date: "Apr 01, 2026", url: "/assets/investors/diagram_a.jpg" },
+    { title: t('documentation.docs.doc6'), type: "STREAMLIT", size: "LIVE", date: "External App", url: "https://zerocogdemo-appi7rtt7crpgf8cz36feqx.streamlit.app/" },
+    { title: t('documentation.docs.doc7'), type: "GITHUB", size: "PUBLIC", date: "Repository", url: "https://github.com/GoldorTeps/zero_cog_DEMO" },
   ];
+
+  const handleDownloadAll = () => {
+    const downloadable = documents.filter(doc => doc.url.startsWith('/assets/'));
+    downloadable.forEach((doc, index) => {
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = doc.url;
+        a.download = '';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }, index * 300);
+    });
+  };
 
   return (
     <div className="allow-parent-scroll w-full h-full max-h-[75vh] md:max-h-[85vh] overflow-y-auto custom-scrollbar md:pr-4 relative z-10 pointer-events-auto">
       <div className="space-y-6 md:space-y-8 pb-16 pt-8">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end border-b border-[#0F2B46]/10 pb-4 gap-4 md:gap-0">
             <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
-              <FileText className="text-[#00A86B]" /> Repositorio de Materiales
+              <FileText className="text-[#00A86B]" /> {t('documentation.title')}
             </h3>
-            <span className="text-[10px] font-mono text-gray-500">LAST_UPDATE: 01_APR_2026</span>
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={handleDownloadAll} 
+                className="flex items-center gap-2 px-4 py-2 bg-[#0F2B46]/5 hover:bg-[#00A86B] text-[#0F2B46] hover:text-white border border-[#0F2B46]/10 hover:border-[#00A86B] transition-all font-bold text-[10px] uppercase tracking-widest pointer-events-auto shadow-sm"
+              >
+                <Download size={14} /> {t('documentation.download_all_btn')}
+              </button>
+              <span className="text-[10px] font-mono text-gray-500 hidden md:block">LAST_UPDATE: 01_APR_2026</span>
+            </div>
           </div>
 
           <div className="grid gap-px bg-[#0F2B46]/10 border border-[#0F2B46]/10">
@@ -406,7 +377,7 @@ const DocumentationSection = () => {
                       className="flex items-center justify-center gap-3 px-8 py-4 bg-[#00A86B] text-white shadow-[0_0_25px_rgba(0,168,107,0.4)] hover:shadow-[0_0_40px_rgba(0,168,107,0.6)] hover:bg-[#0F2B46] hover:scale-[1.03] transition-all font-black text-[11px] md:text-xs tracking-[0.2em] uppercase bevelled pointer-events-auto"
                     >
                       <Zap size={16} className="animate-pulse" />
-                      INICIAR DEMO INTERACTIVA
+                      {t('documentation.demo_btn')}
                     </a>
                   </div>
                 ) : doc.type === 'GITHUB' ? (
@@ -416,7 +387,7 @@ const DocumentationSection = () => {
                     rel="noopener noreferrer"
                     className="flex shrink-0 items-center justify-center gap-3 px-6 py-3 border border-[#1E4F7A]/20 hover:bg-[#0F2B46] hover:text-white transition-all font-bold text-[10px] md:text-xs tracking-widest uppercase text-[#0F2B46] hover:border-[#0F2B46] pointer-events-auto"
                   >
-                    VER CÓDIGO <ExternalLink size={14} md:size={16} />
+                    {t('documentation.code_btn')} <ExternalLink size={14} md:size={16} />
                   </a>
                 ) : (
                   <a
@@ -424,7 +395,7 @@ const DocumentationSection = () => {
                     download
                     className="flex shrink-0 items-center justify-center gap-3 px-6 py-3 border border-[#00A86B]/20 hover:bg-[#00A86B] hover:text-white transition-all font-bold text-[10px] md:text-xs tracking-widest uppercase text-[#00A86B] hover:border-[#00A86B] pointer-events-auto"
                   >
-                    DESCARGAR <Download size={14} md:size={16} />
+                    {t('documentation.download_btn')} <Download size={14} md:size={16} />
                   </a>
                 )}
               </div>
@@ -445,6 +416,7 @@ const LandingPage = () => {
   const containerRef = React.useRef(null);
   
   const { setTarget } = useClockwork();
+  const { t } = useLanguage();
   // Drive the 3D stage using discrete section changes for beautiful homogeneous transitions
   useEffect(() => {
     setTarget(current);
@@ -469,14 +441,13 @@ const LandingPage = () => {
   }, []);
 
   const sections = [
-    { id: 'hero', title: 'I_INICIO' },
-    { id: 'paradox', title: 'II_TENSIÓN' },
-    { id: 'usecases', title: 'III_OPERATIVA' },
-    { id: 'solution', title: 'IV_SOLUCIÓN' },
-    { id: 'value', title: 'V_VALOR' },
-    { id: 'architecture', title: 'VI_ARQUITECTURA' },
-    { id: 'documentation', title: 'VII_DOCUMENTACIÓN' },
-    { id: 'contact', title: 'VIII_CONTACTO' },
+    { id: 'hero', title: t('nav.hero') },
+    { id: 'paradox', title: t('nav.paradox') },
+    { id: 'usecases', title: t('nav.usecases') },
+    { id: 'solution', title: t('nav.solution') },
+    { id: 'value', title: t('nav.value') },
+    { id: 'documentation', title: t('nav.documentation') },
+    { id: 'contact', title: t('nav.contact') },
   ];
 
   const navigateToSection = (newIdx) => {
@@ -532,9 +503,8 @@ const LandingPage = () => {
                 {idx === 2 && <UseCasesSection />}
                 {idx === 3 && <SolutionSection />}
                 {idx === 4 && <ValuePropSection />}
-                {idx === 5 && <ArchitectureSection />}
-                {idx === 6 && <DocumentationSection />}
-                {idx === 7 && <ContactSection onNavigate={navigateToSection} />}
+                {idx === 5 && <DocumentationSection />}
+                {idx === 6 && <ContactSection onNavigate={navigateToSection} />}
               </div>
             </motion.div>
           ))}
@@ -547,9 +517,8 @@ const LandingPage = () => {
             {current === 2 && <UseCasesSection />}
             {current === 3 && <SolutionSection />}
             {current === 4 && <ValuePropSection />}
-            {current === 5 && <ArchitectureSection />}
-            {current === 6 && <DocumentationSection />}
-            {current === 7 && <ContactSection onNavigate={navigateToSection} />}
+            {current === 5 && <DocumentationSection />}
+            {current === 6 && <ContactSection onNavigate={navigateToSection} />}
           </PersistentReveal>
         </AnimatePresence>
       )}

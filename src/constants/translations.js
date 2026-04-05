@@ -6,9 +6,8 @@ export const TRANSLATIONS = {
       usecases: "III_OPERATIVA",
       solution: "IV_SOLUCIÓN",
       value: "V_VALOR",
-      architecture: "VI_ARQUITECTURA",
+      documentation: "VI_DOCUMENTACIÓN",
       contact: "VII_CONTACTO",
-      documentation: "VIII_DOCUMENTACIÓN",
     },
     // Hero
     hero: {
@@ -17,7 +16,7 @@ export const TRANSLATIONS = {
       title_bottom: "COG",
       subtitle: "Infraestructura de memoria diseñada para permitir a la IA operar con <span class='text-[#0F2B46] italic border-b border-[#00A86B]/30'>contexto real</span> sin exponer datos ni comprometer la privacidad.",
       cta_contact: "Iniciar_Contacto",
-      cta_arch: "Ver_Arquitectura",
+      cta_docs: "Ver_Documentación",
     },
     // Tension
     tension: {
@@ -126,6 +125,35 @@ export const TRANSLATIONS = {
     indicators: {
       alignment: "PROTOCOLO_ALINEACIÓN",
       sector: "SECTOR_ALINEADO"
+    },
+    // Architecture
+    architecture: {
+      title_top: "Arquitectura de",
+      title_bottom: "Memoria Persistente",
+      subtitle: "Infraestructura cognitiva para operar con contexto continuo, control de acceso y trazabilidad completa.",
+      roadmap_title: "Roadmap Estratégico",
+      phases: {
+        p1: { q: "Q1 2026", title: "Fase_01", status: "In Progress", desc: "Despliegue del motor." },
+        p2: { q: "Q2 2028", title: "Fase_02", status: "Upcoming", desc: "Información no divulgada." },
+        p3: { q: "Q3 2030", title: "Fase_03", status: "Upcoming", desc: "Información no divulgada." }
+      }
+    },
+    // Documentation
+    documentation: {
+      title: "Repositorio de Materiales",
+      demo_btn: "INICIAR DEMO INTERACTIVA",
+      code_btn: "VER CÓDIGO",
+      download_btn: "DESCARGAR",
+      download_all_btn: "DESCARGAR TODO",
+      docs: {
+        doc1: "One Page Summary",
+        doc2: "Briefing Técnico para Inversores",
+        doc3: "Plan de Implementación",
+        doc4: "Análisis de Riesgos y Mitigación",
+        doc5: "Diagrama de Arquitectura",
+        doc6: "ZeroCog Demo Interactiva",
+        doc7: "Backend Pipeline Código Fuente"
+      }
     }
   },
   en: {
@@ -136,9 +164,8 @@ export const TRANSLATIONS = {
       usecases: "III_OPERATIONS",
       solution: "IV_SOLUTION",
       value: "V_VALUE",
-      architecture: "VI_ARCHITECTURE",
+      documentation: "VI_DOCUMENTATION",
       contact: "VII_CONTACT",
-      documentation: "VIII_DOCUMENTATION",
     },
     // Common
     common: {
@@ -151,7 +178,7 @@ export const TRANSLATIONS = {
       title_bottom: "COG",
       subtitle: "Memory infrastructure designed to allow AI to operate with <span class='text-[#0F2B46] italic border-b border-[#00A86B]/30'>real context</span> without exposing data or compromising privacy.",
       cta_contact: "Start_Contact",
-      cta_arch: "View_Architecture",
+      cta_docs: "View_Documentation",
     },
     // Tension
     tension: {
@@ -256,6 +283,35 @@ export const TRANSLATIONS = {
     indicators: {
       alignment: "ALIGNMENT_PROTOCOL",
       sector: "ALIGNED_SECTOR"
+    },
+    // Architecture
+    architecture: {
+      title_top: "Persistent",
+      title_bottom: "Memory Architecture",
+      subtitle: "Cognitive infrastructure to operate with continuous context, access control, and full traceability.",
+      roadmap_title: "Strategic Roadmap",
+      phases: {
+        p1: { q: "Q1 2026", title: "Phase_01", status: "In Progress", desc: "Engine deployment." },
+        p2: { q: "Q2 2028", title: "Phase_02", status: "Upcoming", desc: "Undisclosed information." },
+        p3: { q: "Q3 2030", title: "Phase_03", status: "Upcoming", desc: "Undisclosed information." }
+      }
+    },
+    // Documentation
+    documentation: {
+      title: "Materials Repository",
+      demo_btn: "START INTERACTIVE DEMO",
+      code_btn: "VIEW SOURCE",
+      download_btn: "DOWNLOAD",
+      download_all_btn: "DOWNLOAD ALL",
+      docs: {
+        doc1: "One Page Summary",
+        doc2: "Technical Investor Brief",
+        doc3: "Implementation Plan",
+        doc4: "Risk Analysis & Mitigation",
+        doc5: "Architecture Diagram",
+        doc6: "ZeroCog Interactive Pipeline Demo",
+        doc7: "Pipeline Backend Source Code"
+      }
     }
   }
 };
