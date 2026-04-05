@@ -7,7 +7,8 @@ export const TRANSLATIONS = {
       usecases: "III_OPERATIVA",
       solution: "IV_SOLUCIÓN",
       value: "V_VALOR",
-      contact: "VI_CONTACTO",
+      architecture: "VI_ARQUITECTURA",
+      contact: "VII_CONTACTO",
     },
     // Hero
     hero: {
@@ -135,7 +136,8 @@ export const TRANSLATIONS = {
       usecases: "III_OPERATIONS",
       solution: "IV_SOLUTION",
       value: "V_VALUE",
-      contact: "VI_CONTACT",
+      architecture: "VI_ARCHITECTURE",
+      contact: "VII_CONTACT",
     },
     // Common
     common: {

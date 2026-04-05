@@ -390,6 +390,50 @@ const ContactSection = () => (
   </div>
 )
 
+const TeamSection = () => (
+  <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center h-full pt-8 lg:pt-0">
+    <div className="space-y-6 md:space-y-8 text-left order-2 lg:order-1 px-4">
+      <div className="mono-tech">06 // EQUIPO_FUNDADOR</div>
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-brand-blue-deep leading-none">
+        Arquitectura Húmeda. <br />
+        <span className="text-brand-green">Soberanía Real.</span>
+      </h2>
+      
+      <div className="p-6 md:p-8 border border-brand-blue-med/10 bg-brand-blue-deep/5 space-y-4">
+        <h3 className="text-2xl md:text-3xl font-black text-brand-blue-deep">David Janer Pérez</h3>
+        <p className="text-brand-blue-med text-sm md:text-base italic font-medium leading-relaxed">
+          David · Arquitecto. Sistemas distribuidos, privacidad por diseño, estándares abiertos. ZeroCog es su apuesta por una IA que recuerda sin espiar.
+        </p>
+        
+        <div className="w-12 h-1 bg-brand-green/40 mt-4 mb-2" />
+        <p className="text-brand-dark-text/80 text-sm italic border-l-2 border-brand-green/30 pl-4 py-1 leading-relaxed">
+          "La IA no necesita tus datos. <br className="hidden md:block" />Puede entender tu mundo sin poseerlo."
+        </p>
+        
+        <a href="https://www.linkedin.com/in/david-janer-p%C3%A9rez" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-brand-green hover:text-brand-blue-deep transition-colors font-black mt-6 uppercase tracking-wider text-xs md:text-sm">
+           <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+             <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
+           </svg>
+           <span>Conectar en LinkedIn</span>
+        </a>
+      </div>
+    </div>
+    
+    <div className="order-1 lg:order-2 w-full max-w-xs md:max-w-sm mx-auto relative aspect-[4/5] flex items-center justify-center overflow-hidden grayscale contrast-125 border border-brand-blue-med/10 shadow-2xl glass-isolation bevelled group mt-6 lg:mt-0">
+        <div className="absolute inset-0 bg-brand-blue-deep/5 mix-blend-multiply z-10 pointer-events-none group-hover:bg-brand-green/5 transition-colors" />
+        <img src="/assets/david-profile.png" alt="David Janer" className="w-full h-full object-cover z-0 opacity-80" />
+        
+        {/* Decorative mechanical overlays */}
+        <div className="absolute top-4 right-4 text-brand-green scale-[0.6] md:scale-75 opacity-50 z-20">
+            <Gear size={60} color={BRAND.GREEN} rotation={0} teeth={12} opacity={0.6} />
+        </div>
+        <div className="absolute bottom-2 left-2 mono-tech text-white z-20 mix-blend-overlay font-bold text-[8px] md:text-[10px] tracking-[0.4em]">
+           ID: D.JANER_001
+        </div>
+    </div>
+  </div>
+)
+
 // --- Main App Logic ---
 
 export default function App() {
@@ -403,7 +447,8 @@ export default function App() {
     { id: 'solution', title: 'III_SOLUCIÓN' },
     { id: 'usecases', title: 'IV_CASOS' },
     { id: 'value', title: 'V_VALOR' },
-    { id: 'contact', title: 'VI_DESPLIEGUE' },
+    { id: 'team', title: 'VI_EQUIPO' },
+    { id: 'contact', title: 'VII_DESPLIEGUE' },
   ]
 
   const navigate = (newIdx) => {
@@ -442,8 +487,36 @@ export default function App() {
     }
   }, [current])
 
+  // --- Touch Swipe Logic for Mobile ---
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+  
+  const minSwipeDistance = 50 
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientY)
+  }
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientY)
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isUpSwipe = distance > minSwipeDistance
+    const isDownSwipe = distance < -minSwipeDistance
+    
+    if (isUpSwipe) navigate((current + 1) % sections.length)
+    if (isDownSwipe) navigate((current - 1 + sections.length) % sections.length)
+  }
+
   return (
-    <div className="relative w-screen h-screen select-none overflow-hidden font-sans bg-brand-white">
+    <div 
+      className="relative w-screen h-screen select-none overflow-hidden font-sans bg-brand-white"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <ClockworkBackground current={current} />
       
       {/* Persitent Nav - Cleaner & Lighter */}
@@ -534,7 +607,8 @@ export default function App() {
             {current === 2 && <SolutionSection />}
             {current === 3 && <UseCasesSection />}
             {current === 4 && <ValuePropSection />}
-            {current === 5 && <ContactSection />}
+            {current === 5 && <TeamSection />}
+            {current === 6 && <ContactSection />}
           </PersistentReveal>
         </AnimatePresence>
       </main>

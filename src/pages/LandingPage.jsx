@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent, useSpring, useTransform } from 'framer-motion';
-import { Lock, Globe, Activity, UserCheck, Shield, Zap, MapPin } from 'lucide-react';
+import { Lock, Globe, Activity, UserCheck, Shield, Zap, MapPin, FileText, TrendingUp, Download, Users, ExternalLink, Database, ChevronRight } from 'lucide-react';
 import { BRAND } from '../constants/brand';
 import { Gear } from '../components/Gear';
 import { PersistentReveal } from '../components/PersistentReveal';
@@ -10,7 +10,7 @@ import { useClockwork } from '../context/ClockworkContext';
 import { useLanguage } from '../context/LanguageContext';
 
 // --- Hero Section ---
-const HeroSection = () => {
+const HeroSection = ({ onNavigate }) => {
   const navigate = useNavigate();
   const { t } = useLanguage();
 
@@ -51,7 +51,7 @@ const HeroSection = () => {
           {t('hero.cta_contact')}
         </a>
         <button
-          onClick={() => navigate('/login')}
+          onClick={() => onNavigate(5)}
           className="w-full md:w-auto px-8 md:px-12 py-4 md:py-5 border border-[#0F2B46]/20 text-[#0F2B46] font-black tracking-widest uppercase hover:bg-[#0F2B46] hover:text-white transition-all bevelled text-sm md:text-base"
         >
           {t('hero.cta_arch')}
@@ -250,8 +250,8 @@ const ValuePropSection = () => {
   );
 };
 
-// --- Contact ---
-const ContactSection = () => {
+// --- Contact (Includes Founding Team) ---
+const ContactSection = ({ onNavigate }) => {
   const navigate = useNavigate();
   const { t } = useLanguage();
   return (
@@ -264,15 +264,43 @@ const ContactSection = () => {
       </div>
 
       <div className="flex flex-col items-center gap-8 w-full px-8">
-        <button onClick={() => navigate('/login')} className="w-full md:w-auto px-10 py-4 bg-[#00A86B] text-white font-black tracking-widest uppercase hover:bg-[#0F2B46] transition-all bevelled shadow-2xl scale-100 md:scale-110">{t('contact.cta')}</button>
+        <button onClick={() => onNavigate(5)} className="w-full md:w-auto px-10 py-4 bg-[#00A86B] text-white font-black tracking-widest uppercase hover:bg-[#0F2B46] transition-all bevelled shadow-2xl scale-100 md:scale-110">{t('contact.cta')}</button>
         
         <div className="pt-4 space-y-4">
-          <p className="text-base md:text-xl text-[#0F2B46]/70 italic max-w-2xl mx-auto">{t('contact.ethics')}</p>
-          <a href="mailto:zerocogorg@gmail.com" className="block text-xl md:text-3xl font-black text-[#0F2B46]/40 hover:text-[#00A86B] transition-colors font-mono tracking-tighter">zerocogorg@gmail.com</a>
+           <p className="text-base md:text-xl text-[#0F2B46]/70 italic max-w-2xl mx-auto">{t('contact.ethics')}</p>
         </div>
       </div>
 
-      {/* Discrete Location Detail - Final Minimal Version */}
+      {/* Embedded Founding Team Card */}
+      <div className="w-full max-w-2xl mx-auto pt-8 flex items-center justify-center pointer-events-auto">
+        <div className="flex flex-col md:flex-row items-center gap-6 p-6 bg-[#0F2B46]/5 border border-[#1E4F7A]/10 glass-isolation bevelled group hover:bg-[#00A86B]/5 transition-colors">
+          
+          <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 relative overflow-hidden grayscale contrast-125 border border-[#1E4F7A]/10 shadow-lg">
+            <img src="/assets/david-profile.png" alt="David Janer" className="w-full h-full object-cover z-0 opacity-80" />
+            <div className="absolute inset-0 bg-[#0F2B46]/10 mix-blend-multiply z-10" />
+            <div className="absolute top-1 right-1 text-[#00A86B] scale-50 opacity-50 z-20">
+                <Gear size={30} color={BRAND.GREEN} rotation={0} teeth={12} opacity={0.6} />
+            </div>
+          </div>
+          
+          <div className="text-center md:text-left space-y-3">
+             <h3 className="text-xl font-black text-[#0F2B46]">David Janer Pérez</h3>
+             <p className="text-[#0C1A26]/80 text-[11px] md:text-xs italic leading-relaxed font-serif">
+                "La IA no necesita tus datos. Puede entender tu mundo sin poseerlo."
+             </p>
+             <div className="flex items-center justify-center md:justify-start gap-4">
+                <a href="mailto:zerocogorg@gmail.com" className="text-xs font-black text-[#1E4F7A]/60 hover:text-[#00A86B] transition-colors font-mono tracking-tighter">zerocogorg@gmail.com</a>
+                <a href="https://www.linkedin.com/in/david-janer-p%C3%A9rez" target="_blank" rel="noreferrer" className="text-[#00A86B]/60 hover:text-[#00A86B] transition-colors">
+                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                     <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
+                   </svg>
+                </a>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Discrete Location Detail */}
       <div className="pt-8 flex items-center justify-center gap-3 opacity-30 hover:opacity-60 transition-opacity">
         <MapPin size={12} className="text-[#00A86B]" />
         <span className="mono-tech text-[9px] tracking-[0.4em] text-[#1E4F7A] uppercase">{t('contact.malaga')}</span>
@@ -281,7 +309,131 @@ const ContactSection = () => {
   );
 };
 
+// --- Architecture Section (Formely InvestorArea) ---
+const ArchitectureSection = () => {
+  const documents = [
+    { title: "One Page Summary", type: "DOCX", size: "0.8 MB", date: "Apr 01, 2026", url: "/assets/investors/1Zerocog_One_p.docx" },
+    { title: "Technical Investor Brief", type: "DOCX", size: "3.2 MB", date: "Apr 01, 2026", url: "/assets/investors/2Zerocog_inv_br.docx" },
+    { title: "Plan de Implementación", type: "DOCX", size: "1.4 MB", date: "Apr 01, 2026", url: "/assets/investors/3Zerocog_Implem_p.docx" },
+    { title: "Análisis de Riesgos y Mitigación", type: "DOCX", size: "2.1 MB", date: "Apr 01, 2026", url: "/assets/investors/4Zerocog_a_reiesg_mitig.docx" },
+    { title: "Presentación Seed V1", type: "DOCX", size: "4.5 MB", date: "Apr 01, 2026", url: "/assets/investors/5ZeroCog_pre_sd_v1.docx" },
+    { title: "Diagrama de Arquitectura", type: "JPG", size: "1.1 MB", date: "Apr 01, 2026", url: "/assets/investors/diagram_a.jpg" },
+    { title: "ZeroCog Interactive Pipeline Demo", type: "STREAMLIT", size: "LIVE", date: "External App", url: "https://zerocog.streamlit.app" },
+  ];
+
+  const metrics = [
+    { label: "Memory Entries", value: "2+", trend: "persisted records" },
+    { label: "Retrieval Latency", value: "< 20ms", trend: "local environment" },
+    { label: "Architecture Modules", value: "4", trend: "Ingest · Store · Retrieve · Prompt" },
+    { label: "Deployment Mode", value: "Local-first", trend: "Air-gapped ready" },
+  ];
+
+  return (
+    <div className="allow-parent-scroll w-full h-full max-h-[75vh] md:max-h-[85vh] overflow-y-auto custom-scrollbar md:pr-4 relative z-10 pointer-events-auto">
+      <div className="space-y-16 md:space-y-24 pb-16">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center pt-8">
+          <div className="space-y-4 md:space-y-6 text-center md:text-left">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight md:leading-none text-[#0F2B46]">
+              Arquitectura de <br />
+              <span className="text-[#00A86B]">Memoria Persistente</span>
+            </h2>
+            <p className="text-lg md:text-xl text-[#1E4F7A]/80 font-light max-w-xl mx-auto md:mx-0 leading-relaxed italic">
+              Infraestructura cognitiva para operar con contexto continuo, control de acceso y trazabilidad completa.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {metrics.map((m, i) => (
+              <div key={i} className="p-4 md:p-6 bg-[#0F2B46]/5 border border-[#0F2B46]/5 hover:border-[#00A86B]/30 transition-all group glass-isolation pointer-events-auto">
+                <p className="text-[9px] md:text-[10px] font-mono text-gray-500 mb-1 uppercase tracking-widest">{m.label}</p>
+                <p className="text-2xl md:text-3xl font-black text-[#0F2B46] group-hover:text-[#00A86B] transition-colors">{m.value}</p>
+                <p className="text-[10px] md:text-xs text-[#00A86B] mt-2 font-mono">{m.trend}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-6 md:space-y-8">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-end border-b border-[#0F2B46]/10 pb-4 gap-4 md:gap-0">
+            <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
+              <FileText className="text-[#00A86B]" /> Repositorio de Materiales
+            </h3>
+            <span className="text-[10px] font-mono text-gray-500">LAST_UPDATE: 01_APR_2026</span>
+          </div>
+
+          <div className="grid gap-px bg-[#0F2B46]/10 border border-[#0F2B46]/10">
+            {documents.map((doc, i) => (
+              <div key={i} className="bg-white/80 backdrop-blur-sm p-6 md:p-8 flex flex-col xl:flex-row xl:items-center justify-between group hover:bg-[#00A86B]/5 transition-colors gap-6 xl:gap-0 pointer-events-auto">
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-[#0F2B46]/5 flex items-center justify-center text-[#00A86B] shrink-0">
+                    <Database size={20} md:size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-base md:text-lg font-bold group-hover:text-[#00A86B] transition-colors text-[#0F2B46]">{doc.title}</h4>
+                    <p className="text-[10px] md:text-xs text-gray-500 mt-1 uppercase tracking-widest font-mono">
+                      {doc.type} • {doc.size} • {doc.date}
+                    </p>
+                  </div>
+                </div>
+                {doc.type === 'STREAMLIT' ? (
+                  <a
+                    href={doc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex shrink-0 items-center justify-center gap-3 px-6 py-3 border border-[#00A86B]/20 hover:bg-[#00A86B] hover:text-white transition-all font-bold text-[10px] md:text-xs tracking-widest uppercase text-[#00A86B] hover:border-[#00A86B] pointer-events-auto"
+                  >
+                    ABRIR DEMO <ExternalLink size={14} md:size={16} />
+                  </a>
+                ) : (
+                  <a
+                    href={doc.url}
+                    download
+                    className="flex shrink-0 items-center justify-center gap-3 px-6 py-3 border border-[#00A86B]/20 hover:bg-[#00A86B] hover:text-white transition-all font-bold text-[10px] md:text-xs tracking-widest uppercase text-[#00A86B] hover:border-[#00A86B] pointer-events-auto"
+                  >
+                    DESCARGAR <Download size={14} md:size={16} />
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16">
+          <div className="lg:col-span-2 space-y-6 md:space-y-8">
+            <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 text-[#0F2B46]">
+              <TrendingUp className="text-[#00A86B]" /> Roadmap Estratégico
+            </h3>
+            <div className="space-y-6">
+              {[
+                { q: "Q1 2026", title: "Fase_01", status: "In Progress", desc: "Despliegue del motor." },
+                { q: "Q2 2028", title: "Fase_02", status: "Upcoming", desc: "Información no divulgada." },
+                { q: "Q3 2030", title: "Fase_03", status: "Upcoming", desc: "Información no divulgada." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 md:gap-8 relative pointer-events-auto">
+                  {i !== 2 && <div className="absolute left-5 md:left-6 top-10 md:top-12 bottom-0 w-px bg-[#0F2B46]/10" />}
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border shrink-0 ${item.status === 'Completed' ? 'border-[#00A86B] bg-[#00A86B]/10' : 'border-[#0F2B46]/10 bg-[#0F2B46]/5'}`}>
+                    <ChevronRight size={18} md:size={20} className={item.status === 'Completed' ? 'text-[#00A86B]' : 'text-[#1E4F7A]/30'} />
+                  </div>
+                  <div className="flex-1 pb-8 md:pb-12">
+                    <div className="flex items-center gap-3 mb-1 md:mb-2">
+                      <span className="text-[10px] font-mono text-gray-500">{item.q}</span>
+                      <span className={`text-[8px] md:text-[9px] px-2 py-0.5 font-mono border ${item.status === 'Completed' ? 'border-[#00A86B] text-[#00A86B]' : 'border-gray-400 text-gray-400 uppercase'}`}>{item.status}</span>
+                    </div>
+                    <h5 className="text-lg md:text-xl font-bold text-[#0F2B46]">{item.title}</h5>
+                    <p className="text-[#1E4F7A]/80 mt-1 md:mt-2 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <div className="h-20" />
+      </div>
+    </div>
+  );
+};
+
 // --- Main Landing Page Logic ---
+
 const LandingPage = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -316,7 +468,8 @@ const LandingPage = () => {
     { id: 'usecases', title: 'III_OPERATIVA' },
     { id: 'solution', title: 'IV_SOLUCIÓN' },
     { id: 'value', title: 'V_VALOR' },
-    { id: 'contact', title: 'VI_CONTACTO' },
+    { id: 'architecture', title: 'VI_ARQUITECTURA' },
+    { id: 'contact', title: 'VII_CONTACTO' },
   ];
 
   const navigateToSection = (newIdx) => {
@@ -341,6 +494,7 @@ const LandingPage = () => {
 
     const handleWheel = (e) => {
       if (scrollLock.current || isMobile) return;
+      if (e.target.closest('.allow-parent-scroll')) return;
       if (Math.abs(e.deltaY) > 20) {
         if (e.deltaY > 0) navigateToSection((current + 1) % sections.length);
         else navigateToSection((current - 1 + sections.length) % sections.length);
@@ -368,12 +522,13 @@ const LandingPage = () => {
               className="w-full min-h-fit flex items-center justify-center py-8 md:py-16"
             >
               <div className="w-full px-6 py-8">
-                {idx === 0 && <HeroSection />}
+                {idx === 0 && <HeroSection onNavigate={navigateToSection} />}
                 {idx === 1 && <ParadoxSection />}
                 {idx === 2 && <UseCasesSection />}
                 {idx === 3 && <SolutionSection />}
                 {idx === 4 && <ValuePropSection />}
-                {idx === 5 && <ContactSection />}
+                {idx === 5 && <ArchitectureSection />}
+                {idx === 6 && <ContactSection onNavigate={navigateToSection} />}
               </div>
             </motion.div>
           ))}
@@ -381,12 +536,13 @@ const LandingPage = () => {
       ) : (
         <AnimatePresence mode="wait" custom={direction}>
           <PersistentReveal key={sections[current].id} direction={direction}>
-            {current === 0 && <HeroSection />}
+            {current === 0 && <HeroSection onNavigate={navigateToSection} />}
             {current === 1 && <ParadoxSection />}
             {current === 2 && <UseCasesSection />}
             {current === 3 && <SolutionSection />}
             {current === 4 && <ValuePropSection />}
-            {current === 5 && <ContactSection />}
+            {current === 5 && <ArchitectureSection />}
+            {current === 6 && <ContactSection onNavigate={navigateToSection} />}
           </PersistentReveal>
         </AnimatePresence>
       )}

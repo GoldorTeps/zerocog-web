@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import Login from './pages/Login';
-import InvestorArea from './pages/InvestorArea';
 import { ClockworkProvider } from './context/ClockworkContext';
 import { LanguageProvider } from './context/LanguageContext';
 import './index.css';
@@ -19,10 +17,6 @@ const Root = () => {
         <Routes>
         {/* Public Landing Page */}
         <Route path="/" element={<LandingPage />} />
-        
-        {/* Investor Portal Flow */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/investor" element={<InvestorArea />} />
         
         {/* Fallback / Catch-all */}
         <Route path="*" element={<Navigate to="/" replace />} />
