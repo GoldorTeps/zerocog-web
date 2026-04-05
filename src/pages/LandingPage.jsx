@@ -316,9 +316,9 @@ const ArchitectureSection = () => {
     { title: "Technical Investor Brief", type: "DOCX", size: "3.2 MB", date: "Apr 01, 2026", url: "/assets/investors/2Zerocog_inv_br.docx" },
     { title: "Plan de Implementación", type: "DOCX", size: "1.4 MB", date: "Apr 01, 2026", url: "/assets/investors/3Zerocog_Implem_p.docx" },
     { title: "Análisis de Riesgos y Mitigación", type: "DOCX", size: "2.1 MB", date: "Apr 01, 2026", url: "/assets/investors/4Zerocog_a_reiesg_mitig.docx" },
-    { title: "Presentación Seed V1", type: "DOCX", size: "4.5 MB", date: "Apr 01, 2026", url: "/assets/investors/5ZeroCog_pre_sd_v1.docx" },
     { title: "Diagrama de Arquitectura", type: "JPG", size: "1.1 MB", date: "Apr 01, 2026", url: "/assets/investors/diagram_a.jpg" },
-    { title: "ZeroCog Interactive Pipeline Demo", type: "STREAMLIT", size: "LIVE", date: "External App", url: "https://zerocog.streamlit.app" },
+    { title: "ZeroCog Interactive Pipeline Demo", type: "STREAMLIT", size: "LIVE", date: "External App", url: "https://zerocogdemo-appi7rtt7crpgf8cz36feqx.streamlit.app/" },
+    { title: "Pipeline Backend Source Code", type: "GITHUB", size: "PUBLIC", date: "Repository", url: "https://github.com/GoldorTeps/zero_cog_DEMO" },
   ];
 
   const metrics = [
@@ -375,13 +375,25 @@ const ArchitectureSection = () => {
                   </div>
                 </div>
                 {doc.type === 'STREAMLIT' ? (
+                  <div className="flex shrink-0">
+                    <a
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 px-8 py-4 bg-[#00A86B] text-white shadow-[0_0_25px_rgba(0,168,107,0.4)] hover:shadow-[0_0_40px_rgba(0,168,107,0.6)] hover:bg-[#0F2B46] hover:scale-[1.03] transition-all font-black text-[11px] md:text-xs tracking-[0.2em] uppercase bevelled pointer-events-auto"
+                    >
+                      <Zap size={16} className="animate-pulse" />
+                      INICIAR DEMO INTERACTIVA
+                    </a>
+                  </div>
+                ) : doc.type === 'GITHUB' ? (
                   <a
                     href={doc.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex shrink-0 items-center justify-center gap-3 px-6 py-3 border border-[#00A86B]/20 hover:bg-[#00A86B] hover:text-white transition-all font-bold text-[10px] md:text-xs tracking-widest uppercase text-[#00A86B] hover:border-[#00A86B] pointer-events-auto"
+                    className="flex shrink-0 items-center justify-center gap-3 px-6 py-3 border border-[#1E4F7A]/20 hover:bg-[#0F2B46] hover:text-white transition-all font-bold text-[10px] md:text-xs tracking-widest uppercase text-[#0F2B46] hover:border-[#0F2B46] pointer-events-auto"
                   >
-                    ABRIR DEMO <ExternalLink size={14} md:size={16} />
+                    VER CÓDIGO <ExternalLink size={14} md:size={16} />
                   </a>
                 ) : (
                   <a
@@ -450,6 +462,17 @@ const LandingPage = () => {
   // Smooth version of that target for Safari/Mobile elasticity
   const smoothTarget = useSpring(baseTarget, { damping: 30, stiffness: 100 });
 
+  const demoAction = (
+    <a
+      href="https://zerocogdemo-appi7rtt7crpgf8cz36feqx.streamlit.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hidden md:flex relative items-center gap-2 px-6 py-2.5 bg-[#00A86B] text-white text-[10px] uppercase tracking-widest font-black hover:bg-[#0F2B46] transition-all bevelled shadow-[0_0_15px_rgba(0,168,107,0.3)] hover:shadow-[0_0_20px_rgba(0,168,107,0.5)] pointer-events-auto"
+    >
+      <Zap size={14} className="animate-pulse" /> LIVE DEMO
+    </a>
+  );
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
@@ -510,7 +533,7 @@ const LandingPage = () => {
   }, [current, isMobile]);
 
   return (
-    <MainLayout current={current} sections={sections} onNavigate={navigateToSection}>
+    <MainLayout current={current} sections={sections} onNavigate={navigateToSection} actions={demoAction}>
       {isMobile ? (
         <div className="flex flex-col pt-20 overflow-x-hidden">
           {sections.map((section, idx) => (
