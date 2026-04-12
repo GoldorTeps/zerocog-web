@@ -20,60 +20,21 @@ export const Header = ({ sections, current, onNavigate, onToggleMenu, menuOpen, 
         </Link>
       </div>
 
-      {/* Desktop Nav */}
-      {sections.length > 0 && (
-        <div className="hidden lg:flex gap-12 pointer-events-auto">
-          {sections.map((section, idx) => (
-            <button 
-              key={section.id} 
-              onClick={() => onNavigate(idx)}
-              className="relative py-2 group"
-            >
-              <span className={`font-mono text-[9px] tracking-[0.4em] transition-all uppercase ${current === idx ? 'text-[#00A86B]' : 'text-[#1E4F7A]/40 group-hover:text-[#0F2B46]'}`}>
-                {/* Translating section title using IDs from translations.js */}
-                {t(`nav.${section.id}`)}
-              </span>
-              {current === idx && (
-                <motion.div layoutId="nav-pill" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#00A86B]" />
-              )}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* Trigger & Slot */}
+      {/* Trigger & Primary Actions */}
       <div className="pointer-events-auto flex items-center gap-4 md:gap-8">
-        {/* Language Switcher (Desktop only) */}
-        <div className="hidden lg:flex items-center gap-2 font-mono text-[10px] tracking-widest text-[#1E4F7A]/40 mr-4">
-          <button 
-            onClick={() => setLang('es')}
-            className={`transition-colors hover:text-[#0F2B46] p-1 ${lang === 'es' ? 'text-[#00A86B] font-bold' : ''}`}
-          >
-            ES
-          </button>
-          <span className="opacity-30">/</span>
-          <button 
-            onClick={() => setLang('en')}
-            className={`transition-colors hover:text-[#0F2B46] p-1 ${lang === 'en' ? 'text-[#00A86B] font-bold' : ''}`}
-          >
-            EN
-          </button>
-        </div>
-
+        
         {actions}
         
-        {sections.length > 0 && (
-          <button 
-            onClick={onToggleMenu}
-            className="lg:hidden w-10 h-10 border border-[#0F2B46]/10 flex items-center justify-center bg-white/80 backdrop-blur-md z-[60] relative"
-          >
-            <div className="flex flex-col gap-1.5 items-center">
-              <motion.div animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6.5 : 0 }} className="w-5 h-0.5 bg-[#0F2B46]" />
-              <motion.div animate={{ opacity: menuOpen ? 0 : 1 }} className="w-5 h-0.5 bg-[#0F2B46]" />
-              <motion.div animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6.5 : 0 }} className="w-5 h-0.5 bg-[#0F2B46]" />
-            </div>
-          </button>
-        )}
+        <button 
+          onClick={onToggleMenu}
+          className="w-10 h-10 md:w-12 md:h-12 border border-[#0F2B46]/10 flex items-center justify-center bg-white/80 backdrop-blur-md z-[110] relative group hover:border-[#00A86B]/40 transition-colors"
+        >
+          <div className="flex flex-col gap-1.5 items-center">
+            <motion.div animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6.5 : 0 }} className="w-5 md:w-6 h-0.5 bg-[#0F2B46] group-hover:bg-[#00A86B]" />
+            <motion.div animate={{ opacity: menuOpen ? 0 : 1 }} className="w-5 md:w-6 h-0.5 bg-[#0F2B46] group-hover:bg-[#00A86B]" />
+            <motion.div animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6.5 : 0 }} className="w-5 md:w-6 h-0.5 bg-[#0F2B46] group-hover:bg-[#00A86B]" />
+          </div>
+        </button>
       </div>
     </nav>
   );

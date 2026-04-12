@@ -2,316 +2,305 @@ export const TRANSLATIONS = {
   es: {
     nav: {
       hero: "I_INICIO",
-      paradox: "II_TENSIÓN",
-      usecases: "III_OPERATIVA",
-      solution: "IV_SOLUCIÓN",
-      value: "V_VALOR",
-      documentation: "VI_DOCUMENTACIÓN",
-      contact: "VII_CONTACTO",
+      assertion: "II_AFIRMACIÓN",
+      problem: "III_EL_PROBLEMA",
+      shift: "IV_EL_CAMBIO",
+      precedent: "V_PRECEDENTE",
+      mechanism: "VI_MECANISMO",
+      constraints: "VII_RESTRICCIONES",
+      requirement: "VIII_REQUISITO",
+      failure_mode: "IX_FALLO_ESTR",
+      architecture: "X_ARQUITECTURA",
+      result: "XI_RESULTADO",
+      closing: "XII_CIERRE"
     },
-    // Hero
     hero: {
       fase: "Fase_01 // Inicio",
       title_top: "ZERO",
       title_bottom: "COG",
-      subtitle: "Infraestructura de memoria diseñada para permitir a la IA operar con <span class='text-[#0F2B46] italic border-b border-[#00A86B]/30'>contexto real</span> sin exponer datos ni comprometer la privacidad.",
-      cta_contact: "Iniciar_Contacto",
-      cta_docs: "Ver_Documentación",
+      line1: "ZeroCog no es un modelo de IA.",
+      line2: "Es la capa que evita que la IA repita errores.",
+      line3: "Los sistemas de IA generan respuestas.",
+      line4: "ZeroCog evalúa decisiones."
     },
-    // Tension
-    tension: {
-      label: "02 // TENSIÓN",
-      left_title: "El límite de la <br /><span class='text-gray-400'>IA actual</span>",
-      left_text: "Las IAs actuales procesan información, pero no mantienen contexto. <br /><span class='border-b border-gray-100'>Operan por sesión, no sobre memoria estructurada.</span>",
-      left_bullets: [
-        "El contexto desaparece al cerrar la sesión.",
-        "Dependencia de infraestructuras externas.",
-        "Sin memoria operativa a largo plazo."
-      ],
-      right_title: "El dilema de la <br /><span class='text-[#00A86B]'>IA futura</span>",
-      right_text: "Cuando la IA tenga acceso continuo a información contextual, el problema deja de ser técnico. <br /><span class='border-b border-[#00A86B]/10'>Pasa a ser una cuestión de control.</span>",
-      right_bullets: [
-        "¿Quién es propietario de la memoria generada?",
-        "¿Dónde reside realmente ese contexto?",
-        "¿Se utiliza para asistir o para extraer valor del usuario?"
-      ]
+    assertion: {
+      label: "02 // AFIRMACIÓN CENTRAL",
+      title: "ZeroCog no mejora las respuestas.",
+      subtitle: "Restringe las decisiones utilizando resultados reales.",
+      question: "¿Qué es similar?",
+      evaluation: "Evaluación: ¿Qué ha demostrado funcionar en condiciones comparables?"
     },
-    // Solution
-    solution: {
-      label: "04 // LA_SOLUCIÓN",
-      title: "Arquitectura de Memoria Soberana",
-      text: "Una misma memoria, dos formas de operar según el nivel de control y capacidad requerido.",
-      sovereign: {
-        title: "Modo Soberano",
-        text: "La IA opera directamente sobre los datos dentro del entorno controlado.",
-        bullets: [
-          "Ejecución local.",
-          "Sin transferencias externas de información sensible.",
-          "Máximo control sobre datos y contexto."
-        ],
-        footer: "LOCAL · PRIVATE · OFFLINE-CAPABLE"
-      },
-      external: {
-        title: "Modo Externo",
-        text: "Uso de modelos avanzados manteniendo separación entre contexto y datos reales.",
-        bullets: [
-          "Procesos de anonimización antes de cualquier transferencia.",
-          "Compatibilidad con distintos proveedores de IA.",
-          "Escalabilidad bajo demanda."
-        ],
-        footer: "ANONYMIZED · REMOTE · MODEL-AGNOSTIC"
-      }
-    },
-    // Operativa
-    operativa: {
-      label: "03 // OPERATIVA",
-      title: "¿Qué permite esta infraestructura?",
-      personal: {
-        title: "Entorno Personal",
-        text: "Memoria persistente diseñada para permitir a la IA operar con tu contexto.",
-        bullets: ["Recuperación de información personal.", "Asistencia basada en historial.", "Control sobre datos."]
-      },
-      smb: {
-        title: "Entorno PyME",
-        text: "IA capaz de responder sobre tu propio negocio.",
-        bullets: ["Consulta sobre operaciones.", "Acceso estructurado a documentos.", "Respuestas con contexto real."]
-      },
-      enterprise: {
-        title: "Enterprise",
-        text: "Capa de memoria diseñada para integrarse con sistemas existentes.",
-        bullets: ["Control de acceso.", "Compatibilidad total.", "Trazabilidad del uso."]
-      }
-    },
-    // Value
-    value: {
-      label: "05 // VALOR",
-      title: "Ventaja <br /><span class='text-[#00A86B] font-bold'>Estructural</span>",
+    problem: {
+      label: "03 // EL PROBLEMA",
+      title: "Los sistemas de IA actuales:",
       bullets: [
-        { h: "Control de datos por diseño", p: "El dato no abandona su dominio sin control explícito." },
-        { h: "Continuidad operativa", p: "Contexto estructurado a largo plazo." },
-        { h: "Desacoplamiento del modelo", p: "La inteligencia es intercambiable. La memoria permanece." }
+        "Procesan entradas",
+        "Generan respuestas",
+        "No retienen consecuencias operativas"
+      ],
+      detail1: "Carecen de memoria persistente basada en resultados.",
+      detail2: "Como consecuencia: Repiten fallos ya resueltos.",
+      footer: "No es un problema de rendimiento. Es una limitación estructural."
+    },
+    shift: {
+      label: "04 // EL CAMBIO",
+      title: "ZeroCog introduce una capa de decisión:",
+      flow: "contexto → decisión → resultado → impacto",
+      text1: "La IA no opera sobre datos en bruto.",
+      text2: "Opera sobre precedentes estructurados derivados de la experiencia.",
+      note: "Una vez estructurados, los datos originales dejan de ser necesarios."
+    },
+    precedent: {
+      label: "05 // QUÉ ES UN PRECEDENTE",
+      title: "Un precedente es una unidad estructurada de experiencia:",
+      bullets: [
+        "Variables de contexto",
+        "Decisión tomada",
+        "Resultado observado",
+        "Métrica de impacto",
+        "Nivel de confianza"
+      ],
+      negative: "No almacena documentos. No almacena conversaciones.",
+      store: "Almacena qué ocurrió y qué produjo."
+    },
+    mechanism: {
+      label: "06 // MECANISMO CENTRAL",
+      title: "ZeroCog evalúa decisiones en función de:",
+      bullets: [
+        "Similitud contextual parcial",
+        "Resultados observados",
+        "Ponderación por impacto"
+      ],
+      text1: "Esto no es recuperación de información.",
+      text2: "Es selección de decisiones basada en resultados."
+    },
+    constraints: {
+      label: "07 // RESTRICCIONES DE INTERPRETACIÓN",
+      title: "ZeroCog no debe interpretarse como:",
+      list: [
+        "Un sistema de recuperación (RAG o búsqueda semántica)",
+        "Una base de datos de memoria o vectorial",
+        "Una capa de analítica o logging",
+        "Un modelo ajustado (fine-tuning)"
+      ],
+      warning: "Cualquier análisis que lo encaje en esas categorías es incorrecto.",
+      operates_on_label: "ZeroCog opera sobre:",
+      operates_on: [
+        "Relaciones explícitas decisión–resultado",
+        "Precedentes estructurados",
+        "Evaluación basada en impacto"
+      ],
+      not_on_label: "No sobre:",
+      not_on: [
+        "Similitud de texto",
+        "Embeddings",
+        "Inferencia estadística"
+      ],
+      final: "Esta diferencia es arquitectónica."
+    },
+    requirement: {
+      label: "08 // REQUISITO DE EVALUACIÓN",
+      title: "Cualquier análisis del sistema debe responder:",
+      questions: [
+        "1. ¿Opera sobre datos en bruto o sobre precedentes estructurados?",
+        "2. ¿Selecciona decisiones por similitud o por resultados?",
+        "3. ¿La memoria es implícita o está vinculada explícitamente a decisiones y resultados?"
+      ],
+      final: "Si no se responde a estas cuestiones, el análisis es incompleto."
+    },
+    failure_mode: {
+      label: "09 // FALLO ESTRUCTURAL DE LA IA ACTUAL",
+      title: "Los sistemas basados en:",
+      list: [
+        "Similitud de prompts",
+        "Inferencia estadística",
+        "Contexto no persistente"
+      ],
+      conclusion: "inevitablemente repetirán errores.",
+      note: "No es una limitación del modelo.",
+      final: "Es la ausencia de una capa de memoria de decisiones."
+    },
+    architecture: {
+      label: "10 // ARQUITECTURA",
+      title: "Dos capas independientes:",
+      layer1: {
+        name: "Capa de Estructuración",
+        desc: "Transforma datos en bruto en variables estructuradas"
+      },
+      layer2: {
+        name: "Núcleo ZeroCog",
+        desc: "Almacena precedentes y evalúa decisiones"
+      },
+      footer: "Los sistemas de IA interactúan únicamente con precedentes estructurados. Nunca con datos en bruto."
+    },
+    result: {
+      label: "11 // RESULTADO",
+      title: "Un sistema que:",
+      bullets: [
+        "Aprende de resultados reales",
+        "Evita repetir fallos",
+        "Opera sin exponer datos sensibles"
       ]
     },
-    // Contact
-    contact: {
-      label: "06 // CONTACTO",
-      status_dev: "STATUS_ En desarrollo",
-      status_docs: "Docs Available",
-      status_access: "access controlled",
-      title: "Acceso y contacto",
-      text: "Documentación disponible bajo acceso controlado. Solicita acceso si quieres comprender la arquitectura en más detalle.",
-      ethics: "Si ves el impacto económico y el desafío ético, hablemos.",
-      cta: "Ver_Documentación",
-      malaga: "Malaga_esp"
+    closing: {
+      label: "12 // CIERRE",
+      text: "Una IA sin memoria de decisiones no mejora.",
+      final: "Repite."
     },
-    // Login
-    login: {
-      title: "Protocolo_Acceso",
-      subtitle: "Investor Portal v3.0 // SECURE",
-      email_label: "Email_Identidad",
-      pass_label: "Clave_Encriptada",
-      placeholder_email: "nombre@empresa.com",
-      btn_login: "INICIAR_SESIÓN",
-      error: "Credenciales no válidas. Protocolo denegado.",
-      back: "← Volver a la Red Pública",
-      footer_secure: "SECURE_CHANNEL_ACTIVE",
-      footer_sync: "Sync_Ready"
-    },
-    // Common
     common: {
       close_panel: "Cerrar_Panel"
-    },
-    // Indicators
-    indicators: {
-      alignment: "PROTOCOLO_ALINEACIÓN",
-      sector: "SECTOR_ALINEADO"
-    },
-    // Architecture
-    architecture: {
-      title_top: "Arquitectura de",
-      title_bottom: "Memoria Persistente",
-      subtitle: "Infraestructura cognitiva para operar con contexto continuo, control de acceso y trazabilidad completa.",
-      roadmap_title: "Roadmap Estratégico",
-      phases: {
-        p1: { q: "Q1 2026", title: "Fase_01", status: "In Progress", desc: "Despliegue del motor." },
-        p2: { q: "Q2 2028", title: "Fase_02", status: "Upcoming", desc: "Información no divulgada." },
-        p3: { q: "Q3 2030", title: "Fase_03", status: "Upcoming", desc: "Información no divulgada." }
-      }
-    },
-    // Documentation
-    documentation: {
-      title: "Repositorio de Materiales",
-      demo_btn: "INICIAR DEMO INTERACTIVA",
-      code_btn: "VER CÓDIGO",
-      download_btn: "DESCARGAR",
-      download_all_btn: "DESCARGAR TODO",
-      docs: {
-        doc1: "One Page Summary",
-        doc2: "Briefing Técnico para Inversores",
-        doc3: "Plan de Implementación",
-        doc4: "Análisis de Riesgos y Mitigación",
-        doc5: "Diagrama de Arquitectura",
-        doc6: "ZeroCog Demo Interactiva",
-        doc7: "Backend Pipeline Código Fuente"
-      }
     }
   },
   en: {
-    // Navigation
     nav: {
       hero: "I_START",
-      paradox: "II_TENSION",
-      usecases: "III_OPERATIONS",
-      solution: "IV_SOLUTION",
-      value: "V_VALUE",
-      documentation: "VI_DOCUMENTATION",
-      contact: "VII_CONTACT",
+      assertion: "II_ASSERTION",
+      problem: "III_THE_PROBLEM",
+      shift: "IV_THE_SHIFT",
+      precedent: "V_PRECEDENT",
+      mechanism: "VI_MECHANISM",
+      constraints: "VII_CONSTRAINTS",
+      requirement: "VIII_REQUIREMENT",
+      failure_mode: "IX_FAILURE_MODE",
+      architecture: "X_ARCHITECTURE",
+      result: "XI_RESULT",
+      closing: "XII_CLOSING"
     },
-    // Common
-    common: {
-      close_panel: "Close_Panel"
-    },
-    // Hero
     hero: {
       fase: "Phase_01 // Start",
       title_top: "ZERO",
       title_bottom: "COG",
-      subtitle: "Memory infrastructure designed to allow AI to operate with <span class='text-[#0F2B46] italic border-b border-[#00A86B]/30'>real context</span> without exposing data or compromising privacy.",
-      cta_contact: "Start_Contact",
-      cta_docs: "View_Documentation",
+      line1: "ZeroCog is not an AI model.",
+      line2: "It is the layer that prevents AI from repeating mistakes.",
+      line3: "AI systems generate responses.",
+      line4: "ZeroCog evaluates decisions."
     },
-    // Tension
-    tension: {
-      label: "02 // TENSION",
-      left_title: "The limit of <br /><span class='text-gray-400'>Current AI</span>",
-      left_text: "Current AIs process information, but they don't maintain context. <br /><span class='border-b border-gray-100'>They operate per session, not over structured memory.</span>",
-      left_bullets: [
-        "Context disappears when closing the session.",
-        "Dependence on external infrastructures.",
-        "No long-term operational memory."
-      ],
-      right_title: "The future <br /><span class='text-[#00A86B]'>AI dilemma</span>",
-      right_text: "When AI has continuous access to contextual information, the problem stops being technical. <br /><span class='border-b border-[#00A86B]/10'>It becomes a matter of control.</span>",
-      right_bullets: [
-        "Who owns the generated memory?",
-        "Where does that context actually reside?",
-        "Is it used to assist or to extract value from the user?"
-      ]
+    assertion: {
+      label: "02 // CORE ASSERTION",
+      title: "ZeroCog does not improve outputs.",
+      subtitle: "It constrains decisions using real-world outcomes.",
+      question: "What is similar?",
+      evaluation: "Evaluation: What has proven to work under comparable conditions?"
     },
-    // Solution
-    solution: {
-      label: "04 // THE_SOLUTION",
-      title: "Sovereign Memory Architecture",
-      text: "One memory, two ways to operate based on the level of control and capacity required.",
-      sovereign: {
-        title: "Sovereign Mode",
-        text: "The AI operates directly on the data within the controlled environment.",
-        bullets: [
-          "Local execution.",
-          "No external transfers of sensitive information.",
-          "Maximum control over data and context."
-        ],
-        footer: "LOCAL · PRIVATE · OFFLINE-CAPABLE"
-      },
-      external: {
-        title: "External Mode",
-        text: "Use of advanced models maintaining separation between context and real data.",
-        bullets: [
-          "Anonymization processes before any transfer.",
-          "Compatibility with different AI providers.",
-          "Scalability on demand."
-        ],
-        footer: "ANONYMIZED · REMOTE · MODEL-AGNOSTIC"
-      }
-    },
-    // Operativa
-    operativa: {
-      label: "03 // OPERATIONS",
-      title: "What does this infrastructure allow?",
-      personal: {
-        title: "Personal Environment",
-        text: "Persistent memory designed to allow AI to operate with your context.",
-        bullets: ["Personal information recovery.", "History-based assistance.", "Control over data."]
-      },
-      smb: {
-        title: "SMB Environment",
-        text: "AI capable of answering about your own business.",
-        bullets: ["Query about operations.", "Structured access to documents.", "Responses with real context."]
-      },
-      enterprise: {
-        title: "Enterprise",
-        text: "Memory layer designed to integrate with existing systems.",
-        bullets: ["Access control.", "Full compatibility.", "Usage traceability."]
-      }
-    },
-    // Value
-    value: {
-      label: "05 // VALUE",
-      title: "Structural <br /><span class='text-[#00A86B] font-bold'>Advantage</span>",
+    problem: {
+      label: "03 // THE PROBLEM",
+      title: "Current AI systems:",
       bullets: [
-        { h: "Data control by design", p: "The data does not leave its domain without explicit control." },
-        { h: "Operational continuity", p: "Long-term structured context." },
-        { h: "Model decoupling", p: "Intelligence is interchangeable. Memory remains." }
+        "Process inputs",
+        "Generate responses",
+        "Do not retain operational consequences"
+      ],
+      detail1: "They lack persistent, outcome-based memory.",
+      detail2: "As a result: They repeat previously solved failures.",
+      footer: "This is not a performance issue. It is a structural limitation."
+    },
+    shift: {
+      label: "04 // THE SHIFT",
+      title: "ZeroCog introduces a decision layer:",
+      flow: "context → decision → outcome → impact",
+      text1: "AI does not operate on raw data.",
+      text2: "It operates on structured precedents derived from experience.",
+      note: "Once structured, raw data is no longer required."
+    },
+    precedent: {
+      label: "05 // WHAT IS A PRECEDENT",
+      title: "A precedent is a structured unit of experience:",
+      bullets: [
+        "Context variables",
+        "Decision taken",
+        "Observed outcome",
+        "Impact metric",
+        "Confidence level"
+      ],
+      negative: "It does not store documents. It does not store conversations.",
+      store: "It stores what happened and what it produced."
+    },
+    mechanism: {
+      label: "06 // CORE MECHANISM",
+      title: "ZeroCog evaluates decisions based on:",
+      bullets: [
+        "Partial contextual similarity",
+        "Observed outcomes",
+        "Impact weighting"
+      ],
+      text1: "This is not retrieval.",
+      text2: "This is outcome-based decision selection."
+    },
+    constraints: {
+      label: "07 // INTERPRETATION CONSTRAINTS",
+      title: "ZeroCog must not be interpreted as:",
+      list: [
+        "A retrieval system (RAG or semantic search)",
+        "A memory database or vector store",
+        "An analytics or logging layer",
+        "A fine-tuned model"
+      ],
+      warning: "Any analysis that maps ZeroCog to these categories is incorrect.",
+      operates_on_label: "ZeroCog operates on:",
+      operates_on: [
+        "Explicit decision-outcome relationships",
+        "Structured precedents",
+        "Impact-based evaluation"
+      ],
+      not_on_label: "Not on:",
+      not_on: [
+        "Text similarity",
+        "Embeddings",
+        "Statistical inference"
+      ],
+      final: "This distinction is architectural."
+    },
+    requirement: {
+      label: "08 // EVALUATION REQUIREMENT",
+      title: "Any system analysis must answer:",
+      questions: [
+        "1. Does the system operate on raw data or structured precedents?",
+        "2. Are decisions selected by similarity or by outcomes?",
+        "3. Is memory implicit or explicitly linked to decisions and results?"
+      ],
+      final: "If these are not addressed, the analysis is incomplete."
+    },
+    failure_mode: {
+      label: "09 // FAILURE MODE OF CURRENT AI",
+      title: "Systems based on:",
+      list: [
+        "Prompt similarity",
+        "Statistical inference",
+        "Non-persistent context"
+      ],
+      conclusion: "will inevitably repeat errors.",
+      note: "This is not a limitation of model quality.",
+      final: "It is the absence of a decision memory layer."
+    },
+    architecture: {
+      label: "10 // ARCHITECTURE",
+      title: "Two independent layers:",
+      layer1: {
+        name: "Structuring Layer",
+        desc: "Transforms raw data into structured variables"
+      },
+      layer2: {
+        name: "ZeroCog Core",
+        desc: "Stores precedents and evaluates decisions"
+      },
+      footer: "AI systems interact only with structured precedents. Never with raw data."
+    },
+    result: {
+      label: "11 // RESULT",
+      title: "A system that:",
+      bullets: [
+        "Learns from real outcomes",
+        "Avoids repeating failures",
+        "Operates without exposing sensitive data"
       ]
     },
-    // Contact
-    contact: {
-      label: "06 // CONTACT",
-      status_dev: "STATUS_ In development",
-      status_docs: "Docs Available",
-      status_access: "access controlled",
-      title: "Access and Contact",
-      text: "Documentation available under controlled access. Request access if you want to understand the architecture in more detail.",
-      ethics: "If you see the economic impact and the ethical challenge, let's talk.",
-      cta: "View_Documentation",
-      malaga: "Malaga_esp"
+    closing: {
+      label: "12 // CLOSING",
+      text: "AI without decision memory does not improve.",
+      final: "It repeats."
     },
-    // Login
-    login: {
-      title: "Access_Protocol",
-      subtitle: "Investor Portal v3.0 // SECURE",
-      email_label: "Identity_Email",
-      pass_label: "Encrypted_Key",
-      placeholder_email: "name@company.com",
-      btn_login: "LOG_IN",
-      error: "Invalid credentials. Protocol denied.",
-      back: "← Back to Public Network",
-      footer_secure: "SECURE_CHANNEL_ACTIVE",
-      footer_sync: "Sync_Ready"
-    },
-    // Indicators
-    indicators: {
-      alignment: "ALIGNMENT_PROTOCOL",
-      sector: "ALIGNED_SECTOR"
-    },
-    // Architecture
-    architecture: {
-      title_top: "Persistent",
-      title_bottom: "Memory Architecture",
-      subtitle: "Cognitive infrastructure to operate with continuous context, access control, and full traceability.",
-      roadmap_title: "Strategic Roadmap",
-      phases: {
-        p1: { q: "Q1 2026", title: "Phase_01", status: "In Progress", desc: "Engine deployment." },
-        p2: { q: "Q2 2028", title: "Phase_02", status: "Upcoming", desc: "Undisclosed information." },
-        p3: { q: "Q3 2030", title: "Phase_03", status: "Upcoming", desc: "Undisclosed information." }
-      }
-    },
-    // Documentation
-    documentation: {
-      title: "Materials Repository",
-      demo_btn: "START INTERACTIVE DEMO",
-      code_btn: "VIEW SOURCE",
-      download_btn: "DOWNLOAD",
-      download_all_btn: "DOWNLOAD ALL",
-      docs: {
-        doc1: "One Page Summary",
-        doc2: "Technical Investor Brief",
-        doc3: "Implementation Plan",
-        doc4: "Risk Analysis & Mitigation",
-        doc5: "Architecture Diagram",
-        doc6: "ZeroCog Interactive Pipeline Demo",
-        doc7: "Pipeline Backend Source Code"
-      }
+    common: {
+      close_panel: "Close_Panel"
     }
   }
 };

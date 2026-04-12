@@ -3,7 +3,7 @@ import { ClockworkBackground } from '../components/ClockworkBackground';
 import { motion } from 'framer-motion';
 import { ClockworkProvider } from '../context/ClockworkContext';
 import { Header } from '../components/layout/Header';
-import { MobileMenu } from '../components/layout/MobileMenu';
+import { GlobalMenu } from '../components/layout/GlobalMenu';
 import { TechnicalIndicators } from '../components/layout/TechnicalIndicators';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ export const LayoutContent = ({ children, current = 0, actions = null, sections 
     if (onNavigate) {
        onNavigate(idx);
     } 
-
+    
     // 2. Trigger Scroll Logic (Mobile / Global Navigation)
     if (sections[idx]?.id) {
        const landingPath = '/';
@@ -30,7 +30,8 @@ export const LayoutContent = ({ children, current = 0, actions = null, sections 
        } else {
           const sectionEl = document.getElementById(sections[idx].id);
           if (sectionEl) {
-            sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+             // Use smooth scroll but handle the desktop SPA context as well
+             sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
        }
     }
@@ -57,7 +58,7 @@ export const LayoutContent = ({ children, current = 0, actions = null, sections 
         actions={actions}
       />
 
-      <MobileMenu 
+      <GlobalMenu 
         isOpen={menuOpen}
         sections={sections}
         current={current}
@@ -77,4 +78,3 @@ export const LayoutContent = ({ children, current = 0, actions = null, sections 
 export const MainLayout = (props) => (
   <LayoutContent {...props} />
 );
-
