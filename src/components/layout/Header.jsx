@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FileText, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { Logo } from '../common/Logo';
 
@@ -20,11 +21,38 @@ export const Header = ({ sections, current, onNavigate, onToggleMenu, menuOpen, 
         </Link>
       </div>
 
-      {/* Trigger & Primary Actions */}
-      <div className="pointer-events-auto flex items-center gap-4 md:gap-8">
+      {/* Global Controls Area */}
+      <div className="pointer-events-auto flex items-center gap-3 md:gap-4 lg:gap-6">
         
+        {/* Resource Link (Smooth scroll to resources section) */}
+        <button 
+          onClick={() => onNavigate(sections.length - 1)}
+          className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-[#0F2B46] text-[#FFFFFF] hover:bg-[#1E4F7A] transition-all bevelled shadow-xl border-b-2 border-white/20 active:border-b-0 active:translate-y-0.5 group"
+        >
+          <FileText size={14} className="text-[#00A86B]" />
+          <span className="text-[10px] font-black tracking-widest uppercase text-[#FFFFFF]">RESOURCES</span>
+        </button>
+
+        {/* Demo Action (Slot) */}
         {actions}
+
+        {/* Premium Language Switcher */}
+        <div className="hidden md:flex items-center border border-[#0F2B46]/10 rounded-full p-0.5 bg-white/50 backdrop-blur-sm self-center">
+          <button 
+            onClick={() => setLang('es')}
+            className={`px-3 py-1 rounded-full text-[9px] font-mono tracking-widest transition-all ${lang === 'es' ? 'bg-[#0F2B46] text-white font-bold shadow-md' : 'text-[#0F2B46]/40 hover:text-[#0F2B46]'}`}
+          >
+            ES
+          </button>
+          <button 
+            onClick={() => setLang('en')}
+            className={`px-3 py-1 rounded-full text-[9px] font-mono tracking-widest transition-all ${lang === 'en' ? 'bg-[#0F2B46] text-white font-bold shadow-md' : 'text-[#0F2B46]/40 hover:text-[#0F2B46]'}`}
+          >
+            EN
+          </button>
+        </div>
         
+        {/* Menu Toggle */}
         <button 
           onClick={onToggleMenu}
           className="w-10 h-10 md:w-12 md:h-12 border border-[#0F2B46]/10 flex items-center justify-center bg-white/80 backdrop-blur-md z-[110] relative group hover:border-[#00A86B]/40 transition-colors"

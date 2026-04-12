@@ -71,28 +71,16 @@ export const GlobalMenu = ({ isOpen, sections, current, onNavigate, onClose }) =
               ))}
             </div>
 
-            {/* Footer Area: Language & Status */}
+            {/* Footer Area: Metadata & Status */}
             <div className="w-full flex flex-col md:flex-row justify-between items-center gap-12 pt-12 border-t border-[#0F2B46]/10">
-              <div className="flex items-center gap-8">
-                <button 
-                  onClick={() => setLang('es')}
-                  className={`font-mono text-xs tracking-[0.2em] transition-all px-4 py-2 bevelled ${lang === 'es' ? 'bg-[#0F2B46] text-white font-bold' : 'text-[#0F2B46]/40 hover:text-[#0F2B46]'}`}
-                >
-                  ES_CASTELLANO
-                </button>
-                <button 
-                  onClick={() => setLang('en')}
-                  className={`font-mono text-xs tracking-[0.2em] transition-all px-4 py-2 bevelled ${lang === 'en' ? 'bg-[#0F2B46] text-white font-bold' : 'text-[#0F2B46]/40 hover:text-[#0F2B46]'}`}
-                >
-                  EN_ENGLISH
-                </button>
-              </div>
-
               <div className="flex items-center gap-3 opacity-30">
                  <div className="w-1.5 h-1.5 rounded-full bg-[#00A86B] animate-pulse" />
                  <span className="mono-tech text-[9px] tracking-[0.5em] text-[#0F2B46]">
                    {t('common.status_secure') || 'INTERFACE_STABLE'}
                  </span>
+              </div>
+              <div className="mono-tech text-[8px] opacity-20 hidden md:block">
+                SYS_VER_2.4.0 // ARCH_PRECISION_REFACTOR
               </div>
             </div>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Lock, Globe, Activity, UserCheck, Shield, Zap, MapPin, FileText, TrendingUp, Download, Users, ExternalLink, Database, ChevronRight, AlertTriangle, Layers, Target, CheckCircle } from 'lucide-react';
+import { Lock, Globe, Activity, UserCheck, Shield, Zap, MapPin, FileText, TrendingUp, Download, Users, ExternalLink, Database, ChevronRight, AlertTriangle, Layers, Target, CheckCircle, File } from 'lucide-react';
 import { BRAND } from '../constants/brand';
 import { Gear } from '../components/Gear';
 import { PersistentReveal } from '../components/PersistentReveal';
@@ -144,7 +144,7 @@ const ShiftSection = () => {
       
       <div className="relative py-12 px-8 bg-[#0F2B46] text-white bevelled overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-           <div className="grid-bg w-full h-full" />
+           <div className="blueprint-grid w-full h-full" />
         </div>
         <p className="text-2xl md:text-4xl font-mono tracking-tighter text-[#00A86B] font-bold">
           {t('shift.flow')}
@@ -435,6 +435,64 @@ const ClosingSection = () => {
   );
 };
 
+// --- Section 13: Resources Repository ---
+const ResourcesSection = () => {
+  const { t } = useLanguage();
+  
+  const materials = [
+    { name: "One Paper", id: "01", file: "1Zerocog_One_p.docx" },
+    { name: "Investor Brochure", id: "02", file: "2Zerocog_inv_br.docx" },
+    { name: "Implementation Paper", id: "03", file: "3Zerocog_Implem_p.docx" },
+    { name: "Risk Mitigation", id: "04", file: "4Zerocog_a_reiesg_mitig.docx" },
+    { name: "Presentation Deck", id: "05", file: "5ZeroCog_pre_sd_v1.docx" }
+  ];
+
+  return (
+    <div className="space-y-12 md:space-y-16 max-w-6xl mx-auto w-full">
+      <div className="text-center space-y-4">
+        <div className="mono-tech">{t('resources.label')}</div>
+        <h2 className="text-4xl md:text-6xl font-black text-[#0F2B46] uppercase italic tracking-tighter">{t('resources.title')}</h2>
+        <p className="text-xl md:text-2xl text-[#1E4F7A] font-light italic max-w-3xl mx-auto">{t('resources.subtitle')}</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {materials.map((m, i) => (
+          <a
+            key={m.id}
+            href={`/assets/investors/${m.file}`}
+            download
+            className="group block glass-isolation bevelled border border-[#0F2B46]/10 hover:border-[#00A86B]/40 transition-all bg-white/50"
+          >
+            <div className="p-8 space-y-6">
+               <div className="flex justify-between items-start">
+                  <div className="w-12 h-12 bg-[#0F2B46]/5 flex items-center justify-center group-hover:bg-[#00A86B]/10 transition-colors">
+                     <File size={20} className="text-[#0F2B46]/40 group-hover:text-[#00A86B]" />
+                  </div>
+                  <span className="mono-tech text-[10px] opacity-30">REF_{m.id}</span>
+               </div>
+               <div className="space-y-2">
+                  <h3 className="text-xl font-black text-[#0F2B46] uppercase italic group-hover:text-[#00A86B] transition-colors">{m.name}</h3>
+                  <div className="flex items-center gap-2 text-[#1E4F7A]/40 text-[10px] font-mono tracking-widest">
+                     <Download size={10} /> {t('resources.download')}
+                  </div>
+               </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div className="pt-12 text-center">
+         <div 
+           className="inline-flex items-center gap-4 px-8 py-4 bg-[#0F2B46] text-[#FFFFFF] bevelled text-[10px] font-black tracking-widest uppercase hover:bg-[#1E4F7A] transition-all cursor-pointer shadow-2xl border-b-2 border-white/20 active:border-b-0 active:translate-y-0.5"
+         >
+            <Database size={14} className="text-[#00A86B]" /> 
+            <span className="text-[#FFFFFF]">{t('resources.all')}</span>
+         </div>
+      </div>
+    </div>
+  );
+};
+
 // --- Main Landing Page Logic ---
 
 const LandingPage = () => {
@@ -481,6 +539,7 @@ const LandingPage = () => {
     { id: 'architecture', title: t('nav.architecture') },
     { id: 'result', title: t('nav.result') },
     { id: 'closing', title: t('nav.closing') },
+    { id: 'resources', title: t('nav.resources') },
   ];
 
   const navigateToSection = (newIdx) => {
@@ -546,6 +605,7 @@ const LandingPage = () => {
                 {idx === 9 && <ArchitectureSection />}
                 {idx === 10 && <ResultSection />}
                 {idx === 11 && <ClosingSection />}
+                {idx === 12 && <ResourcesSection />}
               </div>
             </motion.div>
           ))}
@@ -565,6 +625,7 @@ const LandingPage = () => {
             {current === 9 && <ArchitectureSection />}
             {current === 10 && <ResultSection />}
             {current === 11 && <ClosingSection />}
+            {current === 12 && <ResourcesSection />}
           </PersistentReveal>
         </AnimatePresence>
       )}

@@ -12,7 +12,8 @@ export const TRANSLATIONS = {
       failure_mode: "IX_FALLO_ESTR",
       architecture: "X_ARQUITECTURA",
       result: "XI_RESULTADO",
-      closing: "XII_CIERRE"
+      closing: "XII_CIERRE",
+      resources: "XIII_RECURSOS"
     },
     hero: {
       fase: "Fase_01 // Inicio",
@@ -147,8 +148,16 @@ export const TRANSLATIONS = {
       text: "Una IA sin memoria de decisiones no mejora.",
       final: "Repite."
     },
+    resources: {
+      label: "13 // RECURSOS Y MATERIALES",
+      title: "Repositorio de Activos",
+      subtitle: "Acceso a documentación técnica, informes estratégicos y arquitectura del sistema.",
+      download: "DESCARGAR_ACTIVO",
+      all: "FETCH_ALL_STABLE"
+    },
     common: {
-      close_panel: "Cerrar_Panel"
+      close_panel: "Cerrar_Panel",
+      status_secure: "INTERFACE_STABLE"
     }
   },
   en: {
@@ -164,7 +173,8 @@ export const TRANSLATIONS = {
       failure_mode: "IX_FAILURE_MODE",
       architecture: "X_ARCHITECTURE",
       result: "XI_RESULT",
-      closing: "XII_CLOSING"
+      closing: "XII_CLOSING",
+      resources: "XIII_RESOURCES"
     },
     hero: {
       fase: "Phase_01 // Start",
@@ -299,8 +309,16 @@ export const TRANSLATIONS = {
       text: "AI without decision memory does not improve.",
       final: "It repeats."
     },
+    resources: {
+      label: "13 // RESOURCES & MATERIALS",
+      title: "Asset Repository",
+      subtitle: "Access to technical documentation, strategic reports, and system architecture.",
+      download: "DOWNLOAD_ASSET",
+      all: "FETCH_ALL_STABLE"
+    },
     common: {
-      close_panel: "Close_Panel"
+      close_panel: "Close_Panel",
+      status_secure: "INTERFACE_STABLE"
     }
   }
 };
