@@ -440,11 +440,8 @@ const ResourcesSection = () => {
   const { t } = useLanguage();
   
   const materials = [
-    { name: "One Paper", id: "01", file: "1Zerocog_One_p.docx" },
-    { name: "Investor Brochure", id: "02", file: "2Zerocog_inv_br.docx" },
-    { name: "Implementation Paper", id: "03", file: "3Zerocog_Implem_p.docx" },
-    { name: "Risk Mitigation", id: "04", file: "4Zerocog_a_reiesg_mitig.docx" },
-    { name: "Presentation Deck", id: "05", file: "5ZeroCog_pre_sd_v1.docx" }
+    { name: "One Paper (V4.1)", id: "01", file: "Onepaper_Investor Version_v4.1.doc" },
+    { name: "Architecture Diagram", id: "02", file: "diagram_a.jpg" }
   ];
 
   return (
