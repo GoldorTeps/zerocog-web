@@ -1,0 +1,396 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav    from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ZeroCog",
+    "url": "https://zerocog.org",
+    "email": "zerocogorg@gmail.com",
+    "description": "Arquitectura de decisión verificada para sistemas de IA.",
+    "founder": { "@type": "Person", "name": "David Janer Pérez" },
+    "foundingDate": "2025",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Málaga",
+      "addressCountry": "ES"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ZeroCog",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "url": "https://zerocog.org",
+    "description": "Capa de contexto persistente y decisión verificada que permite a sistemas de IA operar con memoria real basada en resultados, sin exponer datos sensibles ni depender de proveedor.",
+    "featureList": [
+      "Soberanía de datos",
+      "Independencia de modelo de IA",
+      "Trazabilidad regulatoria AI Act / GDPR",
+      "Memoria operativa basada en resultados verificados",
+      "Anonimización estructural"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/PreOrder",
+      "description": "Acceso bajo NDA para colaboraciones selectas. Despliegue 2026."
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es ZeroCog?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ZeroCog es una arquitectura de datos que solo persiste lo que produjo un resultado verificado. No es un modelo de IA ni un asistente. Es la capa que permite que los modelos existentes operen con experiencia real y acumulada de tu organización."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿En qué se diferencia ZeroCog de un sistema RAG o de búsqueda semántica?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ZeroCog no recupera documentos por similitud de texto. Solo almacena decisiones vinculadas a resultados verificados. La distinción es arquitectónica: RAG opera sobre texto; ZeroCog opera sobre consecuencias. Un sistema que no conecta decisiones con consecuencias no tiene memoria, tiene archivo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Mis datos salen de mi infraestructura con ZeroCog?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Tu experiencia verificada permanece bajo tu control. ZeroCog opera con tus datos sin exponerlos a terceros. La memoria operativa de tu empresa es tuya."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿ZeroCog me obliga a usar un modelo de IA concreto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. ZeroCog es independiente del modelo. Condiciona con qué experiencia opera el modelo, no qué modelo usas. Puedes cambiar de modelo cuando quieras; el criterio permanece."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo cumple ZeroCog con el AI Act y el GDPR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El AI Act europeo exige demostrar en qué experiencia se basó un sistema para recomendar algo. ZeroCog produce esa trazabilidad de forma estructural, no como añadido posterior. El diseño separa datos reales de contexto operativo, facilitando la alineación con marcos regulatorios."
+        }
+      }
+    ]
+  }
+];
+
+const steps = [
+  {
+    n: '01',
+    title: 'Conecta tus fuentes',
+    body: 'CRM, email, chat interno, facturación, inventario, proyectos. ZeroCog se integra en el stack operativo existente sin reemplazar nada.',
+  },
+  {
+    n: '02',
+    title: 'Filtra por resultado verificado',
+    body: 'Cada decisión documentada se convierte en un evento estructurado. Solo persiste si llega una señal verificada de que produjo un resultado. Sin resultado, no entra en memoria.',
+  },
+  {
+    n: '03',
+    title: 'Activa memoria operativa real',
+    body: 'El modelo de IA que ya usas opera sobre experiencia propia verificada, no sobre patrones estadísticos de otras empresas. ZeroCog es el criterio. El motor lo eliges tú.',
+  },
+];
+
+const pillars = [
+  {
+    code: 'SOVEREIGNTY',
+    title: 'Soberanía de datos',
+    body: 'Tu experiencia verificada permanece bajo tu control. ZeroCog opera con tus datos sin exponerlos a terceros. La memoria operativa de tu empresa es tuya.',
+  },
+  {
+    code: 'INDEPENDENCE',
+    title: 'Independencia de modelo',
+    body: 'ZeroCog no condiciona qué modelos de IA usa tu organización. Condiciona con qué experiencia operan esos modelos. Cambia de modelo cuando quieras. El criterio permanece.',
+  },
+  {
+    code: 'AI ACT · GDPR',
+    title: 'Trazabilidad regulatoria',
+    body: 'El AI Act europeo exige demostrar en qué experiencia se basó un sistema para recomendar algo. ZeroCog produce esa trazabilidad de forma estructural, no como añadido posterior.',
+  },
+];
+---
+
+<Layout
+  title="ZeroCog — Arquitectura de decisión verificada"
+  description="Una arquitectura de datos que solo persiste lo que produjo un resultado verificado. Tu experiencia operativa, activa. Soberanía de datos, independencia de modelo, trazabilidad AI Act."
+  lang="es"
+  canonical="https://zerocog.org/"
+  jsonLd={jsonLd}
+>
+  <Nav lang="es" />
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section id="inicio" class="min-h-svh bp-grid flex items-center pt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 w-full">
+      <div class="max-w-3xl">
+
+        <p class="mono-label text-[#00A86B] mb-8">Fase_01 // Arquitectura</p>
+
+        <h1 class="text-[clamp(2.8rem,7vw,5.5rem)] font-black text-[#0F2B46]
+                   tracking-tighter leading-[0.95] mb-8">
+          Arquitectura de<br />
+          <span class="text-[#00A86B]">decisión verificada.</span>
+        </h1>
+
+        <p class="text-[clamp(1.2rem,2.5vw,1.75rem)] font-light text-[#1E4F7A]
+                  leading-snug italic mb-6 max-w-xl">
+          ¿Cuánto vale una organización que recuerda qué funcionó?
+        </p>
+
+        <p class="text-lg text-[#0F2B46]/65 leading-relaxed mb-12 max-w-lg">
+          Una arquitectura de datos que solo persiste lo que produjo un resultado
+          verificado. Tu experiencia operativa, activa.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="mailto:zerocogorg@gmail.com"
+            class="bevel inline-block text-center px-10 py-4
+                   bg-[#00A86B] text-white font-black text-[11px] tracking-[0.25em] uppercase
+                   hover:bg-[#0F2B46] transition-colors"
+          >
+            Solicitar acceso
+          </a>
+          <a
+            href="#como-funciona"
+            class="bevel inline-block text-center px-10 py-4
+                   border border-[#0F2B46]/20 text-[#0F2B46]
+                   font-black text-[11px] tracking-[0.25em] uppercase
+                   hover:border-[#0F2B46] hover:bg-[#0F2B46]/4 transition-colors"
+          >
+            Ver arquitectura
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EL PROBLEMA
+  ═══════════════════════════════════════════ -->
+  <section id="problema" class="bg-[#0F2B46] bp-grid-dark py-24 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <p class="mono-label text-[#00A86B] mb-12">02 // El problema</p>
+
+      <div class="reveal max-w-5xl">
+        <blockquote
+          class="text-[clamp(1.9rem,4.5vw,3.5rem)] font-black text-white
+                 tracking-tighter leading-tight italic mb-16"
+        >
+          "Un sistema que no conecta decisiones<br class="hidden md:block" />
+          con consecuencias no tiene memoria.<br />
+          <span class="text-[#00A86B]">Tiene archivo."</span>
+        </blockquote>
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <p class="text-lg text-white/60 leading-relaxed">
+            Los sistemas de IA actuales recuperan información, generan respuestas,
+            procesan documentos. Pero comparten un defecto estructural: no distinguen
+            entre información que alguna vez produjo un resultado correcto e
+            información que no.
+          </p>
+          <div class="border-l-2 border-[#00A86B]/40 pl-8 space-y-5">
+            <p class="text-lg text-white/60 leading-relaxed">
+              Cada decisión nueva parte del mismo punto de ignorancia que la anterior.
+            </p>
+            <p class="text-xl font-black text-white italic">
+              La organización no aprende.<br />Simula que aprende.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LA DIFERENCIA
+  ═══════════════════════════════════════════ -->
+  <section id="contraste" class="py-24 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <p class="mono-label text-[#00A86B] mb-12">03 // La diferencia</p>
+
+      <!-- Split grid -->
+      <div class="reveal grid lg:grid-cols-2 border border-[#0F2B46]/08 mb-14 overflow-hidden">
+
+        <!-- Without -->
+        <div class="p-10 lg:p-14 bg-white space-y-5 border-b lg:border-b-0 lg:border-r border-[#0F2B46]/08">
+          <p class="mono-label text-[#0F2B46]/30">Sin ZeroCog</p>
+          <p class="text-xl text-[#0F2B46]/45 leading-relaxed">
+            Información genérica sobre el sector. Tendencias, competidores, mejores
+            prácticas. Útil. Genérico. Sin relación con lo que ha funcionado en tu
+            propia empresa.
+          </p>
+          <p class="font-bold text-[#0F2B46]/50 italic">
+            Cada decisión parte del mismo punto de ignorancia.
+          </p>
+        </div>
+
+        <!-- With -->
+        <div class="p-10 lg:p-14 bg-[#00A86B]/[0.03] space-y-5">
+          <p class="mono-label text-[#00A86B]">Con ZeroCog</p>
+          <p class="text-xl text-[#0F2B46] leading-relaxed">
+            Experiencia verificada de tu organización. Qué patrón funcionó con ese
+            perfil de cliente. Cuándo y por qué se cayeron oportunidades similares.
+          </p>
+          <p class="font-black text-[#0F2B46] italic">
+            Experiencia propia con resultado conocido,<br />no datos de terceros.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Example output -->
+      <div class="reveal max-w-3xl">
+        <div class="bevel bg-[#0F2B46] p-10 lg:p-14">
+          <p class="mono-label text-[#00A86B] mb-6">OUTPUT_ZEROCOG // EJEMPLO</p>
+          <p class="text-xl lg:text-2xl text-white font-light italic leading-relaxed">
+            "En 14 oportunidades con este perfil, el ciclo se cerró cuando la primera
+            reunión incluía una demo operativa. En los 6 casos donde se envió propuesta
+            sin demo, el cierre tardó el doble o no ocurrió."
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CÓMO FUNCIONA
+  ═══════════════════════════════════════════ -->
+  <section id="como-funciona" class="bg-[#F8F9FA] py-24 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <p class="mono-label text-[#00A86B] mb-6">04 // Cómo funciona</p>
+      <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-black text-[#0F2B46]
+                 tracking-tighter leading-none mb-16 max-w-md">
+        Tres pasos.<br />Sin reemplazar nada.
+      </h2>
+
+      <div class="grid lg:grid-cols-3 gap-10 lg:gap-16">
+        {steps.map(s => (
+          <div class="reveal">
+            <p class="font-mono text-[4.5rem] font-bold text-[#0F2B46]/07 leading-none mb-4 select-none">
+              {s.n}
+            </p>
+            <div class="w-8 h-px bg-[#00A86B] mb-6"></div>
+            <h3 class="text-xl font-black text-[#0F2B46] mb-3">{s.title}</h3>
+            <p class="text-[#1E4F7A]/75 leading-relaxed">{s.body}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       POR QUÉ ZEROCOG
+  ═══════════════════════════════════════════ -->
+  <section id="por-que" class="py-24 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <p class="mono-label text-[#00A86B] mb-12">05 // Por qué ZeroCog</p>
+
+      <div class="grid lg:grid-cols-3 gap-10 lg:gap-16">
+        {pillars.map(p => (
+          <div class="reveal border-t-2 border-[#00A86B] pt-8 space-y-4">
+            <p class="mono-label text-[#00A86B]">{p.code}</p>
+            <h3 class="text-2xl font-black text-[#0F2B46]">{p.title}</h3>
+            <p class="text-[#1E4F7A]/75 leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CIERRE / CTA
+  ═══════════════════════════════════════════ -->
+  <section id="acceso" class="bg-[#0F2B46] bp-grid-dark py-32 lg:py-44">
+    <div class="max-w-3xl mx-auto px-6 lg:px-12 text-center">
+
+      <div class="w-px h-16 bg-[#00A86B]/40 mx-auto mb-16"></div>
+
+      <p class="mono-label text-[#00A86B] mb-8">06 // Acceso</p>
+
+      <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-black text-white
+                 tracking-tighter leading-tight mb-8">
+        La especificación técnica existe.<br />
+        El sistema es construible hoy.
+      </h2>
+
+      <p class="text-xl text-white/55 italic mb-4">
+        La única pregunta es quién quiere construirlo.
+      </p>
+      <p class="mono-label text-[#00A86B]/70 mb-14">
+        La especificación completa está disponible bajo NDA.
+      </p>
+
+      <a
+        href="mailto:zerocogorg@gmail.com"
+        class="bevel inline-block px-14 py-5
+               bg-[#00A86B] text-white font-black text-[11px] tracking-[0.3em] uppercase
+               hover:bg-white hover:text-[#0F2B46] transition-colors shadow-2xl"
+      >
+        Solicitar acceso
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DOCUMENTACIÓN
+  ═══════════════════════════════════════════ -->
+  <section id="documentacion" class="bg-[#F8F9FA] border-t border-[#0F2B46]/08 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <p class="mono-label text-[#00A86B] mb-8">13 // Documentación</p>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 max-w-2xl">
+        <div>
+          <h3 class="text-xl font-black text-[#0F2B46] mb-1">One Paper</h3>
+          <p class="text-sm text-[#1E4F7A]/60 font-mono tracking-wide">
+            Resumen ejecutivo de la arquitectura ZeroCog.
+          </p>
+        </div>
+        <a
+          href="/assets/investors/1Zerocog_One_p.docx"
+          download
+          class="bevel-sm shrink-0 inline-flex items-center gap-3 px-7 py-3
+                 border border-[#0F2B46]/15 text-[#0F2B46]
+                 font-black text-[9px] tracking-[0.3em] uppercase
+                 hover:bg-[#0F2B46] hover:text-white hover:border-[#0F2B46] transition-colors"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 1v7M2.5 5l3.5 4 3.5-4M1 11h10"/>
+          </svg>
+          Descargar
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer lang="es" />
+</Layout>

@@ -1,0 +1,35 @@
+---
+interface Props {
+  lang: 'es' | 'en';
+}
+const { lang } = Astro.props;
+const isEs = lang === 'es';
+---
+
+<footer class="border-t border-[#0F2B46]/10 bg-[#F8F9FA] py-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12
+              flex flex-col md:flex-row items-center justify-between gap-5">
+
+    <div class="flex items-center gap-3">
+      <span class="font-black text-[#0F2B46] tracking-tighter text-lg">ZEROCOG</span>
+      <span class="font-mono text-[7px] tracking-[0.4em] uppercase text-[#1E4F7A]/35 mt-0.5">
+        SISTEMA_SOBERANO_V1.5
+      </span>
+    </div>
+
+    <a
+      href="mailto:zerocogorg@gmail.com"
+      class="font-mono text-xs text-[#00A86B] hover:text-[#0F2B46] transition-colors tracking-wide"
+    >
+      zerocogorg@gmail.com
+    </a>
+
+    <p class="font-mono text-[8px] tracking-[0.3em] uppercase text-[#1E4F7A]/35 text-center">
+      © 2026 ZeroCog&nbsp;·&nbsp;Málaga, ES&nbsp;·&nbsp;
+      {isEs
+        ? <a href="/en/" class="hover:text-[#00A86B] transition-colors">EN</a>
+        : <a href="/"    class="hover:text-[#00A86B] transition-colors">ES</a>
+      }
+    </p>
+  </div>
+</footer>

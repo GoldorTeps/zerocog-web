@@ -1,0 +1,139 @@
+---
+interface Props {
+  lang: 'es' | 'en';
+}
+const { lang } = Astro.props;
+const isEs = lang === 'es';
+
+const home = isEs ? '/' : '/en/';
+const cta  = isEs ? 'Solicitar acceso' : 'Request access';
+
+const links = isEs
+  ? [
+      { label: 'El problema',    href: '#problema' },
+      { label: 'Cómo funciona',  href: '#como-funciona' },
+      { label: 'Por qué ZeroCog', href: '#por-que' },
+    ]
+  : [
+      { label: 'The problem',  href: '#problem' },
+      { label: 'How it works', href: '#how-it-works' },
+      { label: 'Why ZeroCog',  href: '#why' },
+    ];
+
+const altLang  = isEs ? 'EN' : 'ES';
+const altHref  = isEs ? '/en/' : '/';
+const altCookie = isEs ? 'en' : 'es';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/92 backdrop-blur-md border-b border-[#0F2B46]/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between gap-6">
+
+    <!-- Logo -->
+    <a href={home} class="flex flex-col group shrink-0">
+      <span class="text-xl font-black text-[#0F2B46] tracking-tighter uppercase leading-none
+                   group-hover:text-[#00A86B] transition-colors duration-200">ZEROCOG</span>
+      <span class="font-mono text-[6px] tracking-[0.45em] uppercase text-[#1E4F7A]/40 leading-none mt-0.5">
+        SISTEMA_SOBERANO_V1.5
+      </span>
+    </a>
+
+    <!-- Desktop nav links -->
+    <nav class="hidden lg:flex items-center gap-10">
+      {links.map(l => (
+        <a
+          href={l.href}
+          class="font-mono text-[9px] tracking-[0.35em] uppercase text-[#1E4F7A]/55
+                 hover:text-[#0F2B46] transition-colors"
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Controls -->
+    <div class="flex items-center gap-3">
+      <!-- Language switch -->
+      <a
+        href={altHref}
+        data-lang-set={altCookie}
+        class="font-mono text-[9px] tracking-[0.3em] uppercase
+               text-[#1E4F7A]/50 hover:text-[#0F2B46] transition-colors
+               px-2.5 py-1.5 border border-[#0F2B46]/12 hover:border-[#0F2B46]/30"
+      >
+        {altLang}
+      </a>
+
+      <!-- CTA -->
+      <a
+        href="mailto:zerocogorg@gmail.com"
+        class="bevel-sm hidden sm:inline-block px-5 py-2.5
+               bg-[#00A86B] text-white font-black text-[9px] tracking-[0.3em] uppercase
+               hover:bg-[#0F2B46] transition-colors"
+      >
+        {cta}
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button
+        id="nav-toggle"
+        aria-label={isEs ? 'Abrir menú' : 'Open menu'}
+        class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5
+               border border-[#0F2B46]/12 shrink-0"
+      >
+        <span class="block w-5 h-px bg-[#0F2B46] transition-all origin-center" id="bar1"></span>
+        <span class="block w-5 h-px bg-[#0F2B46] transition-all"              id="bar2"></span>
+        <span class="block w-5 h-px bg-[#0F2B46] transition-all origin-center" id="bar3"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile overlay menu -->
+<div
+  id="mobile-menu"
+  class="hidden fixed inset-0 z-40 bg-white/97 backdrop-blur-xl
+         flex flex-col items-center justify-center gap-8 pt-20"
+>
+  {links.map(l => (
+    <a
+      href={l.href}
+      class="nav-close font-mono text-sm tracking-[0.35em] uppercase
+             text-[#0F2B46] hover:text-[#00A86B] transition-colors"
+    >
+      {l.label}
+    </a>
+  ))}
+  <a
+    href="mailto:zerocogorg@gmail.com"
+    class="nav-close bevel mt-4 px-10 py-4
+           bg-[#00A86B] text-white font-black text-sm tracking-[0.3em] uppercase
+           hover:bg-[#0F2B46] transition-colors"
+  >
+    {cta}
+  </a>
+</div>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu   = document.getElementById('mobile-menu');
+  const bar1   = document.getElementById('bar1');
+  const bar2   = document.getElementById('bar2');
+  const bar3   = document.getElementById('bar3');
+
+  let open = false;
+
+  function setOpen(val: boolean) {
+    open = val;
+    menu?.classList.toggle('hidden', !open);
+    if (bar1 && bar2 && bar3) {
+      bar1.style.transform = open ? 'rotate(45deg) translateY(6px)'  : '';
+      bar2.style.opacity   = open ? '0' : '';
+      bar3.style.transform = open ? 'rotate(-45deg) translateY(-6px)' : '';
+    }
+  }
+
+  toggle?.addEventListener('click', () => setOpen(!open));
+  document.querySelectorAll('.nav-close').forEach(el =>
+    el.addEventListener('click', () => setOpen(false))
+  );
+</script>

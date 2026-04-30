@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'es' | 'en';
+  canonical: string;
+  alternateEs?: string;
+  alternateEn?: string;
+  jsonLd?: object[];
+}
+
+const {
+  title,
+  description,
+  lang,
+  canonical,
+  alternateEs = 'https://zerocog.org/',
+  alternateEn = 'https://zerocog.org/en/',
+  jsonLd = [],
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="es"        href={alternateEs} />
+  <link rel="alternate" hreflang="en"        href={alternateEn} />
+  <link rel="alternate" hreflang="x-default" href={alternateEs} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content={canonical} />
+  <meta property="og:title"       content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:locale"      content={lang === 'es' ? 'es_ES' : 'en_US'} />
+  <meta property="og:image"       content="https://zerocog.org/assets/logo_transp2.png" />
+
+  <!-- Twitter/X card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- JSON-LD structured data -->
+  {jsonLd.map(schema => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+</head>
+
+<body>
+  <slot />
+
+  <!-- Scroll-reveal -->
+  <script>
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+  <!-- Language-switcher cookie -->
+  <script>
+    document.querySelectorAll('[data-lang-set]').forEach(el => {
+      el.addEventListener('click', () => {
+        document.cookie = `lang=${(el as HTMLElement).dataset.langSet};path=/;max-age=31536000`;
+      });
+    });
+  </script>
+</body>
+</html>

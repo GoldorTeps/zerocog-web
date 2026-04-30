@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /assets/investors/
+
+# AI crawlers welcome on public pages
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://zerocog.org/sitemap.xml
