@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Nav    from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro';
+import ZerocogApp from '../../components/ZerocogApp.jsx';
 
 const jsonLd = [
   {
@@ -13,11 +12,7 @@ const jsonLd = [
     "description": "Verified decision architecture for AI systems.",
     "founder": { "@type": "Person", "name": "David Janer Pérez" },
     "foundingDate": "2025",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Málaga",
-      "addressCountry": "ES"
-    }
+    "address": { "@type": "PostalAddress", "addressLocality": "Málaga", "addressCountry": "ES" }
   },
   {
     "@context": "https://schema.org",
@@ -26,18 +21,17 @@ const jsonLd = [
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
     "url": "https://zerocog.org/en/",
-    "description": "A persistent context and verified-decision layer that lets AI systems operate with real, outcome-based memory — without exposing sensitive data or locking you to a vendor.",
+    "description": "A persistent context and verified-decision layer that lets AI systems operate with real, outcome-based memory without exposing sensitive data or locking you to a vendor.",
     "featureList": [
       "Data sovereignty",
       "AI model independence",
       "Regulatory traceability — AI Act / GDPR",
-      "Outcome-based operational memory",
-      "Structural anonymisation"
+      "Outcome-based operational memory"
     ],
     "offers": {
       "@type": "Offer",
       "availability": "https://schema.org/PreOrder",
-      "description": "NDA-gated access for selective collaborations. Deployment 2026."
+      "description": "NDA-gated access. Deployment 2026."
     }
   },
   {
@@ -47,81 +41,30 @@ const jsonLd = [
       {
         "@type": "Question",
         "name": "What is ZeroCog?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ZeroCog is a data architecture that only retains what produced a verified outcome. It is not an AI model or an assistant. It is the layer that allows existing models to operate on the real, accumulated experience of your organisation."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "ZeroCog is a data architecture that only retains what produced a verified outcome. It is not an AI model. It is the layer that allows existing models to operate on the real, accumulated experience of your organisation." }
       },
       {
         "@type": "Question",
         "name": "How is ZeroCog different from a RAG or semantic-search system?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ZeroCog does not retrieve documents by text similarity. It only stores decisions linked to verified outcomes. The distinction is architectural: RAG operates on text; ZeroCog operates on consequences. A system that does not connect decisions with consequences has no memory — it has an archive."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "ZeroCog does not retrieve documents by text similarity. It only stores decisions linked to verified outcomes. The distinction is architectural: RAG operates on text; ZeroCog operates on consequences." }
       },
       {
         "@type": "Question",
         "name": "Does my data leave my infrastructure with ZeroCog?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Your verified operational experience stays under your control. ZeroCog works with your data without exposing it to third parties. The operational memory of your organisation belongs to you."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Your verified operational experience stays under your control. ZeroCog works with your data without exposing it to third parties." }
       },
       {
         "@type": "Question",
         "name": "Does ZeroCog lock me into a specific AI model?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. ZeroCog is model-agnostic. It determines what experience your AI models operate on — not which model you use. Change models whenever you want. The decision criterion remains."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. ZeroCog is model-agnostic. It determines what experience your AI models operate on — not which model you use. Change models whenever you want. The decision criterion remains." }
       },
       {
         "@type": "Question",
         "name": "How does ZeroCog comply with the EU AI Act and GDPR?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The EU AI Act requires demonstrating what experience a system used as the basis for a recommendation. ZeroCog produces that traceability structurally — not as an afterthought. Its design separates raw data from operational context, facilitating alignment with regulatory frameworks."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "The EU AI Act requires demonstrating what experience a system used as the basis for a recommendation. ZeroCog produces that traceability structurally — not as an afterthought." }
       }
     ]
   }
-];
-
-const steps = [
-  {
-    n: '01',
-    title: 'Connect your sources',
-    body: 'CRM, email, internal chat, billing, inventory, projects. ZeroCog integrates into your existing operational stack without replacing anything.',
-  },
-  {
-    n: '02',
-    title: 'Filter by verified outcome',
-    body: 'Each documented decision becomes a structured event. It only persists if a verified signal arrives that it produced a result. No outcome, no entry into memory.',
-  },
-  {
-    n: '03',
-    title: 'Activate real operational memory',
-    body: "The AI model you already use operates on your own verified experience — not on statistical patterns from other companies. ZeroCog is the criterion. You choose the engine.",
-  },
-];
-
-const pillars = [
-  {
-    code: 'SOVEREIGNTY',
-    title: 'Data sovereignty',
-    body: "Your verified experience stays under your control. ZeroCog works with your data without exposing it to third parties. Your organisation's operational memory is yours.",
-  },
-  {
-    code: 'INDEPENDENCE',
-    title: 'Model independence',
-    body: "ZeroCog doesn't determine which AI models your organisation uses. It determines what experience those models operate on. Change models whenever you want. The criterion remains.",
-  },
-  {
-    code: 'AI ACT · GDPR',
-    title: 'Regulatory traceability',
-    body: "The EU AI Act requires demonstrating what experience a system used to make a recommendation. ZeroCog produces that traceability structurally — not as a bolt-on.",
-  },
 ];
 ---
 
@@ -132,260 +75,5 @@ const pillars = [
   canonical="https://zerocog.org/en/"
   jsonLd={jsonLd}
 >
-  <Nav lang="en" />
-
-  <!-- ═══════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════ -->
-  <section id="start" class="min-h-svh bp-grid flex items-center pt-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 w-full">
-      <div class="max-w-3xl">
-
-        <p class="mono-label text-[#00A86B] mb-8">Phase_01 // Architecture</p>
-
-        <h1 class="text-[clamp(2.8rem,7vw,5.5rem)] font-black text-[#0F2B46]
-                   tracking-tighter leading-[0.95] mb-8">
-          Verified decision<br />
-          <span class="text-[#00A86B]">architecture.</span>
-        </h1>
-
-        <p class="text-[clamp(1.2rem,2.5vw,1.75rem)] font-light text-[#1E4F7A]
-                  leading-snug italic mb-6 max-w-xl">
-          How much is an organisation worth that remembers what worked?
-        </p>
-
-        <p class="text-lg text-[#0F2B46]/65 leading-relaxed mb-12 max-w-lg">
-          A data architecture that only persists what produced a verified outcome.
-          Your operational experience, active.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="mailto:zerocogorg@gmail.com"
-            class="bevel inline-block text-center px-10 py-4
-                   bg-[#00A86B] text-white font-black text-[11px] tracking-[0.25em] uppercase
-                   hover:bg-[#0F2B46] transition-colors"
-          >
-            Request access
-          </a>
-          <a
-            href="#how-it-works"
-            class="bevel inline-block text-center px-10 py-4
-                   border border-[#0F2B46]/20 text-[#0F2B46]
-                   font-black text-[11px] tracking-[0.25em] uppercase
-                   hover:border-[#0F2B46] hover:bg-[#0F2B46]/4 transition-colors"
-          >
-            See architecture
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       THE PROBLEM
-  ═══════════════════════════════════════════ -->
-  <section id="problem" class="bg-[#0F2B46] bp-grid-dark py-24 lg:py-36">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-
-      <p class="mono-label text-[#00A86B] mb-12">02 // The problem</p>
-
-      <div class="reveal max-w-5xl">
-        <blockquote
-          class="text-[clamp(1.9rem,4.5vw,3.5rem)] font-black text-white
-                 tracking-tighter leading-tight italic mb-16"
-        >
-          "A system that doesn't connect decisions<br class="hidden md:block" />
-          with consequences has no memory.<br />
-          <span class="text-[#00A86B]">It has an archive."</span>
-        </blockquote>
-
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          <p class="text-lg text-white/60 leading-relaxed">
-            Current AI systems retrieve information, generate responses, process
-            documents. But they share a structural flaw: they cannot distinguish
-            between information that once produced a correct result and information
-            that did not.
-          </p>
-          <div class="border-l-2 border-[#00A86B]/40 pl-8 space-y-5">
-            <p class="text-lg text-white/60 leading-relaxed">
-              Every new decision starts from the same point of ignorance as the one before.
-            </p>
-            <p class="text-xl font-black text-white italic">
-              The organisation doesn't learn.<br />It simulates learning.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       THE DIFFERENCE
-  ═══════════════════════════════════════════ -->
-  <section id="difference" class="py-24 lg:py-36">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-
-      <p class="mono-label text-[#00A86B] mb-12">03 // The difference</p>
-
-      <div class="reveal grid lg:grid-cols-2 border border-[#0F2B46]/08 mb-14 overflow-hidden">
-
-        <div class="p-10 lg:p-14 bg-white space-y-5 border-b lg:border-b-0 lg:border-r border-[#0F2B46]/08">
-          <p class="mono-label text-[#0F2B46]/30">Without ZeroCog</p>
-          <p class="text-xl text-[#0F2B46]/45 leading-relaxed">
-            Generic sector information. Trends, competitors, best practices. Useful.
-            Generic. No relation to what has worked in your own organisation.
-          </p>
-          <p class="font-bold text-[#0F2B46]/50 italic">
-            Every decision starts from the same point of ignorance.
-          </p>
-        </div>
-
-        <div class="p-10 lg:p-14 bg-[#00A86B]/[0.03] space-y-5">
-          <p class="mono-label text-[#00A86B]">With ZeroCog</p>
-          <p class="text-xl text-[#0F2B46] leading-relaxed">
-            Verified experience from your own organisation. Which pattern worked with
-            that client profile. When and why similar opportunities fell through.
-          </p>
-          <p class="font-black text-[#0F2B46] italic">
-            Your own experience with a known outcome,<br />not third-party data.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="reveal max-w-3xl">
-        <div class="bevel bg-[#0F2B46] p-10 lg:p-14">
-          <p class="mono-label text-[#00A86B] mb-6">OUTPUT_ZEROCOG // EXAMPLE</p>
-          <p class="text-xl lg:text-2xl text-white font-light italic leading-relaxed">
-            "In 14 opportunities with this profile, the cycle closed when the first
-            meeting included an operational demo. In the 6 cases where a proposal was
-            sent without a demo, the close took twice as long or didn't happen."
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       HOW IT WORKS
-  ═══════════════════════════════════════════ -->
-  <section id="how-it-works" class="bg-[#F8F9FA] py-24 lg:py-36">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-
-      <p class="mono-label text-[#00A86B] mb-6">04 // How it works</p>
-      <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-black text-[#0F2B46]
-                 tracking-tighter leading-none mb-16 max-w-md">
-        Three steps.<br />Replace nothing.
-      </h2>
-
-      <div class="grid lg:grid-cols-3 gap-10 lg:gap-16">
-        {steps.map(s => (
-          <div class="reveal">
-            <p class="font-mono text-[4.5rem] font-bold text-[#0F2B46]/07 leading-none mb-4 select-none">
-              {s.n}
-            </p>
-            <div class="w-8 h-px bg-[#00A86B] mb-6"></div>
-            <h3 class="text-xl font-black text-[#0F2B46] mb-3">{s.title}</h3>
-            <p class="text-[#1E4F7A]/75 leading-relaxed">{s.body}</p>
-          </div>
-        ))}
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       WHY ZEROCOG
-  ═══════════════════════════════════════════ -->
-  <section id="why" class="py-24 lg:py-36">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-
-      <p class="mono-label text-[#00A86B] mb-12">05 // Why ZeroCog</p>
-
-      <div class="grid lg:grid-cols-3 gap-10 lg:gap-16">
-        {pillars.map(p => (
-          <div class="reveal border-t-2 border-[#00A86B] pt-8 space-y-4">
-            <p class="mono-label text-[#00A86B]">{p.code}</p>
-            <h3 class="text-2xl font-black text-[#0F2B46]">{p.title}</h3>
-            <p class="text-[#1E4F7A]/75 leading-relaxed">{p.body}</p>
-          </div>
-        ))}
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       CLOSING / CTA
-  ═══════════════════════════════════════════ -->
-  <section id="access" class="bg-[#0F2B46] bp-grid-dark py-32 lg:py-44">
-    <div class="max-w-3xl mx-auto px-6 lg:px-12 text-center">
-
-      <div class="w-px h-16 bg-[#00A86B]/40 mx-auto mb-16"></div>
-
-      <p class="mono-label text-[#00A86B] mb-8">06 // Access</p>
-
-      <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-black text-white
-                 tracking-tighter leading-tight mb-8">
-        The technical specification exists.<br />
-        The system is buildable today.
-      </h2>
-
-      <p class="text-xl text-white/55 italic mb-4">
-        The only question is who wants to build it.
-      </p>
-      <p class="mono-label text-[#00A86B]/70 mb-14">
-        The complete specification is available under NDA.
-      </p>
-
-      <a
-        href="mailto:zerocogorg@gmail.com"
-        class="bevel inline-block px-14 py-5
-               bg-[#00A86B] text-white font-black text-[11px] tracking-[0.3em] uppercase
-               hover:bg-white hover:text-[#0F2B46] transition-colors shadow-2xl"
-      >
-        Request access
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       DOCUMENTATION
-  ═══════════════════════════════════════════ -->
-  <section id="documentation" class="bg-[#F8F9FA] border-t border-[#0F2B46]/08 py-16 lg:py-24">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-
-      <p class="mono-label text-[#00A86B] mb-8">13 // Documentation</p>
-
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 max-w-2xl">
-        <div>
-          <h3 class="text-xl font-black text-[#0F2B46] mb-1">One Paper</h3>
-          <p class="text-sm text-[#1E4F7A]/60 font-mono tracking-wide">
-            Executive summary of the ZeroCog architecture.
-          </p>
-        </div>
-        <a
-          href="/assets/investors/1Zerocog_One_p.docx"
-          download
-          class="bevel-sm shrink-0 inline-flex items-center gap-3 px-7 py-3
-                 border border-[#0F2B46]/15 text-[#0F2B46]
-                 font-black text-[9px] tracking-[0.3em] uppercase
-                 hover:bg-[#0F2B46] hover:text-white hover:border-[#0F2B46] transition-colors"
-        >
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 1v7M2.5 5l3.5 4 3.5-4M1 11h10"/>
-          </svg>
-          Download
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <Footer lang="en" />
+  <ZerocogApp client:only="react" lang="en" />
 </Layout>
