@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Settings, Lock, Globe, Database } from 'lucide-react';
+import { Settings, Lock, Globe, Database, Zap } from 'lucide-react';
 import { ClockworkBackground } from './ClockworkBackground';
 import { PersistentReveal } from './PersistentReveal';
 import { ClockworkProvider, useClockwork } from '../context/ClockworkContext';
@@ -11,13 +11,13 @@ const T = {
   es: {
     nav_cta: 'Solicitar acceso',
     sections: [
-      { id: 'hero',      title: 'I_INICIO'     },
-      { id: 'problema',  title: 'II_PROBLEMA'  },
-      { id: 'diferencia',title: 'III_DIFERENCIA'},
-      { id: 'mecanismo', title: 'IV_MECANISMO' },
-      { id: 'propuesta', title: 'V_PROPUESTA'  },
-      { id: 'acceso',    title: 'VI_ACCESO'    },
-      { id: 'docs',      title: 'VII_DOC'      },
+      { id: 'hero',      title: 'I_INICIO'      },
+      { id: 'problema',  title: 'II_PROBLEMA'   },
+      { id: 'diferencia',title: 'III_DIFERENCIA' },
+      { id: 'mecanismo', title: 'IV_MECANISMO'  },
+      { id: 'propuesta', title: 'V_PROPUESTA'   },
+      { id: 'acceso',    title: 'VI_ACCESO'     },
+      { id: 'docs',      title: 'VII_DOC', hidden: true },
     ],
   },
   en: {
@@ -29,14 +29,14 @@ const T = {
       { id: 'mechanism',  title: 'IV_MECHANISM' },
       { id: 'value',      title: 'V_VALUE_PROP' },
       { id: 'access',     title: 'VI_ACCESS'    },
-      { id: 'docs',       title: 'VII_DOC'      },
+      { id: 'docs',       title: 'VII_DOC', hidden: true },
     ],
   },
 };
 
 // ─── Section Components ───────────────────────────────────────────────────────
 
-const HeroSection = ({ isEs }) => (
+const HeroSection = ({ isEs, onNavigateDocs }) => (
   <div className="flex flex-col items-center text-center space-y-6 md:space-y-10">
     <div className="mono-tech text-brand-green">
       {isEs ? 'Fase_01 // Arquitectura' : 'Phase_01 // Architecture'}
@@ -93,7 +93,7 @@ const HeroSection = ({ isEs }) => (
       </a>
       <button
         className="bevelled px-8 md:px-12 py-4 border border-brand-blue-deep/20 text-brand-blue-deep font-black tracking-widest uppercase text-sm hover:bg-brand-blue-deep hover:text-white transition-all"
-        onClick={() => document.querySelector('[data-section="1"]')?.click()}
+        onClick={onNavigateDocs}
       >
         {isEs ? 'Ver arquitectura' : 'See architecture'}
       </button>
@@ -265,7 +265,7 @@ const ValueSection = ({ isEs }) => {
   );
 };
 
-const ClosingSection = ({ isEs }) => (
+const ClosingSection = ({ isEs, onNavigateDocs }) => (
   <div className="flex flex-col items-center text-center space-y-8 md:space-y-12 max-w-3xl mx-auto">
     <div className="w-px h-12 md:h-20 bg-brand-green/40 animate-pulse" />
     <div className="mono-tech text-brand-green">
@@ -291,41 +291,96 @@ const ClosingSection = ({ isEs }) => (
       </p>
     </div>
 
-    <a
-      href="mailto:zerocogorg@gmail.com"
-      className="bevelled px-12 py-5 bg-brand-green text-white font-black tracking-[0.3em] uppercase text-sm hover:bg-brand-blue-deep transition-all shadow-2xl"
-    >
-      {isEs ? 'Solicitar acceso' : 'Request access'}
-    </a>
+    <div className="flex flex-col sm:flex-row gap-4 pt-4">
+      <a
+        href="mailto:zerocogorg@gmail.com"
+        className="bevelled px-12 py-5 bg-brand-green text-white font-black tracking-widest uppercase text-sm hover:bg-brand-blue-deep transition-all text-center"
+      >
+        {isEs ? 'Solicitar acceso' : 'Request access'}
+      </a>
+
+      <button
+        onClick={onNavigateDocs}
+        className="bevelled px-12 py-5 border border-brand-blue-deep/20 text-brand-blue-deep font-black tracking-widest uppercase text-sm hover:bg-brand-blue-deep hover:text-white transition-all"
+      >
+        {isEs ? 'Ver arquitectura' : 'See architecture'}
+      </button>
+    </div>
   </div>
 );
 
+const DownloadIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path d="M6 1v7M2.5 5l3.5 4 3.5-4M1 11h10" />
+  </svg>
+);
+
 const DocsSection = ({ isEs }) => (
-  <div className="flex flex-col space-y-8 md:space-y-12 max-w-4xl mx-auto w-full">
-    <div className="mono-tech text-brand-green">
-      {isEs ? '07 // Documentación' : '07 // Documentation'}
+  <div className="flex flex-col space-y-8 md:space-y-10 max-w-4xl mx-auto w-full">
+    <div className="space-y-2">
+      <div className="mono-tech text-brand-green">
+        {isEs ? '07 // Documentación' : '07 // Documentation'}
+      </div>
+      <h2 className="text-3xl md:text-5xl font-black text-brand-blue-deep tracking-tighter">
+        One Paper
+      </h2>
+      <p className="text-brand-blue-med/60 text-base">
+        {isEs
+          ? 'Resumen ejecutivo de la arquitectura ZeroCog.'
+          : 'Executive summary of the ZeroCog architecture.'}
+      </p>
     </div>
 
-    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 p-8 md:p-12 border border-brand-blue-deep/10 bg-white/30 bevelled">
-      <div className="space-y-3">
-        <h3 className="text-2xl md:text-3xl font-black text-brand-blue-deep">One Paper</h3>
-        <p className="text-brand-blue-med/60 text-sm font-mono tracking-wide">
-          {isEs
-            ? 'Resumen ejecutivo de la arquitectura ZeroCog.'
-            : 'Executive summary of the ZeroCog architecture.'}
-        </p>
-        <p className="mono-tech text-brand-blue-deep/25">REF_01 // V1.0</p>
+    <div className="grid sm:grid-cols-2 gap-6">
+      {/* Spanish */}
+      <div className="p-8 md:p-10 border border-brand-blue-deep/10 bg-white/30 bevelled space-y-6">
+        <div className="space-y-1">
+          <p className="mono-tech text-brand-blue-deep/30">REF_01 // ES</p>
+          <h3 className="text-xl font-black text-brand-blue-deep">Español</h3>
+          <p className="text-sm text-brand-blue-med/50">Versión original</p>
+        </div>
+        <div className="flex gap-3">
+          <a
+            href="/assets/investors/ZeroCog_OnePaper_ES.md"
+            download="ZeroCog_OnePaper_ES.md"
+            className="flex-1 bevelled inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand-blue-deep text-white font-black text-[9px] tracking-[0.2em] uppercase hover:bg-brand-green transition-all"
+          >
+            <DownloadIcon /> Markdown
+          </a>
+          <a
+            href="/assets/investors/ZeroCog_OnePaper_ES.docx"
+            download="ZeroCog_OnePaper_ES.docx"
+            className="flex-1 bevelled inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand-blue-deep/70 text-white font-black text-[9px] tracking-[0.2em] uppercase hover:bg-brand-green transition-all"
+          >
+            <DownloadIcon /> Word
+          </a>
+        </div>
       </div>
-      <a
-        href="/assets/investors/1Zerocog_One_p.docx"
-        download
-        className="bevelled shrink-0 inline-flex items-center gap-3 px-8 py-4 bg-brand-blue-deep text-white font-black text-[9px] tracking-[0.3em] uppercase hover:bg-brand-green transition-all"
-      >
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M6 1v7M2.5 5l3.5 4 3.5-4M1 11h10" />
-        </svg>
-        {isEs ? 'Descargar' : 'Download'}
-      </a>
+
+      {/* English */}
+      <div className="p-8 md:p-10 border border-brand-blue-deep/10 bg-white/30 bevelled space-y-6">
+        <div className="space-y-1">
+          <p className="mono-tech text-brand-blue-deep/30">REF_01 // EN</p>
+          <h3 className="text-xl font-black text-brand-blue-deep">English</h3>
+          <p className="text-sm text-brand-blue-med/50">English version</p>
+        </div>
+        <div className="flex gap-3">
+          <a
+            href="/assets/investors/ZeroCog_OnePaper_EN.md"
+            download="ZeroCog_OnePaper_EN.md"
+            className="flex-1 bevelled inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand-blue-deep text-white font-black text-[9px] tracking-[0.2em] uppercase hover:bg-brand-green transition-all"
+          >
+            <DownloadIcon /> Markdown
+          </a>
+          <a
+            href="/assets/investors/ZeroCog_OnePaper_EN.docx"
+            download="ZeroCog_OnePaper_EN.docx"
+            className="flex-1 bevelled inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand-blue-deep/70 text-white font-black text-[9px] tracking-[0.2em] uppercase hover:bg-brand-green transition-all"
+          >
+            <DownloadIcon /> Word
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 );
@@ -352,7 +407,7 @@ const SpaHeader = ({ isEs, current, sections, onNavigate, menuOpen, setMenuOpen 
 
         {/* Desktop section links */}
         <div className="hidden lg:flex items-center gap-8 xl:gap-12">
-          {sections.map((s, idx) => (
+          {sections.filter(s => !s.hidden).map((s, idx) => (
             <button
               key={s.id}
               data-section={idx}
@@ -405,9 +460,14 @@ const SpaHeader = ({ isEs, current, sections, onNavigate, menuOpen, setMenuOpen 
               className="w-5 h-px bg-brand-blue-deep" />
           </button>
 
-          <div className="hidden md:block mono-tech text-brand-blue-med/30 text-[7px]">
-            SOVEREIGN_ARCH
-          </div>
+          <a
+            href="https://demon2-production.up.railway.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-brand-blue-deep text-white text-[9px] uppercase tracking-widest font-black hover:bg-brand-blue-med transition-all bevelled"
+          >
+            <Zap size={12} className="animate-pulse" /> LIVE_DEMO
+          </a>
         </div>
       </nav>
 
@@ -421,7 +481,7 @@ const SpaHeader = ({ isEs, current, sections, onNavigate, menuOpen, setMenuOpen 
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             className="lg:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8"
           >
-            {sections.map((s, idx) => (
+            {sections.filter(s => !s.hidden).map((s, idx) => (
               <button
                 key={s.id}
                 onClick={() => { onNavigate(idx); setMenuOpen(false); }}
@@ -508,10 +568,16 @@ const SpaContent = ({ lang }) => {
   // Keyboard
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown')
-        navigate((current + 1) % sections.length);
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp')
-        navigate((current - 1 + sections.length) % sections.length);
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        let next = (current + 1) % sections.length;
+        if (next === 6) next = 0; // Skip VII, wrap to start
+        navigate(next);
+      }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        let prev = (current - 1 + sections.length) % sections.length;
+        if (prev === 6) prev = 5; // Skip VII, go to VI
+        navigate(prev);
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -522,8 +588,16 @@ const SpaContent = ({ lang }) => {
     const onWheel = (e) => {
       if (scrollLock.current || isMobile) return;
       if (Math.abs(e.deltaY) > 20) {
-        if (e.deltaY > 0 && current < sections.length - 1) navigate(current + 1);
-        if (e.deltaY < 0 && current > 0) navigate(current - 1);
+        if (e.deltaY > 0 && current < sections.length - 1) {
+          const next = current + 1;
+          if (next === 6) return; // Skip VII
+          navigate(next);
+        }
+        if (e.deltaY < 0 && current > 0) {
+          const prev = current - 1;
+          if (prev === 6) return; // Skip VII
+          navigate(prev);
+        }
       }
     };
     window.addEventListener('wheel', onWheel, { passive: true });
@@ -538,19 +612,27 @@ const SpaContent = ({ lang }) => {
   const onTouchEnd   = () => {
     if (!touchStart.current || !touchEnd.current) return;
     const dist = touchStart.current - touchEnd.current;
-    if (dist > MIN_SWIPE)  navigate((current + 1) % sections.length);
-    if (dist < -MIN_SWIPE) navigate((current - 1 + sections.length) % sections.length);
+    if (dist > MIN_SWIPE) {
+      let next = (current + 1) % sections.length;
+      if (next === 6) next = 0; // Skip VII, wrap to start
+      navigate(next);
+    }
+    if (dist < -MIN_SWIPE) {
+      let prev = (current - 1 + sections.length) % sections.length;
+      if (prev === 6) prev = 5; // Skip VII, go to VI
+      navigate(prev);
+    }
   };
 
   // Section renderers
   const renderSection = (idx) => {
     switch (idx) {
-      case 0: return <HeroSection    isEs={isEs} />;
+      case 0: return <HeroSection isEs={isEs} onNavigateDocs={() => navigate(6)} />;
       case 1: return <ProblemSection isEs={isEs} />;
       case 2: return <ContrastSection isEs={isEs} />;
       case 3: return <MechanismSection isEs={isEs} />;
       case 4: return <ValueSection   isEs={isEs} />;
-      case 5: return <ClosingSection isEs={isEs} />;
+      case 5: return <ClosingSection isEs={isEs} onNavigateDocs={() => navigate(6)} />;
       case 6: return <DocsSection    isEs={isEs} />;
       default: return null;
     }
