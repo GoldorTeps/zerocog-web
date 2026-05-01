@@ -646,8 +646,8 @@ const SpaContent = ({ lang }) => {
 
   return (
     <div
-      className={`relative w-screen select-none font-sans bg-brand-white ${
-        isMobile ? 'overflow-x-hidden' : 'h-screen overflow-hidden'
+      className={`relative select-none font-sans bg-brand-white ${
+        isMobile ? 'w-full' : 'w-screen h-screen overflow-hidden'
       }`}
       onTouchStart={isMobile ? undefined : onTouchStart}
       onTouchMove={isMobile ? undefined : onTouchMove}
@@ -677,16 +677,16 @@ const SpaContent = ({ lang }) => {
 
       {/* Mobile: scrolling layout — onViewportEnter keeps clockwork background in sync */}
       {isMobile && (
-        <div className="flex flex-col pt-20 overflow-x-hidden">
+        <div className="relative z-10 flex flex-col pt-20">
           {sections.map((s, idx) => (
             <motion.div
               key={s.id}
               id={s.id}
               onViewportEnter={() => setCurrent(idx)}
               viewport={{ amount: 0.2 }}
-              className="w-full min-h-fit flex items-center justify-center py-16"
+              className="w-full flex items-start justify-center py-16 px-6"
             >
-              <div className="w-full px-6 py-8">
+              <div className="w-full max-w-5xl">
                 {renderSection(idx)}
               </div>
             </motion.div>
