@@ -530,9 +530,7 @@ const SpaContent = ({ lang }) => {
   const [current, setCurrent]   = useState(0);
   const [direction, setDirection] = useState(0);
   const [menuOpen, setMenuOpen]   = useState(false);
-  const [isMobile, setIsMobile]   = useState(() =>
-    typeof window !== 'undefined' ? window.innerWidth < 1024 : false
-  );
+  const [isMobile, setIsMobile]   = useState(null); // null until determined client-side
   const scrollLock = useRef(false);
 
   // Touch state
@@ -542,7 +540,7 @@ const SpaContent = ({ lang }) => {
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024);
-    check();
+    check(); // sets correct value after first paint
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
@@ -551,9 +549,9 @@ const SpaContent = ({ lang }) => {
     setTarget(current);
   }, [current, setTarget]);
 
-  // Lock body scroll on desktop
+  // Lock body scroll on desktop only (never when isMobile is null or true)
   useEffect(() => {
-    if (!isMobile) {
+    if (isMobile === false) {
       document.body.classList.add('spa-active');
       return () => document.body.classList.remove('spa-active');
     }
@@ -644,6 +642,9 @@ const SpaContent = ({ lang }) => {
     }
   };
 
+  // Wait until screen size is known to avoid rendering the wrong layout
+  if (isMobile === null) return null;
+
   return (
     <div
       className={`relative select-none font-sans bg-brand-white ${
@@ -665,7 +666,7 @@ const SpaContent = ({ lang }) => {
       />
 
       {/* Desktop: full-screen animated SPA */}
-      {!isMobile && (
+      {isMobile === false && (
         <main className="relative w-full h-full">
           <AnimatePresence mode="wait" custom={direction}>
             <PersistentReveal key={sections[current].id} direction={direction}>
@@ -676,7 +677,7 @@ const SpaContent = ({ lang }) => {
       )}
 
       {/* Mobile: scrolling layout — onViewportEnter keeps clockwork background in sync */}
-      {isMobile && (
+      {isMobile === true && (
         <div className="relative z-10 flex flex-col pt-20">
           {sections.map((s, idx) => (
             <motion.div

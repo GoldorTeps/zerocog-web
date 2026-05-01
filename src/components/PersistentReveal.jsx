@@ -9,9 +9,9 @@ import { motion } from 'framer-motion';
 export const PersistentReveal = ({ children, direction = 0 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: direction * 50, filter: "blur(10px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      exit={{ opacity: 0, y: direction * -50, filter: "blur(10px)" }}
+      initial={{ opacity: 0, y: direction * 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: direction * -40 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="relative w-full h-full flex items-center justify-center p-4 md:p-8 lg:p-24"
     >
