@@ -530,7 +530,9 @@ const SpaContent = ({ lang }) => {
   const [current, setCurrent]   = useState(0);
   const [direction, setDirection] = useState(0);
   const [menuOpen, setMenuOpen]   = useState(false);
-  const [isMobile, setIsMobile]   = useState(false);
+  const [isMobile, setIsMobile]   = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 1024 : false
+  );
   const scrollLock = useRef(false);
 
   // Touch state
@@ -562,6 +564,10 @@ const SpaContent = ({ lang }) => {
     scrollLock.current = true;
     setDirection(newIdx > current ? 1 : -1);
     setCurrent(newIdx);
+    if (isMobile) {
+      const el = document.getElementById(sections[newIdx].id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
     setTimeout(() => { scrollLock.current = false; }, 900);
   };
 
@@ -640,10 +646,12 @@ const SpaContent = ({ lang }) => {
 
   return (
     <div
-      className="relative w-screen h-screen select-none overflow-hidden font-sans bg-brand-white"
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
+      className={`relative w-screen select-none font-sans bg-brand-white ${
+        isMobile ? 'overflow-x-hidden' : 'h-screen overflow-hidden'
+      }`}
+      onTouchStart={isMobile ? undefined : onTouchStart}
+      onTouchMove={isMobile ? undefined : onTouchMove}
+      onTouchEnd={isMobile ? undefined : onTouchEnd}
     >
       <ClockworkBackground />
 
