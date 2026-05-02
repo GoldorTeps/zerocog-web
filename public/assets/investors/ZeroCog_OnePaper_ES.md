@@ -1,6 +1,6 @@
 # ZeroCog
 
-*Una arquitectura de datos que solo recuerda lo que funcionó.*
+*Una arquitectura de memoria verificada que solo recuerda lo que funcionó.*
 
 **A. David Janer Pérez** · adavidjanerpérez@gmail.com
 
@@ -8,13 +8,13 @@
 
 ## El problema
 
-*Toda organización toma decisiones. Muy pocas saben cuáles funcionaron.*
+*Toda organización, toda persona, toma decisiones. Muy pocas saben cuáles funcionaron.*
 
 Los sistemas de IA actuales recuperan información, generan respuestas, procesan documentos. Hacen todo eso razonablemente bien. Pero comparten un defecto estructural que nadie ha resuelto: no distinguen entre información que alguna vez produjo un resultado correcto e información que no.
 
-El efecto es sutil pero acumulativo. Una empresa que lleva tres años usando IA para apoyar decisiones comerciales, operativas o de compras no ha acumulado experiencia verificada — ha acumulado texto. Sus sistemas no saben qué propuestas funcionaron, qué proveedores fallaron, qué configuraciones se revirtieron, qué patrones de cliente se convirtieron y cuáles no.
+El efecto es sutil pero acumulativo. Una empresa que lleva tres años usando IA no ha acumulado experiencia verificada — ha acumulado texto. Una persona que lleva años tomando decisiones con ayuda de IA no ha construido memoria real — ha construido archivo. Ningún sistema conecta decisiones con consecuencias.
 
-Cada decisión nueva parte del mismo punto de ignorancia que la anterior. La organización no aprende. Simula que aprende.
+Cada decisión nueva parte del mismo punto de ignorancia que la anterior. No se aprende. Se simula que se aprende.
 
 > *Un sistema que no conecta decisiones con consecuencias no tiene memoria. Tiene archivo.*
 
@@ -22,13 +22,21 @@ Cada decisión nueva parte del mismo punto de ignorancia que la anterior. La org
 
 ## Qué es ZeroCog
 
-*Una arquitectura de datos que impone una restricción simple: solo persiste lo que ha producido un resultado verificado.*
+*Una arquitectura de memoria verificada que opera en tres niveles: personal, organizacional e institucional.*
 
-No es un modelo de lenguaje. No es una herramienta de búsqueda. No es un dashboard. Es la capa que falta entre los datos que una organización ya genera y las decisiones que toma cada día.
+No es un modelo de lenguaje. No es una herramienta de búsqueda. No es un dashboard. Es la capa que falta entre los datos que cualquier agente — una persona, una empresa, una institución — ya genera y las decisiones que toma cada día.
 
-ZeroCog se conecta a las fuentes de datos existentes — CRM, email, chat interno, facturación, inventario, documentos, proyectos — y transforma cada decisión documentada en un evento estructurado. Ese evento solo persiste en el sistema si llega una señal verificada de que la decisión produjo un resultado. Sin resultado verificado, la decisión no entra en la memoria del sistema.
+El núcleo es único e invariante: solo persiste lo que ha producido un resultado verificado. Sin resultado conocido, la decisión no entra en memoria. Esa restricción, aplicada de forma consistente en cualquier escala, transforma datos acumulados en experiencia real.
 
-> *ZeroCog no condiciona qué modelos de IA usa una organización. Condiciona con qué experiencia operan esos modelos. El modelo sigue siendo el motor. ZeroCog es el criterio.*
+Ese núcleo se despliega en tres formas:
+
+**Personal — Khauron.** Se instala en tu dispositivo. Conecta tus datos. Empieza a recordar qué decisiones de tu vida funcionaron y cuáles no. Tu experiencia verificada, bajo tu control, sin exposición a terceros.
+
+**B2B descargable — ZeroCog.** La organización lo instala, lo conecta a su stack operativo, define sus contratos de evaluación. Sin consultoría. Sin dependencia de proveedor. La memoria verificada de la empresa, construida por la empresa.
+
+**B2B institucional — ZeroCog Enterprise.** Un equipo entra, integra, configura y deja el sistema corriendo en entornos complejos y regulados. Trazabilidad estructural, soberanía de datos, cumplimiento AI Act por diseño.
+
+> *ZeroCog no condiciona qué modelos de IA usa una organización. Condiciona con qué experiencia operan esos modelos. El modelo es el motor. ZeroCog es el criterio. En los tres niveles.*
 
 ---
 
@@ -36,70 +44,84 @@ ZeroCog se conecta a las fuentes de datos existentes — CRM, email, chat intern
 
 *La misma pregunta. Una respuesta completamente diferente.*
 
-Un director comercial evalúa una oportunidad nueva — empresa mediana, primer contacto por LinkedIn, sector retail. Consulta al sistema. Hoy recibe información sobre el sector retail: tendencias, competidores, mejores prácticas. Útil. Genérico. Sin relación con lo que ha funcionado o fallado en su propia empresa.
+Un director comercial evalúa una oportunidad nueva. Consulta al sistema. Hoy recibe información genérica sobre el sector. Con ZeroCog, la misma consulta activa la experiencia verificada de su organización: en qué contextos similares se cerró negocio, qué patrón funcionó, cuándo y por qué se cayeron oportunidades parecidas.
 
-Con ZeroCog, la misma consulta activa la experiencia verificada de la organización: en qué contextos similares se cerró negocio, qué patrón de aproximación funcionó, cuándo y por qué se cayeron oportunidades parecidas. No información sobre empresas similares en general — experiencia propia con resultado conocido.
+> *En 14 oportunidades con este perfil, el ciclo se cerró cuando la primera reunión incluía una demo operativa. En los 6 casos donde se envió propuesta sin demo, el cierre tardó el doble o no ocurrió.*
 
-> *En 14 oportunidades con este perfil, el ciclo se cerró cuando la primera reunión incluía una demo operativa. En los 6 casos donde se envió propuesta económica sin demo, el cierre tardó el doble o no ocurrió. Los 3 descartados compartían un patrón: decisor sin presupuesto propio.*
+Una persona evalúa si cambiar de trabajo, mudarse, cerrar un proyecto. Consulta a Khauron. Hoy cualquier IA le devuelve consejos genéricos extraídos de millones de perfiles que no son el suyo. Khauron activa su propia experiencia verificada: qué decisiones similares tomó antes, cuáles funcionaron, cuáles no, bajo qué condiciones.
 
-El mismo principio aplica al resto de la operación. El responsable de compras que evalúa un proveedor activa el historial verificado de proveedores similares — no opiniones del mercado, sino experiencia propia con resultado documentado. El project manager que arranca un nuevo proyecto activa los patrones de proyectos anteriores con ese perfil de cliente, incluyendo los que se desviaron y por qué.
+> *No es un consejero que ha leído mucho sobre vidas ajenas. Es un sistema que ha vivido dentro de la tuya.*
+
+El mismo principio. El mismo núcleo. Dos escalas de aplicación.
 
 ---
 
 ## La pregunta que ningún sistema puede responder hoy
 
-*¿Cómo está la empresa hoy?*
+*¿Cómo estoy hoy? ¿Cómo está la empresa hoy?*
 
-Cualquier sistema de IA puede responder esa pregunta ahora mismo con un texto fluido y bien estructurado. Completamente genérico. Basado en patrones estadísticos de miles de empresas que no son la tuya.
+Cualquier IA puede responder esa pregunta con un texto fluido y bien estructurado. Completamente genérico. Basado en patrones estadísticos de millones de personas o empresas que no son tú.
 
-ZeroCog conectado al stack operativo de una empresa responde desde otro lugar: activa el estado real verificado de cada área y lo sintetiza desde experiencia propia, en tiempo real.
+ZeroCog conectado al stack operativo de una organización — o a la historia de decisiones de una persona — responde desde otro lugar: activa el estado real verificado de cada área y lo sintetiza desde experiencia propia, en tiempo real.
 
-> *Tienes 3 oportunidades en fase de propuesta con el mismo perfil que las 4 que se cayeron el trimestre pasado — todas sin demo previa. Dos proveedores de material B tienen historial de retraso en pedidos grandes. El proyecto con cliente X muestra el mismo patrón de cambios de alcance que los dos proyectos que se desviaron en coste el año pasado. La configuración de precios en el canal online lleva 6 semanas sin cierre — la última vez que ocurrió esto, revertirla funcionó.*
+> *Tienes 3 oportunidades en fase de propuesta con el mismo perfil que las 4 que se cayeron el trimestre pasado. El proyecto con cliente X muestra el mismo patrón que los dos que se desviaron en coste el año pasado. La última vez que ocurrió esto, revertirla funcionó.*
 
-Eso no es un informe generado. Es la memoria operativa real de la empresa hablando. Cada elemento tiene un origen verificado, una decisión adjunta, y un resultado conocido.
-
-> *Es la diferencia entre consultar a alguien que ha leído mucho sobre empresas y consultar a alguien que ha vivido dentro de la tuya.*
+Eso no es un informe generado. Es memoria operativa real hablando. Cada elemento tiene un origen verificado, una decisión adjunta, y un resultado conocido.
 
 ---
 
 ## Por qué ahora
 
-Tres condiciones que se han alineado recientemente hacen esto posible por primera vez:
+Tres condiciones se han alineado para hacer esto posible por primera vez:
 
-**Los modelos de lenguaje son suficientemente buenos.** La capa de estructuración — convertir registros operativos en eventos con contexto y decisión — puede hacerse hoy con LLMs sin ingeniería específica de dominio. Eso elimina la principal barrera de entrada que tuvo este tipo de sistemas en el pasado.
+**Los modelos de lenguaje son suficientemente buenos.** La capa de estructuración — convertir registros operativos o personales en eventos con contexto y decisión — puede hacerse hoy con LLMs sin ingeniería específica de dominio.
 
-**Las empresas ya tienen el corpus.** Años de CRM, emails, chats, facturas, proyectos. El historial de decisiones con consecuencias existe. Lo que no existe es la infraestructura para activarlo como memoria verificada.
+**Las personas y las empresas ya tienen el corpus.** Años de decisiones documentadas — emails, chats, CRM, facturas, proyectos, conversaciones. El historial existe. Lo que no existe es la infraestructura para activarlo como memoria verificada.
 
-**La regulación lo exige.** El AI Act europeo y la normativa sectorial en finanzas, seguros y salud están creando un mercado para sistemas que puedan demostrar en qué experiencia se basaron para recomendar algo. ZeroCog produce esa trazabilidad de forma estructural.
+**La regulación lo exige.** El AI Act europeo está creando un mercado para sistemas que puedan demostrar en qué experiencia se basaron para recomendar algo. ZeroCog produce esa trazabilidad de forma estructural, no como añadido posterior.
+
+---
+
+## Por qué ZeroCog
+
+**Soberanía de datos.** Tu experiencia verificada permanece bajo tu control. ZeroCog opera con tus datos sin exponerlos a terceros. En el nivel personal y en el institucional.
+
+**Independencia de modelo.** Cambia de modelo de IA cuando quieras. El corpus de experiencia verificada permanece. ZeroCog no te ata a ningún proveedor — es el criterio, no el motor.
+
+**Trazabilidad regulatoria.** Cumplimiento AI Act y GDPR por diseño estructural, no por adaptación posterior.
 
 ---
 
 ## La ventaja que se acumula
 
-*No es el algoritmo. Es el corpus que se construye con cada despliegue.*
+*No es el algoritmo. Es el corpus que madura con cada decisión.*
 
-La arquitectura de ZeroCog es replicable. Lo que no es replicable es la memoria verificada que se acumula en cada organización con cada decisión evaluada. Una empresa que lleva doce meses con el sistema tiene miles de eventos con resultado conocido. Ese corpus no se compra — se construye con tiempo y con acceso.
+La arquitectura de ZeroCog es replicable. Lo que no es replicable es la memoria verificada que se acumula en cada despliegue. Una empresa con doce meses de sistema tiene miles de eventos con resultado conocido. Una persona con un año de Khauron tiene una historia de decisiones verificadas que ningún modelo genérico puede igualar.
 
-Esto crea una dinámica de valor compuesto: más tiempo en producción genera más eventos evaluados, que mejoran la calidad de las decisiones, que generan más confianza, que produce más tiempo en producción. El sistema mejora mientras opera.
+Ese corpus no se compra. Se construye con tiempo y con acceso. Y no se transfiere — la experiencia verificada de una empresa no sirve a otra, la de una persona no sirve a otra persona.
 
-Y cada cliente construye su propio moat. La experiencia verificada de una empresa no sirve a otra. Eso hace la relación estructuralmente difícil de abandonar.
+Esto crea dos dinámicas simultáneas de valor compuesto: el sistema mejora mientras opera, y cada usuario construye un moat propio que hace la relación estructuralmente difícil de abandonar.
+
+> *Una IA genérica sabe mucho sobre el mundo. ZeroCog sabe lo que funcionó en el tuyo.*
 
 ---
 
 ## El origen
 
-*ZeroCog nació de una pregunta que los sistemas existentes no podían responder.*
+*ZeroCog nació de una experiencia que los sistemas existentes no podían procesar.*
 
-¿Por qué los sistemas de IA ignoran estructuralmente lo más importante de una decisión — si funcionó? No había arquitectura que resolviera eso desde la raíz. La respuesta fue construirla: definir el problema con precisión, diseñar la restricción mínima necesaria, y documentarlo con el rigor suficiente para que cualquier equipo competente pudiera implementarlo.
+Durante años, su fundador construyó un sistema personal de toma de decisiones asistido por IA — protocolos, contratos de evaluación, señales de outcome. Lo que descubrió es que ningún sistema existente podía sostener esa memoria: cada conversación empezaba desde cero, ninguna IA distinguía entre lo que había funcionado y lo que no.
 
-La dimensión ética de ZeroCog — qué significa que un sistema opere sobre experiencia verificada, quién controla esa experiencia, qué ocurre cuando se despliega sobre decisiones que afectan a personas — es parte central del diseño, no un añadido posterior. Es también el territorio donde la ventaja es más difícil de replicar.
+La pregunta que quedó sin respuesta fue la semilla: ¿por qué los sistemas de IA ignoran estructuralmente lo más importante de una decisión — si funcionó? La respuesta fue construir la arquitectura que lo resuelve desde la raíz.
+
+La dimensión ética — qué significa operar sobre experiencia verificada, quién controla esa experiencia, qué ocurre cuando se despliega sobre decisiones que afectan a personas — es parte central del diseño, no un añadido posterior.
 
 > *El fundador permanece en el proyecto. La inversión aporta equipo y recursos para construir lo que ya está especificado. Esa distinción es explícita.*
 
 ---
 
-> **¿Cuánto vale una organización que recuerda qué funcionó?**
+> **¿Cuánto vale una arquitectura que recuerda lo que funcionó — en tu empresa, en tu vida, en tu institución?**
 
 La especificación técnica completa existe y está disponible bajo NDA. El sistema es construible con tecnología disponible hoy. La única pregunta es quién quiere construirlo.
 
-*ZeroCog — One Paper | Confidencial*
+*ZeroCog — One Paper para Inversores | Confidencial*

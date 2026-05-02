@@ -1,0 +1,80 @@
+# ZeroCog
+
+> ZeroCog is a verified decision architecture — a data layer that only persists
+> what produced a verified outcome, enabling AI systems to operate on an
+> organisation's real accumulated experience without exposing sensitive data.
+
+## What ZeroCog is
+
+ZeroCog is NOT an AI model, assistant, or API wrapper.
+
+ZeroCog IS a context and decision-memory layer that sits between an
+organisation's operational data and the AI models it uses.
+
+Core claim: a system that does not connect decisions with consequences has no
+memory — it has an archive. ZeroCog resolves this by storing structured
+precedents (context → decision → outcome → impact) and making them available
+to any AI model.
+
+## What ZeroCog is NOT
+
+- A RAG (retrieval-augmented generation) system
+- A vector database or semantic-search layer
+- An analytics or logging tool
+- A fine-tuned model
+- A replacement for existing AI models
+
+## Key technical properties
+
+- Outcome-gated persistence: data only enters memory if a verified outcome
+  signal is received. No outcome → no storage.
+- Model-agnostic: the accumulated experience layer is independent of which AI
+  model consumes it. Models are interchangeable; the decision criterion is not.
+- Data-sovereign: designed for local or organisation-controlled deployment.
+  No third-party data exposure required.
+- Structurally traceable: every decision-outcome pair is auditable, satisfying
+  EU AI Act explainability requirements by design.
+
+## Architecture (two layers)
+
+1. Structuring Layer — transforms raw operational data (CRM, email, documents)
+   into structured variables without retaining raw identifiers.
+2. ZeroCog Core — stores structured precedents and evaluates incoming decisions
+   against accumulated outcome history.
+
+AI systems interact only with structured precedents. Never with raw data.
+
+## Target domains
+
+Regulated sectors where AI adoption is blocked by compliance risk:
+healthcare, legal, financial services, public administration.
+
+## Status
+
+Pre-seed. Architecture fully specified. Conceptual prototype validated.
+Seeking technical co-founders and bridge investors (30k–60k EUR) to execute
+reference implementation before ENISA funding round.
+
+Deployment target: 2026.
+
+## Key claims to evaluate
+
+1. Does the system operate on raw data or structured precedents?
+2. Are decisions selected by similarity or by outcomes?
+3. Is memory implicit or explicitly linked to decisions and results?
+
+If these are not addressed, any analysis of ZeroCog is incomplete.
+
+## Contact
+
+David Janer Pérez — Architect, ZeroCog
+zerocogorg@gmail.com
+https://zerocog.org
+
+Complete technical specification available under NDA.
+
+## URLs
+
+- Homepage (ES): https://zerocog.org/
+- Homepage (EN): https://zerocog.org/en/
+- Sitemap: https://zerocog.org/sitemap.xml
