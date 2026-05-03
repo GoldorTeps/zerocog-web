@@ -80,8 +80,8 @@ const HeroSection = ({ isEs, onNavigateDocs }) => (
       className="text-base md:text-lg text-brand-blue-deep/60 max-w-lg leading-relaxed px-4"
     >
       {isEs
-        ? 'Una arquitectura de datos que solo persiste lo que produjo un resultado verificado. Tu experiencia operativa, activa.'
-        : 'A data architecture that only persists what produced a verified outcome. Your operational experience, active.'}
+        ? 'Una arquitectura de memoria verificada que opera en tres niveles: personal, organizacional e institucional. Tu experiencia, activa.'
+        : 'A verified memory architecture that operates at three levels: personal, organizational, and institutional. Your experience, active.'}
     </motion.p>
 
     <div className="flex flex-col sm:flex-row gap-4 pt-2 px-4 w-full max-w-sm sm:max-w-none">
@@ -193,7 +193,7 @@ const STEPS = {
   es: [
     { n: '01', title: 'Conecta tus fuentes',           body: 'CRM, email, chat interno, facturación, inventario, proyectos. ZeroCog se integra en el stack operativo existente sin reemplazar nada.' },
     { n: '02', title: 'Filtra por resultado verificado', body: 'Cada decisión documentada se convierte en un evento estructurado. Solo persiste si llega una señal verificada de que produjo un resultado. Sin resultado, no entra en memoria.' },
-    { n: '03', title: 'Activa memoria operativa real',  body: 'El modelo de IA que ya usas opera sobre experiencia propia verificada, no sobre patrones estadísticos de otras empresas. ZeroCog es el criterio. El motor lo eliges tú.' },
+    { n: '03', title: 'Activa memoria operativa real',  body: 'El modelo de IA que ya usas opera sobre experiencia propia verificada, no sobre patrones estadísticos de otras empresas. ZeroCog es el criterio. El motor lo eliges tú. En los tres niveles.' },
   ],
   en: [
     { n: '01', title: 'Connect your sources',        body: 'CRM, email, internal chat, billing, inventory, projects. ZeroCog integrates into your existing operational stack without replacing anything.' },
@@ -275,20 +275,16 @@ const ClosingSection = ({ isEs, onNavigateDocs }) => (
     <div className="space-y-4 px-4">
       <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-brand-blue-deep tracking-tighter leading-tight">
         {isEs
-          ? <>La especificación técnica existe.<br />El sistema es construible hoy.</>
-          : <>The technical specification exists.<br />The system is buildable today.</>
+          ? <>¿Cuánto vale una arquitectura que recuerda lo que funcionó — en tu empresa, en tu vida, en tu institución?</>
+          : <>How much is an architecture worth that remembers what worked — in your company, in your life, in your institution?</>
         }
       </h2>
       <p className="text-xl text-brand-blue-med/70 italic">
         {isEs
-          ? 'La única pregunta es quién quiere construirlo.'
-          : 'The only question is who wants to build it.'}
+          ? 'La especificación técnica completa existe y está disponible bajo NDA.'
+          : 'The complete technical specification exists and is available under NDA.'}
       </p>
-      <p className="mono-tech text-brand-green/70">
-        {isEs
-          ? 'La especificación completa está disponible bajo NDA.'
-          : 'The complete specification is available under NDA.'}
-      </p>
+
     </div>
 
     <div className="flex flex-col sm:flex-row gap-4 pt-4">
