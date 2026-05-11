@@ -49,7 +49,7 @@ const HeroSection = ({ isEs, onNavigateDocs }) => (
         transition={{ duration: 1, delay: 0.1 }}
         className="inline-block"
       >
-        {isEs ? 'Arquitectura de' : 'Verified decision'}
+        {isEs ? 'La infraestructura de' : 'The operational memory'}
       </motion.span>
       <br />
       <motion.span
@@ -58,7 +58,7 @@ const HeroSection = ({ isEs, onNavigateDocs }) => (
         transition={{ duration: 1, delay: 0.2 }}
         className="inline-block text-brand-green"
       >
-        {isEs ? 'decisión verificada.' : 'architecture.'}
+        {isEs ? 'memoria operacional.' : 'infrastructure.'}
       </motion.span>
     </h1>
 
@@ -69,8 +69,8 @@ const HeroSection = ({ isEs, onNavigateDocs }) => (
       className="text-xl md:text-2xl lg:text-3xl font-light text-brand-blue-med italic max-w-2xl leading-snug px-4"
     >
       {isEs
-        ? '¿Cuánto vale una organización que recuerda qué funcionó?'
-        : 'How much is an organisation worth that remembers what worked?'}
+        ? 'que solo persiste lo que funcionó.'
+        : 'that only persists what worked.'}
     </motion.p>
 
     <motion.p
@@ -80,8 +80,8 @@ const HeroSection = ({ isEs, onNavigateDocs }) => (
       className="text-base md:text-lg text-brand-blue-deep/60 max-w-lg leading-relaxed px-4"
     >
       {isEs
-        ? 'Una arquitectura de memoria verificada que opera en tres niveles: personal, organizacional e institucional. Tu experiencia, activa.'
-        : 'A verified memory architecture that operates at three levels: personal, organizational, and institutional. Your experience, active.'}
+        ? '¿Cuánto vale una organización que por fin recuerda qué funcionó?'
+        : 'How much is an organisation worth that finally remembers what worked?'}
     </motion.p>
 
     <div className="flex flex-col sm:flex-row gap-4 pt-2 px-4 w-full max-w-sm sm:max-w-none">
@@ -117,8 +117,8 @@ const ProblemSection = ({ isEs }) => (
     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
       <p className="text-lg text-brand-blue-deep/70 leading-relaxed">
         {isEs
-          ? 'Los sistemas de IA actuales recuperan información, generan respuestas, procesan documentos. Pero comparten un defecto estructural: no distinguen entre información que alguna vez produjo un resultado correcto e información que no.'
-          : 'Current AI systems retrieve information, generate responses, process documents. But they share a structural flaw: they cannot distinguish between information that once produced a correct result and information that did not.'}
+          ? 'Los sistemas de IA actuales recuperan información, generan respuestas, procesan documentos. Hacen todo eso razonablemente bien. Pero comparten un defecto estructural que nadie ha resuelto: no distinguen entre información que alguna vez produjo un resultado correcto e información que no.'
+          : 'Current AI systems retrieve information, generate responses, process documents. They do all of that reasonably well. But they share a structural flaw that no one has solved: they do not distinguish between information that once produced a correct outcome and information that did not.'}
       </p>
       <div className="border-l-2 border-brand-green/30 pl-6 md:pl-8 space-y-4">
         <p className="text-lg text-brand-blue-deep/70 leading-relaxed">
@@ -182,8 +182,8 @@ const ContrastSection = ({ isEs }) => (
       </p>
       <p className="text-base md:text-xl text-white font-light italic leading-relaxed">
         {isEs
-          ? '"En 14 oportunidades con este perfil, el ciclo se cerró cuando la primera reunión incluía una demo operativa. En los 6 casos donde se envió propuesta sin demo, el cierre tardó el doble o no ocurrió."'
-          : '"In 14 opportunities with this profile, the cycle closed when the first meeting included an operational demo. In the 6 cases where a proposal was sent without a demo, the close took twice as long or didn\'t happen."'}
+          ? '"En 14 oportunidades con este perfil, el ciclo se cerró cuando la primera reunión incluía una demo operativa. En los 6 casos donde se envió propuesta sin demo, el cierre tardó el doble o no ocurrió. Los 3 descartados compartían un patrón: decisor sin presupuesto propio."'
+          : '"In 14 opportunities with this profile, the cycle closed when the first meeting included a live demo. In the 6 cases where a proposal was sent without a demo, closing took twice as long or did not happen. The 3 discarded opportunities shared a pattern: decision-maker without their own budget."'}
       </p>
     </div>
   </div>
@@ -228,14 +228,14 @@ const MechanismSection = ({ isEs }) => {
 
 const PILLARS = {
   es: [
-    { code: 'SOVEREIGNTY', icon: Lock,     title: 'Soberanía de datos',        body: 'Tu experiencia verificada permanece bajo tu control. ZeroCog opera con tus datos sin exponerlos a terceros. La memoria operativa de tu empresa es tuya.' },
-    { code: 'INDEPENDENCE', icon: Globe,   title: 'Independencia de modelo',   body: 'ZeroCog no condiciona qué modelos de IA usa tu organización. Condiciona con qué experiencia operan esos modelos. Cambia de modelo cuando quieras. El criterio permanece.' },
-    { code: 'AI ACT · GDPR', icon: Database, title: 'Trazabilidad regulatoria', body: 'El AI Act europeo exige demostrar en qué experiencia se basó un sistema para recomendar algo. ZeroCog produce esa trazabilidad de forma estructural, no como añadido posterior.' },
+    { code: 'SOVEREIGNTY', icon: Lock,     title: 'Soberanía de datos',        body: 'El modelo de inferencia nunca ve datos crudos. Solo ve eventos estructurados. Los datos originales no salen del entorno local. Se puede usar cualquier modelo externo sin exponer información sensible.' },
+    { code: 'INDEPENDENCE', icon: Globe,   title: 'Independencia de modelo',   body: 'La memoria operacional no está atada a ningún modelo de IA. Cambia de modelo cuando quieras. El criterio permanece.' },
+    { code: 'AI ACT · GDPR', icon: Database, title: 'Trazabilidad regulatoria', body: 'Cumplimiento AI Act y GDPR por diseño estructural. Cada decisión tiene un origen verificado, un contrato de evaluación, y un resultado conocido. La trazabilidad no se añade — es inherente a la arquitectura.' },
   ],
   en: [
-    { code: 'SOVEREIGNTY', icon: Lock,     title: 'Data sovereignty',        body: "Your verified experience stays under your control. ZeroCog works with your data without exposing it to third parties. Your organisation's operational memory is yours." },
-    { code: 'INDEPENDENCE', icon: Globe,   title: 'Model independence',      body: "ZeroCog doesn't determine which AI models your organisation uses. It determines what experience those models operate on. Change models whenever you want. The criterion remains." },
-    { code: 'AI ACT · GDPR', icon: Database, title: 'Regulatory traceability', body: "The EU AI Act requires demonstrating what experience a system used to make a recommendation. ZeroCog produces that traceability structurally — not as a bolt-on." },
+    { code: 'SOVEREIGNTY', icon: Lock,     title: 'Data sovereignty',        body: 'The inference model never sees raw data. It only sees structured events. The original data never leaves the local environment. Any external model can be used without exposing sensitive information.' },
+    { code: 'INDEPENDENCE', icon: Globe,   title: 'Model independence',      body: 'Operational memory is not tied to any AI model. Change models whenever you want. The criterion remains.' },
+    { code: 'AI ACT · GDPR', icon: Database, title: 'Regulatory traceability', body: 'AI Act and GDPR compliance by structural design. Every decision has a verified origin, an evaluation contract, and a known outcome. Traceability is not added — it is inherent to the architecture.' },
   ],
 };
 
@@ -275,14 +275,14 @@ const ClosingSection = ({ isEs, onNavigateDocs }) => (
     <div className="space-y-4 px-4">
       <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-brand-blue-deep tracking-tighter leading-tight">
         {isEs
-          ? <>¿Cuánto vale una arquitectura que recuerda lo que funcionó — en tu empresa, en tu vida, en tu institución?</>
-          : <>How much is an architecture worth that remembers what worked — in your company, in your life, in your institution?</>
+          ? <>¿Cuánto vale una organización que por fin recuerda qué funcionó?</>
+          : <>How much is an organisation worth that finally remembers what worked?</>
         }
       </h2>
       <p className="text-xl text-brand-blue-med/70 italic">
         {isEs
-          ? 'La especificación técnica completa existe y está disponible bajo NDA.'
-          : 'The complete technical specification exists and is available under NDA.'}
+          ? 'La especificación técnica completa existe y está disponible bajo NDA. El sistema es construible con tecnología disponible hoy. La única pregunta es quién quiere construirlo.'
+          : 'The complete technical specification exists and is available under NDA. The system is buildable with technology available today. The only question is who wants to build it.'}
       </p>
 
     </div>
