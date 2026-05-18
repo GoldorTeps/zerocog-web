@@ -49,7 +49,7 @@ const HeroSection = ({ isEs, onNavigateDocs }) => (
         transition={{ duration: 1, delay: 0.1 }}
         className="inline-block"
       >
-        {isEs ? 'La infraestructura de' : 'The operational memory'}
+        {isEs ? 'Infraestructura de' : 'The operational memory'}
       </motion.span>
       <br />
       <motion.span
@@ -69,20 +69,10 @@ const HeroSection = ({ isEs, onNavigateDocs }) => (
       className="text-xl md:text-2xl lg:text-3xl font-light text-brand-blue-med italic max-w-2xl leading-snug px-4"
     >
       {isEs
-        ? 'que solo persiste lo que funcionó.'
+        ? 'Tu organización lleva años generando experiencia. Por primera vez, la IA puede operar sobre ella.'
         : 'that only persists what worked.'}
     </motion.p>
 
-    <motion.p
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.55 }}
-      className="text-base md:text-lg text-brand-blue-deep/60 max-w-lg leading-relaxed px-4"
-    >
-      {isEs
-        ? '¿Cuánto vale una organización que por fin recuerda qué funcionó?'
-        : 'How much is an organisation worth that finally remembers what worked?'}
-    </motion.p>
 
     <div className="flex flex-col sm:flex-row gap-4 pt-2 px-4 w-full max-w-sm sm:max-w-none">
       <a
@@ -402,7 +392,7 @@ const SpaHeader = ({ isEs, current, sections, onNavigate, menuOpen, setMenuOpen 
         </a>
 
         {/* Desktop section links */}
-        <div className="hidden lg:flex items-center gap-8 xl:gap-12">
+        <div className="hidden xl:flex items-center gap-8 xl:gap-12">
           {sections.filter(s => !s.hidden).map((s, idx) => (
             <button
               key={s.id}
@@ -445,7 +435,7 @@ const SpaHeader = ({ isEs, current, sections, onNavigate, menuOpen, setMenuOpen 
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden w-10 h-10 border border-brand-blue-deep/12 flex flex-col items-center justify-center gap-1.5"
+            className="xl:hidden w-10 h-10 border border-brand-blue-deep/12 flex flex-col items-center justify-center gap-1.5"
             aria-label={isEs ? 'Abrir menú' : 'Open menu'}
           >
             <motion.div animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6.5 : 0 }}
@@ -535,7 +525,7 @@ const SpaContent = ({ lang }) => {
   const MIN_SWIPE  = 50;
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 1024);
+    const check = () => setIsMobile(window.innerWidth < 1280);
     check(); // sets correct value after first paint
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
